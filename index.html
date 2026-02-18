@@ -1115,81 +1115,272 @@
             color: var(--accent-cyan);
         }
 
-        /* Mobile Responsive */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
+       /* Mobile Responsive */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
 
-            .mobile-menu-btn {
-                display: flex;
-            }
+    .mobile-menu-btn {
+        display: flex;
+    }
 
-            .hero-stats {
-                flex-direction: column;
-                gap: 1.5rem;
-            }
+    /* === ГЛОБАЛЬНЫЕ НАСТРОЙКИ === */
+    section {
+        padding: 4rem 1.25rem;
+    }
+    
+    /* Заголовки и описания - СЛЕВА */
+    .section-label,
+    .section-title,
+    .section-description {
+        text-align: left;
+        margin-left: 0;
+        margin-right: 0;
+    }
 
-            .stat-item {
-                display: flex;
-                align-items: baseline;
-                gap: 0.75rem;
-            }
+    /* === HERO === */
+    .hero {
+        padding-top: 6rem;
+    }
+    
+    .hero-badge {
+        margin-left: 0;
+    }
+    
+    .hero-title {
+        text-align: left;
+    }
+    
+    .hero-subtitle {
+        text-align: left;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center; /* Кнопки по центру */
+        gap: 0.75rem;
+    }
+    
+    .btn {
+        width: 100%;
+        max-width: 320px;
+        justify-content: center;
+    }
+    
+    .hero-stats {
+        flex-direction: column;
+        gap: 1.5rem;
+        align-items: center; /* Статистика по центру */
+        text-align: center;
+    }
 
-            .stat-number {
-                font-size: 2rem;
-            }
+    .stat-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 0.25rem;
+    }
 
-            .process-line {
-                left: 20px;
-            }
+    .stat-number {
+        font-size: 2rem;
+    }
 
-            .process-marker {
-                width: 40px;
-                height: 40px;
-                font-size: 1rem;
-            }
+    /* === SERVICES === */
+    .services-grid {
+        grid-template-columns: 1fr;
+        justify-items: center; /* Карточки по центру */
+        gap: 1.25rem;
+    }
+    
+    .service-card {
+        text-align: center; /* Текст внутри карточек по центру */
+        max-width: 400px;
+    }
+    
+    .service-icon {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .service-feature {
+        justify-content: center;
+    }
 
-            .process-step {
-                gap: 1rem;
-            }
+    /* === WHY ME / BENEFITS === */
+    .benefits-grid {
+        grid-template-columns: 1fr;
+        justify-items: center; /* Карточки по центру */
+        gap: 1rem;
+    }
+    
+    .benefit-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 0.5rem;
+        max-width: 400px;
+    }
+    
+    .benefit-number {
+        margin-bottom: 0;
+    }
 
-            .testimonial-card {
-                padding: 2rem;
-            }
+    /* === PORTFOLIO === */
+    .portfolio-showcase {
+        display: flex;
+        justify-content: center;
+    }
+    
+    .portfolio-card {
+        max-width: 400px;
+    }
+    
+    .portfolio-info {
+        text-align: center;
+    }
+    
+    .portfolio-tags {
+        justify-content: center;
+    }
 
-            .testimonial-quote {
-                font-size: 1.1rem;
-            }
+    /* === PROCESS - ОСТАВЛЯЕМ СЛЕВА === */
+    .process-timeline {
+        margin-top: 3rem;
+    }
+    
+    .process-line {
+        display: block;
+        left: 19px;
+    }
+    
+    .process-step {
+        flex-direction: row; /* В строку: маркер слева, текст справа */
+        align-items: flex-start;
+        text-align: left;
+        gap: 1rem;
+        margin-bottom: 2rem;
+    }
 
-            .footer-content {
-                flex-direction: column;
-                text-align: center;
-            }
-        }
+    .process-marker {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+        flex-shrink: 0;
+    }
 
-        @media (max-width: 480px) {
-            section {
-                padding: 4rem 1rem;
-            }
+    .process-content {
+        padding-top: 0.5rem;
+    }
+    
+    .process-content h4,
+    .process-content p {
+        text-align: left;
+    }
 
-            .hero {
-                padding-top: 6rem;
-            }
+    /* === PRICING === */
+    .pricing-grid {
+        grid-template-columns: 1fr;
+        justify-items: center; /* Карточки по центру */
+        gap: 1.5rem;
+    }
+    
+    .pricing-card {
+        text-align: center;
+        max-width: 400px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .pricing-features li {
+        justify-content: center;
+    }
 
-            .hero-buttons {
-                flex-direction: column;
-            }
+    /* === TESTIMONIALS === */
+    .testimonials-slider {
+        max-width: 100%;
+    }
+    
+    .testimonial-card {
+        padding: 2rem;
+        text-align: center;
+        margin: 0 auto;
+    }
 
-            .btn {
-                width: 100%;
-                justify-content: center;
-            }
+    .testimonial-quote {
+        font-size: 1rem;
+    }
+    
+    .testimonial-author {
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .testimonial-info {
+        text-align: center;
+    }
 
-            .pricing-grid {
-                grid-template-columns: 1fr;
-            }
-        }
+    .testimonials-nav {
+        justify-content: center;
+    }
+
+    /* === FINAL CTA === */
+    .final-cta {
+        text-align: center;
+        padding: 5rem 1.25rem;
+    }
+    
+    .final-cta .section-label,
+    .final-cta .section-title,
+    .final-cta .section-description {
+        text-align: center; /* Исключение для финального CTA - всё по центру */
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .btn-large {
+        padding: 1rem 2rem;
+        font-size: 1rem;
+    }
+
+    /* === FOOTER === */
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .footer-links {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    section {
+        padding: 3rem 1rem;
+    }
+
+    .hero {
+        padding-top: 5rem;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .section-title {
+        font-size: 1.75rem;
+    }
+    
+    .pricing-price {
+        font-size: 2.25rem;
+    }
+}
 
         /* Mobile Menu */
         .mobile-menu {
