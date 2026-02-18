@@ -1128,26 +1128,19 @@
         display: flex;
     }
 
-    /* === ГЛОБАЛЬНЫЕ НАСТРОЙКИ === */
+    /* === ГЛОБАЛЬНОЕ ЦЕНТРИРОВАНИЕ === */
+    .section-container {
+        text-align: center;
+    }
+    
+    .section-description {
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
+    
     section {
         padding: 4rem 1.25rem;
-    }
-
-    /* Родительские контейнеры - центрируем всё */
-    .section-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    /* Заголовки и описания - принудительно СЛЕВА */
-    .section-label,
-    .section-title,
-    .section-description {
-        align-self: flex-start;
-        text-align: left;
-        margin-left: 0;
-        margin-right: 0;
     }
 
     /* === HERO === */
@@ -1158,24 +1151,22 @@
     .hero-content {
         display: flex;
         flex-direction: column;
-        align-items: center; /* Центрируем всё внутри hero */
-        width: 100%;
+        align-items: center;
     }
     
-    /* Заголовки слева */
-    .hero-badge,
-    .hero-title,
+    .hero-badge {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
     .hero-subtitle {
-        align-self: flex-start;
-        text-align: left;
+        text-align: center;
     }
     
-    /* Кнопки по центру */
     .hero-buttons {
         flex-direction: column;
+        justify-content: center;
         align-items: center;
-        gap: 0.75rem;
-        margin-top: 1rem;
     }
     
     .btn {
@@ -1184,13 +1175,11 @@
         justify-content: center;
     }
     
-    /* Статистика по центру */
     .hero-stats {
         flex-direction: column;
         gap: 1.5rem;
         align-items: center;
         text-align: center;
-        padding-top: 2.5rem;
     }
 
     .stat-item {
@@ -1210,12 +1199,10 @@
         grid-template-columns: 1fr;
         justify-items: center;
         gap: 1.25rem;
-        width: 100%;
     }
     
     .service-card {
         text-align: center;
-        width: 100%;
         max-width: 400px;
     }
     
@@ -1233,7 +1220,6 @@
         grid-template-columns: 1fr;
         justify-items: center;
         gap: 1rem;
-        width: 100%;
     }
     
     .benefit-card {
@@ -1241,7 +1227,6 @@
         align-items: center;
         text-align: center;
         gap: 0.5rem;
-        width: 100%;
         max-width: 400px;
     }
     
@@ -1250,17 +1235,6 @@
     }
 
     /* === PORTFOLIO === */
-    .portfolio-showcase {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-    }
-    
-    .portfolio-card {
-        width: 100%;
-        max-width: 400px;
-    }
-    
     .portfolio-info {
         text-align: center;
     }
@@ -1269,39 +1243,28 @@
         justify-content: center;
     }
 
-    /* === PROCESS - ОСТАВЛЯЕМ СЛЕВА === */
-    .process-timeline {
-        width: 100%;
-        align-self: flex-start; /* Весь блок процесса слева */
-    }
-    
+    /* === PROCESS === */
     .process-line {
-        display: block;
-        left: 19px;
+        display: none;
     }
     
     .process-step {
-        flex-direction: row;
-        align-items: flex-start;
-        text-align: left;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
         gap: 1rem;
         margin-bottom: 2rem;
     }
 
     .process-marker {
-        width: 40px;
-        height: 40px;
-        font-size: 1rem;
-        flex-shrink: 0;
+        width: 48px;
+        height: 48px;
+        font-size: 1.125rem;
     }
 
     .process-content {
-        padding-top: 0.5rem;
-    }
-    
-    .process-content h4,
-    .process-content p {
-        text-align: left;
+        padding-top: 0;
+        max-width: 320px;
     }
 
     /* === PRICING === */
@@ -1309,13 +1272,13 @@
         grid-template-columns: 1fr;
         justify-items: center;
         gap: 1.5rem;
-        width: 100%;
     }
     
     .pricing-card {
         text-align: center;
-        width: 100%;
         max-width: 400px;
+        margin-left: auto;
+        margin-right: auto;
     }
     
     .pricing-features li {
@@ -1324,13 +1287,12 @@
 
     /* === TESTIMONIALS === */
     .testimonials-slider {
-        width: 100%;
+        max-width: 100%;
     }
     
     .testimonial-card {
         padding: 2rem;
         text-align: center;
-        width: 100%;
     }
 
     .testimonial-quote {
@@ -1357,12 +1319,7 @@
         padding: 5rem 1.25rem;
     }
     
-    /* В финальном CTA всё по центру, включая заголовки */
-    .final-cta .section-label,
-    .final-cta .section-title,
     .final-cta .section-description {
-        align-self: center;
-        text-align: center;
         margin-left: auto;
         margin-right: auto;
     }
@@ -1376,7 +1333,6 @@
     .footer-content {
         flex-direction: column;
         text-align: center;
-        align-items: center;
     }
     
     .footer-links {
