@@ -1128,19 +1128,19 @@
         display: flex;
     }
 
-    /* === ГЛОБАЛЬНОЕ ЦЕНТРИРОВАНИЕ === */
-    .section-container {
-        text-align: center;
-    }
-    
-    .section-description {
-        margin-left: auto;
-        margin-right: auto;
-        text-align: center;
-    }
-    
+    /* === ГЛОБАЛЬНЫЕ НАСТРОЙКИ === */
     section {
         padding: 4rem 1.25rem;
+    }
+    
+    /* Заголовки секций - СЛЕВА */
+    .section-label,
+    .section-title,
+    .section-description {
+        text-align: left;
+        margin-left: 0;
+        margin-right: 0;
+        max-width: 100%;
     }
 
     /* === HERO === */
@@ -1148,30 +1148,22 @@
         padding-top: 6rem;
     }
     
-    .hero-content {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .hero-badge {
-        margin-left: auto;
-        margin-right: auto;
+    .hero-title {
+        text-align: left;
     }
     
     .hero-subtitle {
-        text-align: center;
+        text-align: left;
     }
     
     .hero-buttons {
         flex-direction: column;
-        justify-content: center;
         align-items: center;
+        gap: 0.75rem;
     }
     
     .btn {
         width: 100%;
-        max-width: 320px;
         justify-content: center;
     }
     
@@ -1179,7 +1171,6 @@
         flex-direction: column;
         gap: 1.5rem;
         align-items: center;
-        text-align: center;
     }
 
     .stat-item {
@@ -1197,13 +1188,11 @@
     /* === SERVICES === */
     .services-grid {
         grid-template-columns: 1fr;
-        justify-items: center;
         gap: 1.25rem;
     }
     
     .service-card {
         text-align: center;
-        max-width: 400px;
     }
     
     .service-icon {
@@ -1218,7 +1207,6 @@
     /* === WHY ME / BENEFITS === */
     .benefits-grid {
         grid-template-columns: 1fr;
-        justify-items: center;
         gap: 1rem;
     }
     
@@ -1227,7 +1215,6 @@
         align-items: center;
         text-align: center;
         gap: 0.5rem;
-        max-width: 400px;
     }
     
     .benefit-number {
@@ -1243,42 +1230,44 @@
         justify-content: center;
     }
 
-    /* === PROCESS === */
+    /* === PROCESS - ОСТАВЛЯЕМ СЛЕВА === */
     .process-line {
-        display: none;
+        display: block;
+        left: 19px;
     }
     
     .process-step {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
+        flex-direction: row;
+        align-items: flex-start;
+        text-align: left;
         gap: 1rem;
         margin-bottom: 2rem;
     }
 
     .process-marker {
-        width: 48px;
-        height: 48px;
-        font-size: 1.125rem;
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+        flex-shrink: 0;
     }
 
     .process-content {
-        padding-top: 0;
-        max-width: 320px;
+        padding-top: 0.5rem;
+    }
+    
+    .process-content h4,
+    .process-content p {
+        text-align: left;
     }
 
     /* === PRICING === */
     .pricing-grid {
         grid-template-columns: 1fr;
-        justify-items: center;
         gap: 1.5rem;
     }
     
     .pricing-card {
         text-align: center;
-        max-width: 400px;
-        margin-left: auto;
-        margin-right: auto;
     }
     
     .pricing-features li {
@@ -1286,10 +1275,6 @@
     }
 
     /* === TESTIMONIALS === */
-    .testimonials-slider {
-        max-width: 100%;
-    }
-    
     .testimonial-card {
         padding: 2rem;
         text-align: center;
@@ -1319,7 +1304,10 @@
         padding: 5rem 1.25rem;
     }
     
+    .final-cta .section-label,
+    .final-cta .section-title,
     .final-cta .section-description {
+        text-align: center;
         margin-left: auto;
         margin-right: auto;
     }
@@ -1329,42 +1317,7 @@
         font-size: 1rem;
     }
 
-    /* === FOOTER === */
-    .footer-content {
-        flex-direction: column;
-        text-align: center;
-    }
-    
-    .footer-links {
-        justify-content: center;
-    }
-}
-
-@media (max-width: 480px) {
-    section {
-        padding: 3rem 1rem;
-    }
-
-    .hero {
-        padding-top: 5rem;
-    }
-    
-    .hero-title {
-        font-size: 2rem;
-    }
-    
-    .hero-subtitle {
-        font-size: 1rem;
-    }
-
-    .section-title {
-        font-size: 1.75rem;
-    }
-    
-    .pricing-price {
-        font-size: 2.25rem;
-    }
-}
+    /* === FOOT
 
         /* Mobile Menu */
         .mobile-menu {
