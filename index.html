@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Professional freelance web developer specializing in WordPress, SEO optimization, and context advertising. Transform your online presence with expert solutions.">
-    <meta name="keywords" content="WordPress development, SEO optimization, Google Ads, Yandex Direct, freelance web developer">
-    <title>Konst Creative | WordPress & SEO Specialist</title>
+    <meta name="description" content="Профессиональная разработка сайтов на WordPress, SEO-оптимизация и настройка контекстной рекламы. Превращаю ваш онлайн-присутствие в мощный бизнес-инструмент.">
+    <meta name="keywords" content="разработка сайтов WordPress, SEO оптимизация, Google Ads, Яндекс Директ, фрилансер веб-разработчик">
+    <title>Konst Creative | WordPress & SEO Специалист</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -188,52 +188,22 @@
             width: 100%;
         }
 
-       /* === БУРГЕР-МЕНЮ === */
-.mobile-menu-btn {
-    display: none;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 6px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 8px;
-}
+        .mobile-menu-btn {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+        }
 
-.mobile-menu-btn span {
-    height: 2px;
-    background: var(--fg-primary);
-    transition: all 0.3s ease;
-    border-radius: 2px;
-}
-
-.mobile-menu-btn span:nth-child(1) {
-    width: 28px;
-    margin-left: 9px;
-}
-.mobile-menu-btn span:nth-child(3) {
-    width: 31px;
-    margin-left: 6px;
-}
-
-.mobile-menu-btn span:nth-child(2) {
-    width: 37px;
-}
-
-/* Анимация при открытии меню */
-.mobile-menu.active ~ .nav .mobile-menu-btn span:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-    margin-left: 0;
-}
-
-.mobile-menu.active ~ .nav .mobile-menu-btn span:nth-child(2) {
-    opacity: 0;
-}
-
-.mobile-menu.active ~ .nav .mobile-menu-btn span:nth-child(3) {
-    transform: rotate(-45deg) translate(5px, -5px);
-    margin-left: 0;
-}
+        .mobile-menu-btn span {
+            width: 24px;
+            height: 2px;
+            background: var(--fg-primary);
+            transition: all 0.3s ease;
+        }
 
         /* Sections Base */
         section {
@@ -834,7 +804,7 @@
         }
 
         .pricing-card.featured::before {
-            content: 'Most Popular';
+            content: 'Популярный';
             position: absolute;
             top: -12px;
             left: 50%;
@@ -913,32 +883,24 @@
             overflow: hidden;
         }
 
-        /* === СЛАЙДЕР ОТЗЫВОВ === */
-.testimonials-slider {
-    margin-top: 3rem;
-    position: relative;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-}
+        .testimonials-slider {
+            margin-top: 3rem;
+            position: relative;
+        }
 
-.testimonial-track {
-    display: flex;
-    gap: 2rem;
-    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-}
+        .testimonial-track {
+            display: flex;
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
 
-.testimonial-card {
-    flex: 0 0 calc(100% - 3rem);
-    min-width: calc(100% - 3rem);
-    padding: 2.5rem;
-    margin: 0 auto;
-    background: var(--glass-bg);
-    border: 1px solid var(--border-color);
-    border-radius: 24px;
-    backdrop-filter: blur(20px);
-    box-sizing: border-box;
-}
+        .testimonial-card {
+            min-width: 100%;
+            padding: 3rem;
+            background: var(--glass-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            backdrop-filter: blur(20px);
+        }
 
         .testimonial-quote {
             font-size: 1.25rem;
@@ -1118,206 +1080,81 @@
             color: var(--accent-cyan);
         }
 
-       /* Mobile Responsive */
-@media (max-width: 768px) {
-    .nav-links {
-        display: none;
-    }
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
 
-    .mobile-menu-btn {
-        display: flex;
-    }
+            .mobile-menu-btn {
+                display: flex;
+            }
 
-    /* === ГЛОБАЛЬНЫЕ НАСТРОЙКИ === */
-    section {
-        padding: 4rem 1.25rem;
-    }
-    
-    /* Заголовки секций - СЛЕВА */
-    .section-label,
-    .section-title,
-    .section-description {
-        text-align: left;
-        margin-left: 0;
-        margin-right: 0;
-        max-width: 100%;
-    }
+            .hero-stats {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
 
-    /* === HERO === */
-    .hero {
-        padding-top: 6rem;
-    }
-    
-    .hero-title {
-        text-align: left;
-    }
-    
-    .hero-subtitle {
-        text-align: left;
-    }
-    
-    .hero-buttons {
-        flex-direction: column;
-        align-items: center;
-        gap: 0.75rem;
-    }
-    
-    .btn {
-        width: 100%;
-        justify-content: center;
-    }
-    
-    .hero-stats {
-        flex-direction: column;
-        gap: 1.5rem;
-        align-items: center;
-    }
+            .stat-item {
+                display: flex;
+                align-items: baseline;
+                gap: 0.75rem;
+            }
 
-    .stat-item {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: 0.25rem;
-    }
+            .stat-number {
+                font-size: 2rem;
+            }
 
-    .stat-number {
-        font-size: 2rem;
-    }
+            .process-line {
+                left: 20px;
+            }
 
-    /* === SERVICES === */
-    .services-grid {
-        grid-template-columns: 1fr;
-        gap: 1.25rem;
-    }
-    
-    .service-card {
-        text-align: center;
-    }
-    
-    .service-icon {
-        margin-left: auto;
-        margin-right: auto;
-    }
-    
-    .service-feature {
-        justify-content: center;
-    }
+            .process-marker {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
 
-    /* === WHY ME / BENEFITS === */
-    .benefits-grid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-    }
-    
-    .benefit-card {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: 0.5rem;
-    }
-    
-    .benefit-number {
-        margin-bottom: 0;
-    }
+            .process-step {
+                gap: 1rem;
+            }
 
-    /* === PORTFOLIO === */
-    .portfolio-info {
-        text-align: center;
-    }
-    
-    .portfolio-tags {
-        justify-content: center;
-    }
+            .testimonial-card {
+                padding: 2rem;
+            }
 
-    /* === PROCESS - ОСТАВЛЯЕМ СЛЕВА === */
-    .process-line {
-        display: block;
-        left: 19px;
-    }
-    
-    .process-step {
-        flex-direction: row;
-        align-items: flex-start;
-        text-align: left;
-        gap: 1rem;
-        margin-bottom: 2rem;
-    }
+            .testimonial-quote {
+                font-size: 1.1rem;
+            }
 
-    .process-marker {
-        width: 40px;
-        height: 40px;
-        font-size: 1rem;
-        flex-shrink: 0;
-    }
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
 
-    .process-content {
-        padding-top: 0.5rem;
-    }
-    
-    .process-content h4,
-    .process-content p {
-        text-align: left;
-    }
+        @media (max-width: 480px) {
+            section {
+                padding: 4rem 1rem;
+            }
 
-    /* === PRICING === */
-    .pricing-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-    
-    .pricing-card {
-        text-align: center;
-    }
-    
-    .pricing-features li {
-        justify-content: center;
-    }
+            .hero {
+                padding-top: 6rem;
+            }
 
-    /* === TESTIMONIALS === */
-    .testimonial-card {
-        padding: 2rem;
-        text-align: center;
-    }
+            .hero-buttons {
+                flex-direction: column;
+            }
 
-    .testimonial-quote {
-        font-size: 1rem;
-    }
-    
-    .testimonial-author {
-        justify-content: center;
-        flex-direction: column;
-        text-align: center;
-    }
-    
-    .testimonial-info {
-        text-align: center;
-    }
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
 
-    .testimonials-nav {
-        justify-content: center;
-    }
-
-    /* === FINAL CTA === */
-    .final-cta {
-        text-align: center;
-        padding: 5rem 1.25rem;
-    }
-    
-    .final-cta .section-label,
-    .final-cta .section-title,
-    .final-cta .section-description {
-        text-align: center;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    
-    .btn-large {
-        padding: 1rem 2rem;
-        font-size: 1rem;
-    }
-
-    /* === FOOT
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+        }
 
         /* Mobile Menu */
         .mobile-menu {
@@ -1365,17 +1202,17 @@
     <div class="ambient-glow glow-2" aria-hidden="true"></div>
 
     <!-- Navigation -->
-    <nav class="nav" role="navigation" aria-label="Main navigation">
+    <nav class="nav" role="navigation" aria-label="Главная навигация">
         <div class="nav-inner">
             <a href="#" class="logo">Konst Creative</a>
             <ul class="nav-links">
-                <li><a href="#services">Services</a></li>
-                <li><a href="#why-me">Why Me</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#process">Process</a></li>
-                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#services">Услуги</a></li>
+                <li><a href="#why-me">Преимущества</a></li>
+                <li><a href="#portfolio">Портфолио</a></li>
+                <li><a href="#process">Процесс</a></li>
+                <li><a href="#pricing">Цены</a></li>
             </ul>
-            <button class="mobile-menu-btn" aria-label="Toggle mobile menu" aria-expanded="false">
+            <button class="mobile-menu-btn" aria-label="Открыть меню" aria-expanded="false">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -1384,13 +1221,13 @@
     </nav>
 
     <!-- Mobile Menu -->
-    <div class="mobile-menu" role="dialog" aria-modal="true" aria-label="Mobile navigation">
-        <a href="#services">Services</a>
-        <a href="#why-me">Why Me</a>
-        <a href="#portfolio">Portfolio</a>
-        <a href="#process">Process</a>
-        <a href="#pricing">Pricing</a>
-        <a href="https://t.me/konstcreative" class="btn btn-primary">Contact</a>
+    <div class="mobile-menu" role="dialog" aria-modal="true" aria-label="Мобильная навигация">
+        <a href="#services">Услуги</a>
+        <a href="#why-me">Преимущества</a>
+        <a href="#portfolio">Портфолио</a>
+        <a href="#process">Процесс</a>
+        <a href="#pricing">Цены</a>
+        <a href="https://t.me/konstcreative" class="btn btn-primary">Связаться</a>
     </div>
 
     <!-- Hero Section -->
@@ -1399,41 +1236,41 @@
             <div class="hero-content">
                 <div class="hero-badge">
                     <span class="dot"></span>
-                    Available for new projects
+                    Открыт для новых проектов
                 </div>
                 <h1 class="hero-title">
-                    Building websites that <span class="highlight">drive results</span>
+                    Создаю сайты, которые <span class="highlight">приносят результат</span>
                 </h1>
                 <p class="hero-subtitle">
-                    WordPress development, SEO optimization, and context advertising that transform your online presence into a powerful business tool. More leads, better conversions, measurable growth.
+                    Разработка на WordPress, SEO-оптимизация и контекстная реклама — превращаю ваше онлайн-присутствие в мощный инструмент для бизнеса. Больше заявок, выше конверсия, измеримый рост.
                 </p>
                 <div class="hero-buttons">
                     <a href="https://t.me/konstcreative" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M21.198 2.433a2.242 2.242 0 0 0-1.022.215l-16.5 6.875a2.25 2.25 0 0 0 .087 4.257l3.45 1.143 1.143 3.45a2.25 2.25 0 0 0 4.257.087l6.875-16.5a2.242 2.242 0 0 0-.215-1.022z"/>
                         </svg>
-                        Discuss Project in Telegram
+                        Обсудить проект в Telegram
                     </a>
                     <a href="#portfolio" class="btn btn-secondary">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
                             <circle cx="12" cy="12" r="3"/>
                         </svg>
-                        View Test Website
+                        Смотреть демо-сайт
                     </a>
                 </div>
                 <div class="hero-stats">
                     <div class="stat-item">
                         <div class="stat-number">50<span class="accent">+</span></div>
-                        <div class="stat-label">Projects Completed</div>
+                        <div class="stat-label">Завершённых проектов</div>
                     </div>
                     <div class="stat-item">
                         <div class="stat-number">3<span class="accent">x</span></div>
-                        <div class="stat-label">Average Traffic Growth</div>
+                        <div class="stat-label">Средний рост трафика</div>
                     </div>
                     <div class="stat-item">
                         <div class="stat-number">98<span class="accent">%</span></div>
-                        <div class="stat-label">Client Satisfaction</div>
+                        <div class="stat-label">Довольных клиентов</div>
                     </div>
                 </div>
             </div>
@@ -1443,10 +1280,10 @@
     <!-- Services Section -->
     <section class="services" id="services">
         <div class="section-container">
-            <span class="section-label">Services</span>
-            <h2 class="section-title">Solutions that grow your business</h2>
+            <span class="section-label">Услуги</span>
+            <h2 class="section-title">Решения для роста вашего бизнеса</h2>
             <p class="section-description">
-                Comprehensive web services tailored to your goals. From building to promoting, I handle every aspect of your digital presence.
+                Комплексные веб-услуги, адаптированные под ваши цели. От создания до продвижения — я отвечаю за все аспекты вашего цифрового присутствия.
             </p>
             <div class="services-grid">
                 <article class="service-card">
@@ -1457,28 +1294,28 @@
                             <line x1="9" y1="21" x2="9" y2="9"/>
                         </svg>
                     </div>
-                    <h3 class="service-title">WordPress Development</h3>
+                    <h3 class="service-title">Разработка на WordPress</h3>
                     <p class="service-description">
-                        Custom WordPress websites built for performance, security, and easy management. From landing pages to complex business solutions.
+                        Кастомные сайты на WordPress, созданные для производительности, безопасности и удобного управления. От лендингов до сложных бизнес-решений.
                     </p>
                     <div class="service-features">
                         <div class="service-feature">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <polyline points="20 6 9 17 4 12"/>
                             </svg>
-                            Custom theme development
+                            Разработка уникальных тем
                         </div>
                         <div class="service-feature">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <polyline points="20 6 9 17 4 12"/>
                             </svg>
-                            E-commerce integration
+                            Интеграция интернет-магазина
                         </div>
                         <div class="service-feature">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <polyline points="20 6 9 17 4 12"/>
                             </svg>
-                            Speed optimization
+                            Оптимизация скорости
                         </div>
                     </div>
                 </article>
@@ -1491,28 +1328,28 @@
                             <line x1="8" y1="11" x2="14" y2="11"/>
                         </svg>
                     </div>
-                    <h3 class="service-title">SEO Optimization</h3>
+                    <h3 class="service-title">SEO-оптимизация</h3>
                     <p class="service-description">
-                        Data-driven SEO strategies that improve your search rankings and drive organic traffic. Technical, on-page, and off-page optimization.
+                        SEO-стратегии на основе данных, которые улучшают позиции в поиске и привлекают органический трафик. Техническая, контентная и внешняя оптимизация.
                     </p>
                     <div class="service-features">
                         <div class="service-feature">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <polyline points="20 6 9 17 4 12"/>
                             </svg>
-                            Technical SEO audit
+                            Технический SEO-аудит
                         </div>
                         <div class="service-feature">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <polyline points="20 6 9 17 4 12"/>
                             </svg>
-                            Keyword research
+                            Подбор семантики
                         </div>
                         <div class="service-feature">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <polyline points="20 6 9 17 4 12"/>
                             </svg>
-                            Content optimization
+                            Оптимизация контента
                         </div>
                     </div>
                 </article>
@@ -1522,28 +1359,28 @@
                             <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
                         </svg>
                     </div>
-                    <h3 class="service-title">Context Advertising</h3>
+                    <h3 class="service-title">Контекстная реклама</h3>
                     <p class="service-description">
-                        Targeted advertising campaigns on Google Ads and Yandex Direct that deliver qualified leads and maximize your ROI.
+                        Таргетированные рекламные кампании в Google Ads и Яндекс Директ, которые приводят квалифицированных лидов и максимизируют ROI.
                     </p>
                     <div class="service-features">
                         <div class="service-feature">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <polyline points="20 6 9 17 4 12"/>
                             </svg>
-                            Campaign setup & management
+                            Настройка и ведение кампаний
                         </div>
                         <div class="service-feature">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <polyline points="20 6 9 17 4 12"/>
                             </svg>
-                            A/B testing
+                            A/B тестирование
                         </div>
                         <div class="service-feature">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <polyline points="20 6 9 17 4 12"/>
                             </svg>
-                            Conversion tracking
+                            Отслеживание конверсий
                         </div>
                     </div>
                 </article>
@@ -1554,52 +1391,52 @@
     <!-- Why Choose Me Section -->
     <section class="why-me" id="why-me">
         <div class="section-container">
-            <span class="section-label">Why Choose Me</span>
-            <h2 class="section-title">Partner you can trust</h2>
+            <span class="section-label">Почему я</span>
+            <h2 class="section-title">Партнёр, которому можно доверять</h2>
             <p class="section-description">
-                I bring technical expertise and business understanding to every project. Your success is my priority.
+                Я объединяю техническую экспертизу с пониманием бизнеса. Ваш успех — мой приоритет.
             </p>
             <div class="benefits-grid">
                 <div class="benefit-card">
                     <span class="benefit-number">01</span>
                     <div class="benefit-content">
-                        <h4>Result-Focused Approach</h4>
-                        <p>Every decision is made with your business goals in mind. I measure success by your growth, not just deliverables.</p>
+                        <h4>Ориентация на результат</h4>
+                        <p>Каждое решение принимается с учётом ваших бизнес-целей. Я измеряю успех вашим ростом, а не просто сдачей проекта.</p>
                     </div>
                 </div>
                 <div class="benefit-card">
                     <span class="benefit-number">02</span>
                     <div class="benefit-content">
-                        <h4>Transparent Communication</h4>
-                        <p>Regular updates, clear timelines, and honest feedback. You'll always know the status of your project.</p>
+                        <h4>Прозрачная коммуникация</h4>
+                        <p>Регулярные обновления, чёткие сроки и честная обратная связь. Вы всегда знаете статус вашего проекта.</p>
                     </div>
                 </div>
                 <div class="benefit-card">
                     <span class="benefit-number">03</span>
                     <div class="benefit-content">
-                        <h4>Full-Stack Expertise</h4>
-                        <p>From development to marketing, I understand how all pieces fit together for maximum impact.</p>
+                        <h4>Комплексная экспертиза</h4>
+                        <p>От разработки до маркетинга — я понимаю, как все элементы работают вместе для максимального эффекта.</p>
                     </div>
                 </div>
                 <div class="benefit-card">
                     <span class="benefit-number">04</span>
                     <div class="benefit-content">
-                        <h4>Post-Launch Support</h4>
-                        <p>Our relationship doesn't end at launch. I provide ongoing support and optimization recommendations.</p>
+                        <h4>Поддержка после запуска</h4>
+                        <p>Наше сотрудничество не заканчивается запуском. Я предоставляю ongoing поддержку и рекомендации по оптимизации.</p>
                     </div>
                 </div>
                 <div class="benefit-card">
                     <span class="benefit-number">05</span>
                     <div class="benefit-content">
-                        <h4>Fair Pricing</h4>
-                        <p>Competitive rates with no hidden fees. You get premium quality without agency overhead costs.</p>
+                        <h4>Честное ценообразование</h4>
+                        <p>Конкурентные расценки без скрытых платежей. Премиум-качество без агентских наценок.</p>
                     </div>
                 </div>
                 <div class="benefit-card">
                     <span class="benefit-number">06</span>
                     <div class="benefit-content">
-                        <h4>Proven Track Record</h4>
-                        <p>50+ successful projects across various industries. Check my portfolio and client testimonials.</p>
+                        <h4>Проверенный опыт</h4>
+                        <p>Более 50 успешных проектов в разных нишах. Ознакомьтесь с портфолио и отзывами клиентов.</p>
                     </div>
                 </div>
             </div>
@@ -1609,10 +1446,10 @@
     <!-- Portfolio Section -->
     <section class="portfolio" id="portfolio">
         <div class="section-container">
-            <span class="section-label">Portfolio</span>
-            <h2 class="section-title">Recent project showcase</h2>
+            <span class="section-label">Портфолио</span>
+            <h2 class="section-title">Примеры recent проектов</h2>
             <p class="section-description">
-                Take a look at one of my recent projects. This demonstrates my approach to design, development, and user experience.
+                Посмотрите один из моих недавних проектов. Здесь демонстрируется мой подход к дизайну, разработке и пользовательскому опыту.
             </p>
             <div class="portfolio-showcase">
                 <div class="portfolio-card">
@@ -1635,13 +1472,13 @@
                         </div>
                     </div>
                     <div class="portfolio-info">
-                        <h3>E-Commerce Platform Demo</h3>
-                        <p>A modern online store built with WordPress and WooCommerce. Features include custom product filters, integrated payment systems, and optimized checkout flow.</p>
+                        <h3>Демо интернет-магазина</h3>
+                        <p>Современный интернет-магазин на WordPress и WooCommerce. Включает кастомные фильтры товаров, интеграцию платёжных систем и оптимизированный процесс оформления заказа.</p>
                         <div class="portfolio-tags">
                             <span class="portfolio-tag">WordPress</span>
                             <span class="portfolio-tag">WooCommerce</span>
                             <span class="portfolio-tag">SEO</span>
-                            <span class="portfolio-tag">Custom Design</span>
+                            <span class="portfolio-tag">Кастомный дизайн</span>
                         </div>
                         <a href="#" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
@@ -1649,7 +1486,7 @@
                                 <polyline points="15 3 21 3 21 9"/>
                                 <line x1="10" y1="14" x2="21" y2="3"/>
                             </svg>
-                            View Live Demo
+                            Открыть демо
                         </a>
                     </div>
                 </div>
@@ -1660,46 +1497,46 @@
     <!-- Process Section -->
     <section class="process" id="process">
         <div class="section-container">
-            <span class="section-label">Process</span>
-            <h2 class="section-title">How we work together</h2>
+            <span class="section-label">Процесс</span>
+            <h2 class="section-title">Как мы будем работать</h2>
             <p class="section-description">
-                A clear, structured approach that keeps you informed at every step. From concept to launch and beyond.
+                Чёткий структурированный подход, который держит вас в курсе на каждом этапе. От концепции до запуска и далее.
             </p>
             <div class="process-timeline">
                 <div class="process-line"></div>
                 <div class="process-step">
                     <div class="process-marker">1</div>
                     <div class="process-content">
-                        <h4>Discovery Call</h4>
-                        <p>We discuss your goals, requirements, and vision. I analyze your current situation and propose the best approach.</p>
+                        <h4>Знакомство и обсуждение</h4>
+                        <p>Обсуждаем ваши цели, требования и видение. Я анализирую текущую ситуацию и предлагаю оптимальный подход.</p>
                     </div>
                 </div>
                 <div class="process-step">
                     <div class="process-marker">2</div>
                     <div class="process-content">
-                        <h4>Strategy & Planning</h4>
-                        <p>Detailed project plan with timelines, milestones, and deliverables. Clear scope and transparent pricing.</p>
+                        <h4>Стратегия и планирование</h4>
+                        <p>Детальный план проекта с таймлайном, этапами и результатами. Чёткий scope и прозрачное ценообразование.</p>
                     </div>
                 </div>
                 <div class="process-step">
                     <div class="process-marker">3</div>
                     <div class="process-content">
-                        <h4>Development & Testing</h4>
-                        <p>Agile development with regular updates. Rigorous testing ensures everything works flawlessly.</p>
+                        <h4>Разработка и тестирование</h4>
+                        <p>Гибкая разработка с регулярными обновлениями. Тщательное тестирование гарантирует безупречную работу.</p>
                     </div>
                 </div>
                 <div class="process-step">
                     <div class="process-marker">4</div>
                     <div class="process-content">
-                        <h4>Review & Launch</h4>
-                        <p>Final review with your feedback. Smooth launch with minimal downtime and full documentation.</p>
+                        <h4>Согласование и запуск</h4>
+                        <p>Финальное согласование с вашим фидбеком. Плавный запуск с минимальным простоем и полной документацией.</p>
                     </div>
                 </div>
                 <div class="process-step">
                     <div class="process-marker">5</div>
                     <div class="process-content">
-                        <h4>Support & Growth</h4>
-                        <p>Ongoing support, analytics tracking, and optimization recommendations for continuous improvement.</p>
+                        <h4>Поддержка и развитие</h4>
+                        <p>Постподдержка, отслеживание аналитики и рекомендации по оптимизации для постоянного улучшения.</p>
                     </div>
                 </div>
             </div>
@@ -1709,125 +1546,125 @@
     <!-- Pricing Section -->
     <section class="pricing" id="pricing">
         <div class="section-container">
-            <span class="section-label">Pricing</span>
-            <h2 class="section-title">Transparent pricing plans</h2>
+            <span class="section-label">Цены</span>
+            <h2 class="section-title">Прозрачные тарифы</h2>
             <p class="section-description">
-                Choose the package that fits your needs. All plans include dedicated support and quality guarantee.
+                Выберите пакет под ваши задачи. Все тарифы включают персональную поддержку и гарантию качества.
             </p>
             <div class="pricing-grid">
                 <div class="pricing-card">
-                    <div class="pricing-name">Starter</div>
-                    <h3 class="pricing-title">Landing Page</h3>
-                    <div class="pricing-price">$499 <span>/ project</span></div>
+                    <div class="pricing-name">Старт</div>
+                    <h3 class="pricing-title">Лендинг</h3>
+                    <div class="pricing-price">$499 <span>/ проект</span></div>
                     <ul class="pricing-features">
                         <li>
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <polyline points="20 6 9 17 4 12"/>
                             </svg>
-                            Up to 5 pages
+                            До 5 страниц
                         </li>
                         <li>
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <polyline points="20 6 9 17 4 12"/>
                             </svg>
-                            Mobile responsive design
+                            Адаптивный дизайн
                         </li>
                         <li>
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <polyline points="20 6 9 17 4 12"/>
                             </svg>
-                            Basic SEO setup
+                            Базовое SEO
                         </li>
                         <li>
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <polyline points="20 6 9 17 4 12"/>
                             </svg>
-                            Contact form integration
+                            Интеграция форм
                         </li>
                         <li>
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <polyline points="20 6 9 17 4 12"/>
                             </svg>
-                            1 month support
+                            1 месяц поддержки
                         </li>
                     </ul>
-                    <a href="https://t.me/konstcreative" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Get Started</a>
+                    <a href="https://t.me/konstcreative" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Заказать</a>
                 </div>
                 <div class="pricing-card featured">
-                    <div class="pricing-name">Business</div>
-                    <h3 class="pricing-title">Business Website</h3>
-                    <div class="pricing-price">$999 <span>/ project</span></div>
+                    <div class="pricing-name">Бизнес</div>
+                    <h3 class="pricing-title">Сайт компании</h3>
+                    <div class="pricing-price">$999 <span>/ проект</span></div>
                     <ul class="pricing-features">
                         <li>
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <polyline points="20 6 9 17 4 12"/>
                             </svg>
-                            Up to 15 pages
+                            До 15 страниц
                         </li>
                         <li>
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <polyline points="20 6 9 17 4 12"/>
                             </svg>
-                            Custom design
+                            Уникальный дизайн
                         </li>
                         <li>
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <polyline points="20 6 9 17 4 12"/>
                             </svg>
-                            Advanced SEO optimization
+                            Продвинутое SEO
                         </li>
                         <li>
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <polyline points="20 6 9 17 4 12"/>
                             </svg>
-                            Analytics setup
+                            Настройка аналитики
                         </li>
                         <li>
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <polyline points="20 6 9 17 4 12"/>
                             </svg>
-                            3 months support
+                            3 месяца поддержки
                         </li>
                     </ul>
-                    <a href="https://t.me/konstcreative" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Get Started</a>
+                    <a href="https://t.me/konstcreative" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Заказать</a>
                 </div>
                 <div class="pricing-card">
-                    <div class="pricing-name">Professional</div>
-                    <h3 class="pricing-title">Full Solution</h3>
-                    <div class="pricing-price">$2499 <span>/ project</span></div>
+                    <div class="pricing-name">Профи</div>
+                    <h3 class="pricing-title">Комплексное решение</h3>
+                    <div class="pricing-price">$2499 <span>/ проект</span></div>
                     <ul class="pricing-features">
                         <li>
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <polyline points="20 6 9 17 4 12"/>
                             </svg>
-                            Unlimited pages
+                            Без ограничений
                         </li>
                         <li>
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <polyline points="20 6 9 17 4 12"/>
                             </svg>
-                            E-commerce capability
+                            Интернет-магазин
                         </li>
                         <li>
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <polyline points="20 6 9 17 4 12"/>
                             </svg>
-                            SEO + Ads setup
+                            SEO + реклама
                         </li>
                         <li>
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <polyline points="20 6 9 17 4 12"/>
                             </svg>
-                            Custom integrations
+                            Кастомные интеграции
                         </li>
                         <li>
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <polyline points="20 6 9 17 4 12"/>
                             </svg>
-                            6 months support
+                            6 месяцев поддержки
                         </li>
                     </ul>
-                    <a href="https://t.me/konstcreative" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Get Started</a>
+                    <a href="https://t.me/konstcreative" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Заказать</a>
                 </div>
             </div>
         </div>
@@ -1836,62 +1673,62 @@
     <!-- Testimonials Section -->
     <section class="testimonials" id="testimonials">
         <div class="section-container">
-            <span class="section-label">Testimonials</span>
-            <h2 class="section-title">What clients say</h2>
+            <span class="section-label">Отзывы</span>
+            <h2 class="section-title">Что говорят клиенты</h2>
             <p class="section-description">
-                Don't just take my word for it. Here's what business owners say about working with me.
+                Не верьте просто на слово. Вот что говорят владельцы бизнеса о работе со мной.
             </p>
             <div class="testimonials-slider">
                 <div class="testimonial-track">
                     <div class="testimonial-card">
                         <p class="testimonial-quote">
-                            Konstantin transformed our outdated website into a modern, fast-loading platform. Our organic traffic increased by 340% within 6 months. His attention to detail and strategic thinking made all the difference.
+                            Константин превратил наш устаревший сайт в современную, быстро загружающуюся платформу. Органический трафик вырос на 340% за 6 месяцев. Его внимание к деталям и стратегическое мышление сделали всё возможное.
                         </p>
                         <div class="testimonial-author">
-                            <div class="testimonial-avatar">AK</div>
+                            <div class="testimonial-avatar">АК</div>
                             <div class="testimonial-info">
-                                <h4>Alexander K.</h4>
+                                <h4>Александр К.</h4>
                                 <p>CEO, TechStart Solutions</p>
                             </div>
                         </div>
                     </div>
                     <div class="testimonial-card">
                         <p class="testimonial-quote">
-                            The Google Ads campaign Konstantin set up exceeded our expectations. We saw a 200% increase in qualified leads while actually reducing our ad spend. Highly recommend his services.
+                            Рекламная кампания в Google Ads, которую настроил Константин, превзошла все ожидания. Мы получили на 200% больше квалифицированных заявок, при этом фактически сократив рекламный бюджет. Очень рекомендую.
                         </p>
                         <div class="testimonial-author">
-                            <div class="testimonial-avatar">MV</div>
+                            <div class="testimonial-avatar">МВ</div>
                             <div class="testimonial-info">
-                                <h4>Maria V.</h4>
-                                <p>Marketing Director, GreenLeaf Co.</p>
+                                <h4>Мария В.</h4>
+                                <p>Маркетинг-директор, GreenLeaf Co.</p>
                             </div>
                         </div>
                     </div>
                     <div class="testimonial-card">
                         <p class="testimonial-quote">
-                            Professional, responsive, and truly understands business needs. Our new WordPress site loads in under 2 seconds and converts visitors into customers. Best investment we made this year.
+                            Профессионализм, отзывчивость и настоящее понимание бизнеса. Наш новый сайт на WordPress загружается меньше чем за 2 секунды и конвертирует посетителей в клиентов. Лучшая инвестиция в этом году.
                         </p>
                         <div class="testimonial-author">
-                            <div class="testimonial-avatar">DS</div>
+                            <div class="testimonial-avatar">ДС</div>
                             <div class="testimonial-info">
-                                <h4>Dmitry S.</h4>
-                                <p>Founder, Digital Craft Agency</p>
+                                <h4>Дмитрий С.</h4>
+                                <p>Основатель, Digital Craft Agency</p>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="testimonials-nav">
-                    <button class="testimonial-btn prev" aria-label="Previous testimonial">
+                    <button class="testimonial-btn prev" aria-label="Предыдущий отзыв">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <polyline points="15 18 9 12 15 6"/>
                         </svg>
                     </button>
                     <div class="testimonial-dots">
-                        <span class="testimonial-dot active" data-index="0" aria-label="Go to testimonial 1"></span>
-                        <span class="testimonial-dot" data-index="1" aria-label="Go to testimonial 2"></span>
-                        <span class="testimonial-dot" data-index="2" aria-label="Go to testimonial 3"></span>
+                        <span class="testimonial-dot active" data-index="0" aria-label="Перейти к отзыву 1"></span>
+                        <span class="testimonial-dot" data-index="1" aria-label="Перейти к отзыву 2"></span>
+                        <span class="testimonial-dot" data-index="2" aria-label="Перейти к отзыву 3"></span>
                     </div>
-                    <button class="testimonial-btn next" aria-label="Next testimonial">
+                    <button class="testimonial-btn next" aria-label="Следующий отзыв">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <polyline points="9 18 15 12 9 6"/>
                         </svg>
@@ -1904,16 +1741,16 @@
     <!-- Final CTA Section -->
     <section class="final-cta" id="contact">
         <div class="section-container">
-            <span class="section-label">Ready to Start?</span>
-            <h2 class="section-title">Let's build something great together</h2>
+            <span class="section-label">Готовы начать?</span>
+            <h2 class="section-title">Создадим что-то великое вместе</h2>
             <p class="section-description">
-                Have a project in mind? I'm ready to discuss your ideas and help you achieve your business goals. Let's talk.
+                Есть идея проекта? Я готов обсудить ваши задумки и помочь достичь бизнес-целей. Давайте поговорим.
             </p>
             <a href="https://t.me/konstcreative" class="btn btn-primary btn-large" target="_blank" rel="noopener noreferrer">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24">
                     <path d="M21.198 2.433a2.242 2.242 0 0 0-1.022.215l-16.5 6.875a2.25 2.25 0 0 0 .087 4.257l3.45 1.143 1.143 3.45a2.25 2.25 0 0 0 4.257.087l6.875-16.5a2.242 2.242 0 0 0-.215-1.022z"/>
                 </svg>
-                Discuss Your Project in Telegram
+                Обсудить проект в Telegram
             </a>
         </div>
     </section>
@@ -1921,7 +1758,7 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-content">
-            <p>2025 Konst Creative. All rights reserved.</p>
+            <p>2025 Konst Creative. Все права защищены.</p>
             <div class="footer-links">
                 <a href="https://t.me/konstcreative" target="_blank" rel="noopener noreferrer">Telegram</a>
                 <a href="mailto:contact@konstcreative.com">Email</a>
