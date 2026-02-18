@@ -1,323 +1,1492 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Профессиональная разработка на WordPress, SEO-оптимизация и контекстная реклама. Экспертные решения для вашего бизнеса.">
-    <meta name="keywords" content="разработка WordPress, SEO оптимизация, контекстная реклама, Google Ads, Яндекс Директ, фриланс разработчик">
-    <meta name="author" content="Konst Creative">
-    <meta property="og:title" content="Konst Creative | Эксперт в Digital-решениях">
-    <meta property="og:description" content="Разработка сайтов на WordPress, продвижение и реклама.">
-    <meta property="og:type" content="website">
-    <title data-i18n="meta.title">Konst Creative | WordPress, SEO и контекстная реклама</title>
+    <meta name="description" content="Professional freelance web developer specializing in WordPress, SEO optimization, and context advertising. Transform your online presence with expert solutions.">
+    <meta name="keywords" content="WordPress development, SEO optimization, Google Ads, Yandex Direct, freelance web developer">
+    <title>Konst Creative | WordPress & SEO Specialist</title>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        :root {
+            --bg-primary: #0d0d0f;
+            --bg-secondary: #131316;
+            --bg-card: rgba(22, 22, 28, 0.6);
+            --fg-primary: #f5f5f7;
+            --fg-secondary: #9ca3af;
+            --fg-muted: #6b7280;
+            --accent-cyan: #00e5cc;
+            --accent-gold: #ffc857;
+            --accent-cyan-glow: rgba(0, 229, 204, 0.4);
+            --accent-gold-glow: rgba(255, 200, 87, 0.3);
+            --border-color: rgba(255, 255, 255, 0.08);
+            --glass-bg: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--fg-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        /* Particle Canvas */
+        #particle-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* Ambient Background */
+        .ambient-glow {
+            position: fixed;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            filter: blur(150px);
+            opacity: 0.15;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .glow-1 {
+            top: -200px;
+            right: -200px;
+            background: var(--accent-cyan);
+            animation: floatGlow 20s ease-in-out infinite;
+        }
+
+        .glow-2 {
+            bottom: -200px;
+            left: -200px;
+            background: var(--accent-gold);
+            animation: floatGlow 25s ease-in-out infinite reverse;
+        }
+
+        @keyframes floatGlow {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(50px, 30px) scale(1.1); }
+            66% { transform: translate(-30px, 50px) scale(0.9); }
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 1rem 2rem;
+            backdrop-filter: blur(20px);
+            background: rgba(13, 13, 15, 0.8);
+            border-bottom: 1px solid var(--border-color);
+            transform: translateY(-100%);
+            animation: slideDown 0.6s ease forwards 0.3s;
+        }
+
+        @keyframes slideDown {
+            to { transform: translateY(0); }
+        }
+
+        .nav-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--fg-primary);
+            text-decoration: none;
+            position: relative;
+        }
+
+        .logo::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-gold));
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--fg-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::before {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--accent-cyan);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--fg-primary);
+        }
+
+        .nav-links a:hover::before {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .mobile-menu-btn span {
+            width: 24px;
+            height: 2px;
+            background: var(--fg-primary);
+            transition: all 0.3s ease;
+        }
+
+        /* Sections Base */
+        section {
+            position: relative;
+            z-index: 1;
+            padding: 6rem 1.5rem;
+        }
+
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--accent-cyan);
+            margin-bottom: 1rem;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .section-description {
+            font-size: 1.125rem;
+            color: var(--fg-secondary);
+            max-width: 600px;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        /* Animation Classes */
+        .animate-in {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .delay-1 { transition-delay: 0.1s; }
+        .delay-2 { transition-delay: 0.2s; }
+        .delay-3 { transition-delay: 0.3s; }
+        .delay-4 { transition-delay: 0.4s; }
+        .delay-5 { transition-delay: 0.5s; }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 8rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 100px;
+            font-size: 0.85rem;
+            color: var(--fg-secondary);
+            margin-bottom: 2rem;
+            backdrop-filter: blur(10px);
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .hero-badge .dot {
+            width: 8px;
+            height: 8px;
+            background: var(--accent-cyan);
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            transform: translateY(40px);
+        }
+
+        .hero-title .highlight {
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.125rem, 2vw, 1.375rem);
+            color: var(--fg-secondary);
+            max-width: 600px;
+            margin-bottom: 2.5rem;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 2rem;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            border: none;
+            outline: none;
+        }
+
+        .btn:focus-visible {
+            outline: 2px solid var(--accent-cyan);
+            outline-offset: 3px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-cyan), #00b8a3);
+            color: var(--bg-primary);
+            box-shadow: 0 4px 20px var(--accent-cyan-glow);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px var(--accent-cyan-glow);
+        }
+
+        .btn-primary:active {
+            transform: translateY(0);
+        }
+
+        .btn-secondary {
+            background: var(--glass-bg);
+            color: var(--fg-primary);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .btn svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Stats Row */
+        .hero-stats {
+            display: flex;
+            gap: 3rem;
+            margin-top: 4rem;
+            padding-top: 3rem;
+            border-top: 1px solid var(--border-color);
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .stat-item {
+            text-align: left;
+        }
+
+        .stat-number {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--fg-primary);
+            line-height: 1;
+        }
+
+        .stat-number .accent {
+            color: var(--accent-cyan);
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: var(--fg-muted);
+            margin-top: 0.25rem;
+        }
+
+        /* Services Section */
+        .services {
+            background: var(--bg-secondary);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            position: relative;
+            padding: 2.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            backdrop-filter: blur(20px);
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent-cyan), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .service-card:hover::before {
+            opacity: 1;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(0, 229, 204, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(0, 229, 204, 0.1), rgba(255, 200, 87, 0.1));
+            border-radius: 16px;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-icon svg {
+            width: 28px;
+            height: 28px;
+            stroke: var(--accent-cyan);
+        }
+
+        .service-card:nth-child(2) .service-icon svg {
+            stroke: var(--accent-gold);
+        }
+
+        .service-card:nth-child(3) .service-icon svg {
+            stroke: #ff6b9d;
+        }
+
+        .service-title {
+            font-size: 1.375rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .service-description {
+            color: var(--fg-secondary);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .service-features {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .service-feature {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            color: var(--fg-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .service-feature svg {
+            width: 16px;
+            height: 16px;
+            stroke: var(--accent-cyan);
+        }
+
+        /* Why Choose Me */
+        .why-me {
+            position: relative;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .benefit-card {
+            display: flex;
+            gap: 1.25rem;
+            padding: 1.5rem;
+            background: var(--glass-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .benefit-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.15);
+        }
+
+        .benefit-number {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent-cyan);
+            opacity: 0.5;
+            line-height: 1;
+        }
+
+        .benefit-content h4 {
+            font-size: 1.125rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .benefit-content p {
+            font-size: 0.9rem;
+            color: var(--fg-muted);
+        }
+
+        /* Portfolio Section */
+        .portfolio {
+            background: var(--bg-secondary);
+        }
+
+        .portfolio-showcase {
+            margin-top: 3rem;
+            position: relative;
+        }
+
+        .portfolio-card {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            background: linear-gradient(135deg, #1a1a22, #0d0d0f);
+            border: 1px solid var(--border-color);
+            opacity: 0;
+            transform: scale(0.95);
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .portfolio-card:hover {
+            border-color: rgba(0, 229, 204, 0.3);
+        }
+
+        .portfolio-preview {
+            aspect-ratio: 16/9;
+            background: linear-gradient(135deg, #1e1e28, #14141a);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .portfolio-preview::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: 
+                radial-gradient(ellipse at 30% 30%, rgba(0, 229, 204, 0.1), transparent 50%),
+                radial-gradient(ellipse at 70% 70%, rgba(255, 200, 87, 0.1), transparent 50%);
+        }
+
+        .portfolio-mockup {
+            position: relative;
+            z-index: 1;
+        }
+
+        .mockup-browser {
+            background: #0a0a0c;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .mockup-header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1rem;
+            background: #141416;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .mockup-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        .mockup-dot:nth-child(1) { background: #ff5f57; }
+        .mockup-dot:nth-child(2) { background: #febc2e; }
+        .mockup-dot:nth-child(3) { background: #28c840; }
+
+        .mockup-url {
+            flex: 1;
+            text-align: center;
+            font-size: 0.75rem;
+            color: var(--fg-muted);
+        }
+
+        .mockup-content {
+            padding: 2rem;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .mockup-line {
+            height: 12px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 6px;
+        }
+
+        .mockup-line:nth-child(1) { width: 60%; }
+        .mockup-line:nth-child(2) { width: 80%; }
+        .mockup-line:nth-child(3) { width: 40%; }
+        .mockup-line:nth-child(4) { width: 70%; }
+
+        .portfolio-info {
+            padding: 2rem;
+        }
+
+        .portfolio-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .portfolio-info p {
+            color: var(--fg-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .portfolio-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .portfolio-tag {
+            padding: 0.375rem 0.875rem;
+            background: rgba(0, 229, 204, 0.1);
+            color: var(--accent-cyan);
+            border-radius: 100px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        /* Process Section */
+        .process {
+            position: relative;
+        }
+
+        .process-timeline {
+            margin-top: 4rem;
+            position: relative;
+        }
+
+        .process-line {
+            position: absolute;
+            left: 28px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--accent-cyan), var(--accent-gold));
+            opacity: 0.3;
+        }
+
+        .process-step {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            position: relative;
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .process-marker {
+            width: 56px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg-primary);
+            border: 2px solid var(--accent-cyan);
+            border-radius: 50%;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--accent-cyan);
+            flex-shrink: 0;
+            position: relative;
+            z-index: 1;
+            transition: all 0.3s ease;
+        }
+
+        .process-step:hover .process-marker {
+            background: var(--accent-cyan);
+            color: var(--bg-primary);
+            box-shadow: 0 0 30px var(--accent-cyan-glow);
+        }
+
+        .process-content {
+            flex: 1;
+            padding-top: 0.5rem;
+        }
+
+        .process-content h4 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .process-content p {
+            color: var(--fg-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            background: var(--bg-secondary);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .pricing-card {
+            position: relative;
+            padding: 2.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            backdrop-filter: blur(20px);
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .pricing-card.featured {
+            border-color: var(--accent-cyan);
+            background: linear-gradient(135deg, rgba(0, 229, 204, 0.05), transparent);
+        }
+
+        .pricing-card.featured::before {
+            content: 'Most Popular';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 0.375rem 1rem;
+            background: linear-gradient(135deg, var(--accent-cyan), #00b8a3);
+            color: var(--bg-primary);
+            font-size: 0.75rem;
+            font-weight: 600;
+            border-radius: 100px;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .pricing-name {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--fg-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .pricing-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .pricing-price {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .pricing-price span {
+            font-size: 1rem;
+            font-weight: 400;
+            color: var(--fg-muted);
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .pricing-features li {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 0.95rem;
+            color: var(--fg-secondary);
+        }
+
+        .pricing-features li:last-child {
+            border-bottom: none;
+        }
+
+        .pricing-features svg {
+            width: 18px;
+            height: 18px;
+            stroke: var(--accent-cyan);
+            flex-shrink: 0;
+        }
+
+        .pricing-card .btn {
+            width: 100%;
+            justify-content: center;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonials-slider {
+            margin-top: 3rem;
+            position: relative;
+        }
+
+        .testimonial-track {
+            display: flex;
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .testimonial-card {
+            min-width: 100%;
+            padding: 3rem;
+            background: var(--glass-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            backdrop-filter: blur(20px);
+        }
+
+        .testimonial-quote {
+            font-size: 1.25rem;
+            line-height: 1.8;
+            color: var(--fg-primary);
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .testimonial-quote::before {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            left: -10px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 5rem;
+            color: var(--accent-cyan);
+            opacity: 0.2;
+            line-height: 1;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .testimonial-avatar {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-gold));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--bg-primary);
+        }
+
+        .testimonial-info h4 {
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .testimonial-info p {
+            font-size: 0.875rem;
+            color: var(--fg-muted);
+        }
+
+        .testimonials-nav {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .testimonial-btn {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--glass-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-btn:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--accent-cyan);
+        }
+
+        .testimonial-btn:focus-visible {
+            outline: 2px solid var(--accent-cyan);
+            outline-offset: 3px;
+        }
+
+        .testimonial-btn svg {
+            width: 20px;
+            height: 20px;
+            stroke: var(--fg-primary);
+        }
+
+        .testimonial-dots {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .testimonial-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--fg-muted);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-dot.active {
+            width: 24px;
+            border-radius: 4px;
+            background: var(--accent-cyan);
+        }
+
+        /* Final CTA */
+        .final-cta {
+            text-align: center;
+            padding: 8rem 1.5rem;
+            position: relative;
+        }
+
+        .final-cta::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, var(--accent-cyan-glow), transparent 70%);
+            opacity: 0.2;
+            pointer-events: none;
+        }
+
+        .final-cta .section-title {
+            font-size: clamp(2rem, 6vw, 4rem);
+        }
+
+        .final-cta .section-description {
+            margin: 0 auto 2.5rem;
+        }
+
+        .btn-large {
+            padding: 1.25rem 3rem;
+            font-size: 1.125rem;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 3rem 1.5rem;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .footer p {
+            color: var(--fg-muted);
+            font-size: 0.875rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .footer-links a {
+            color: var(--fg-muted);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-cyan);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: flex;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .stat-item {
+                display: flex;
+                align-items: baseline;
+                gap: 0.75rem;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+
+            .process-line {
+                left: 20px;
+            }
+
+            .process-marker {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+
+            .process-step {
+                gap: 1rem;
+            }
+
+            .testimonial-card {
+                padding: 2rem;
+            }
+
+            .testimonial-quote {
+                font-size: 1.1rem;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            section {
+                padding: 4rem 1rem;
+            }
+
+            .hero {
+                padding-top: 6rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--bg-primary);
+            z-index: 99;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .mobile-menu a {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            color: var(--fg-primary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .mobile-menu a:hover {
+            color: var(--accent-cyan);
+        }
+    </style>
 </head>
 <body>
-    <canvas id="particle-canvas" class="particle-canvas"></canvas>
-    <div class="gradient-overlay"></div>
+    <!-- Particle Canvas -->
+    <canvas id="particle-canvas" aria-hidden="true"></canvas>
 
-    <nav class="navbar" id="navbar">
-        <div class="nav-container">
-            <a href="#" class="logo">
-                <span class="logo-icon">K</span>
-                <span class="logo-text">Konst<span class="logo-accent">Creative</span></span>
-            </a>
-            <div class="nav-right">
-                <div class="language-switcher">
-                    <button class="lang-btn active" data-lang="ru">RU</button>
-                    <span class="lang-divider">/</span>
-                    <button class="lang-btn" data-lang="en">EN</button>
-                </div>
-                <button class="nav-toggle" id="nav-toggle" aria-label="Открыть меню">
-                    <span class="hamburger"></span>
-                </button>
-            </div>
-            <ul class="nav-menu" id="nav-menu">
-                <li><a href="#services" class="nav-link" data-i18n="nav.services">Услуги</a></li>
-                <li><a href="#why-me" class="nav-link" data-i18n="nav.whyMe">Преимущества</a></li>
-                <li><a href="#portfolio" class="nav-link" data-i18n="nav.portfolio">Портфолио</a></li>
-                <li><a href="#process" class="nav-link" data-i18n="nav.process">Процесс</a></li>
-                <li><a href="#pricing" class="nav-link" data-i18n="nav.pricing">Цены</a></li>
-                <li><a href="#testimonials" class="nav-link" data-i18n="nav.reviews">Отзывы</a></li>
-                <li><a href="https://t.me/konstcreative" class="nav-link nav-cta" target="_blank" rel="noopener" data-i18n="nav.contact">Связаться</a></li>
+    <!-- Ambient Glows -->
+    <div class="ambient-glow glow-1" aria-hidden="true"></div>
+    <div class="ambient-glow glow-2" aria-hidden="true"></div>
+
+    <!-- Navigation -->
+    <nav class="nav" role="navigation" aria-label="Main navigation">
+        <div class="nav-inner">
+            <a href="#" class="logo">Konst Creative</a>
+            <ul class="nav-links">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#why-me">Why Me</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#process">Process</a></li>
+                <li><a href="#pricing">Pricing</a></li>
             </ul>
+            <button class="mobile-menu-btn" aria-label="Toggle mobile menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </nav>
 
-    <!-- Section 1: Hero -->
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+        <a href="#services">Services</a>
+        <a href="#why-me">Why Me</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#process">Process</a>
+        <a href="#pricing">Pricing</a>
+        <a href="https://t.me/konstcreative" class="btn btn-primary">Contact</a>
+    </div>
+
+    <!-- Hero Section -->
     <section class="hero" id="hero">
-        <div class="hero-container">
+        <div class="section-container">
             <div class="hero-content">
-                <div class="hero-badge scroll-reveal">
-                    <span class="badge-dot"></span>
-                    <span data-i18n="hero.badge">Открыт для новых проектов</span>
+                <div class="hero-badge">
+                    <span class="dot"></span>
+                    Available for new projects
                 </div>
-                <h1 class="hero-title scroll-reveal">
-                    <span data-i18n="hero.title1">Transform Your</span><br>
-                    <span class="gradient-text" data-i18n="hero.title2">Digital Presence</span>
+                <h1 class="hero-title">
+                    Building websites that <span class="highlight">drive results</span>
                 </h1>
-                <p class="hero-subtitle scroll-reveal" data-i18n="hero.subtitle">
-                    Создаю высококонверсионные сайты на WordPress, повышаю позиции в поиске через SEO 
-                    и привлекаю целевой трафик с помощью контекстной рекламы. Результаты, которые важны.
+                <p class="hero-subtitle">
+                    WordPress development, SEO optimization, and context advertising that transform your online presence into a powerful business tool. More leads, better conversions, measurable growth.
                 </p>
-                <div class="hero-buttons scroll-reveal">
-                    <a href="https://t.me/konstcreative" class="btn btn-primary btn-glow" target="_blank" rel="noopener">
-                        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+                <div class="hero-buttons">
+                    <a href="https://t.me/konstcreative" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21.198 2.433a2.242 2.242 0 0 0-1.022.215l-16.5 6.875a2.25 2.25 0 0 0 .087 4.257l3.45 1.143 1.143 3.45a2.25 2.25 0 0 0 4.257.087l6.875-16.5a2.242 2.242 0 0 0-.215-1.022z"/>
                         </svg>
-                        <span data-i18n="hero.ctaPrimary">Обсудить проект в Telegram</span>
+                        Discuss Project in Telegram
                     </a>
                     <a href="#portfolio" class="btn btn-secondary">
-                        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
                             <circle cx="12" cy="12" r="3"/>
                         </svg>
-                        <span data-i18n="hero.ctaSecondary">Просмотреть демо-сайт</span>
+                        View Test Website
                     </a>
                 </div>
-                <div class="hero-stats scroll-reveal">
+                <div class="hero-stats">
                     <div class="stat-item">
-                        <span class="stat-number">50+</span>
-                        <span class="stat-label" data-i18n="hero.stat1">Завершенных проектов</span>
+                        <div class="stat-number">50<span class="accent">+</span></div>
+                        <div class="stat-label">Projects Completed</div>
                     </div>
-                    <div class="stat-divider"></div>
                     <div class="stat-item">
-                        <span class="stat-number">98%</span>
-                        <span class="stat-label" data-i18n="hero.stat2">Довольных клиентов</span>
+                        <div class="stat-number">3<span class="accent">x</span></div>
+                        <div class="stat-label">Average Traffic Growth</div>
                     </div>
-                    <div class="stat-divider"></div>
                     <div class="stat-item">
-                        <span class="stat-number">5+</span>
-                        <span class="stat-label" data-i18n="hero.stat3">Лет опыта</span>
+                        <div class="stat-number">98<span class="accent">%</span></div>
+                        <div class="stat-label">Client Satisfaction</div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="hero-scroll-indicator">
-            <div class="scroll-mouse">
-                <div class="scroll-wheel"></div>
-            </div>
-            <span data-i18n="hero.scroll">Листайте вниз</span>
         </div>
     </section>
 
-    <!-- Section 2: Services -->
+    <!-- Services Section -->
     <section class="services" id="services">
-        <div class="container">
-            <div class="section-header scroll-reveal">
-                <span class="section-tag" data-i18n="services.tag">Что я делаю</span>
-                <h2 class="section-title" data-i18n="services.title">Услуги для <span class="gradient-text">роста</span> вашего бизнеса</h2>
-                <p class="section-description" data-i18n="services.desc">Комплексные решения под ваши задачи</p>
-            </div>
+        <div class="section-container">
+            <span class="section-label">Services</span>
+            <h2 class="section-title">Solutions that grow your business</h2>
+            <p class="section-description">
+                Comprehensive web services tailored to your goals. From building to promoting, I handle every aspect of your digital presence.
+            </p>
             <div class="services-grid">
-                <article class="service-card scroll-reveal">
-                    <div class="service-icon-wrapper">
-                        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-                            <path d="M2 17l10 5 10-5"/>
-                            <path d="M2 12l10 5 10-5"/>
+                <article class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                            <line x1="3" y1="9" x2="21" y2="9"/>
+                            <line x1="9" y1="21" x2="9" y2="9"/>
                         </svg>
                     </div>
-                    <h3 class="service-title" data-i18n="services.wp.title">Разработка на WordPress</h3>
-                    <p class="service-description" data-i18n="services.wp.desc">
-                        Создание сайтов, заточенных под конверсию и скорость. От корпоративных ресурсов до сложных интернет-магазинов на WooCommerce.
+                    <h3 class="service-title">WordPress Development</h3>
+                    <p class="service-description">
+                        Custom WordPress websites built for performance, security, and easy management. From landing pages to complex business solutions.
                     </p>
-                    <ul class="service-features">
-                        <li data-i18n="services.wp.f1">Индивидуальный дизайн</li>
-                        <li data-i18n="services.wp.f2">Магазины на WooCommerce</li>
-                        <li data-i18n="services.wp.f3">Оптимизация скорости</li>
-                        <li data-i18n="services.wp.f4">Адаптивный дизайн</li>
-                    </ul>
-                    <a href="https://t.me/konstcreative" class="service-link" target="_blank" rel="noopener">
-                        <span data-i18n="services.learnMore">Обсудить проект</span>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M5 12h14M12 5l7 7-7 7"/>
-                        </svg>
-                    </a>
+                    <div class="service-features">
+                        <div class="service-feature">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            Custom theme development
+                        </div>
+                        <div class="service-feature">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            E-commerce integration
+                        </div>
+                        <div class="service-feature">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            Speed optimization
+                        </div>
+                    </div>
                 </article>
-
-                <article class="service-card scroll-reveal">
-                    <div class="service-icon-wrapper">
-                        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <article class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <circle cx="11" cy="11" r="8"/>
-                            <path d="M21 21l-4.35-4.35"/>
-                            <path d="M11 8v6M8 11h6"/>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                            <line x1="11" y1="8" x2="11" y2="14"/>
+                            <line x1="8" y1="11" x2="14" y2="11"/>
                         </svg>
                     </div>
-                    <h3 class="service-title" data-i18n="services.seo.title">SEO Оптимизация</h3>
-                    <p class="service-description" data-i18n="services.seo.desc">
-                        Стратегии, основанные на данных, для улучшения позиций и роста органического трафика. Технический аудит и контент-план.
+                    <h3 class="service-title">SEO Optimization</h3>
+                    <p class="service-description">
+                        Data-driven SEO strategies that improve your search rankings and drive organic traffic. Technical, on-page, and off-page optimization.
                     </p>
-                    <ul class="service-features">
-                        <li data-i18n="services.seo.f1">Технический SEO-аудит</li>
-                        <li data-i18n="services.seo.f2">Подбор семантического ядра</li>
-                        <li data-i18n="services.seo.f3">Внутренняя оптимизация</li>
-                        <li data-i18n="services.seo.f4">Работа со ссылочной массой</li>
-                    </ul>
-                    <a href="https://t.me/konstcreative" class="service-link" target="_blank" rel="noopener">
-                        <span data-i18n="services.learnMore">Обсудить проект</span>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M5 12h14M12 5l7 7-7 7"/>
-                        </svg>
-                    </a>
+                    <div class="service-features">
+                        <div class="service-feature">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            Technical SEO audit
+                        </div>
+                        <div class="service-feature">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            Keyword research
+                        </div>
+                        <div class="service-feature">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            Content optimization
+                        </div>
+                    </div>
                 </article>
-
-                <article class="service-card scroll-reveal">
-                    <div class="service-icon-wrapper">
-                        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                <article class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
                         </svg>
                     </div>
-                    <h3 class="service-title" data-i18n="services.ads.title">Контекстная реклама</h3>
-                    <p class="service-description" data-i18n="services.ads.desc">
-                        Запуск эффективных кампаний в Яндекс Директ и Google Ads. Точный таргетинг и непрерывная оптимизация для высокого ROI.
+                    <h3 class="service-title">Context Advertising</h3>
+                    <p class="service-description">
+                        Targeted advertising campaigns on Google Ads and Yandex Direct that deliver qualified leads and maximize your ROI.
                     </p>
-                    <ul class="service-features">
-                        <li data-i18n="services.ads.f1">Настройка Яндекс Директ</li>
-                        <li data-i18n="services.ads.f2">Google Ads кампании</li>
-                        <li data-i18n="services.ads.f3">Ретаргетинг и ремаркетинг</li>
-                        <li data-i18n="services.ads.f4">Настройка сквозной аналитики</li>
-                    </ul>
-                    <a href="https://t.me/konstcreative" class="service-link" target="_blank" rel="noopener">
-                        <span data-i18n="services.learnMore">Обсудить проект</span>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M5 12h14M12 5l7 7-7 7"/>
-                        </svg>
-                    </a>
+                    <div class="service-features">
+                        <div class="service-feature">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            Campaign setup & management
+                        </div>
+                        <div class="service-feature">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            A/B testing
+                        </div>
+                        <div class="service-feature">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            Conversion tracking
+                        </div>
+                    </div>
                 </article>
             </div>
         </div>
     </section>
 
-    <!-- Section 3: Why Choose Me -->
+    <!-- Why Choose Me Section -->
     <section class="why-me" id="why-me">
-        <div class="container">
-            <div class="section-header scroll-reveal">
-                <span class="section-tag" data-i18n="whyMe.tag">Преимущества</span>
-                <h2 class="section-title" data-i18n="whyMe.title">Почему <span class="gradient-text">клиенты остаются</span> со мной</h2>
-                <p class="section-description" data-i18n="whyMe.desc">Работаю как партнёр, а не как исполнитель</p>
-            </div>
+        <div class="section-container">
+            <span class="section-label">Why Choose Me</span>
+            <h2 class="section-title">Partner you can trust</h2>
+            <p class="section-description">
+                I bring technical expertise and business understanding to every project. Your success is my priority.
+            </p>
             <div class="benefits-grid">
-                <div class="benefit-card scroll-reveal">
-                    <div class="benefit-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                            <path d="M9 12l2 2 4-4"/>
-                        </svg>
+                <div class="benefit-card">
+                    <span class="benefit-number">01</span>
+                    <div class="benefit-content">
+                        <h4>Result-Focused Approach</h4>
+                        <p>Every decision is made with your business goals in mind. I measure success by your growth, not just deliverables.</p>
                     </div>
-                    <h3 class="benefit-title" data-i18n="whyMe.b1.title">Proven Results</h3>
-                    <p class="benefit-description" data-i18n="whyMe.b1.desc">Track record of delivering measurable improvements in traffic, conversions, and ROI for every client.</p>
                 </div>
-
-                <div class="benefit-card scroll-reveal">
-                    <div class="benefit-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <circle cx="12" cy="12" r="10"/>
-                            <path d="M12 6v6l4 2"/>
-                        </svg>
+                <div class="benefit-card">
+                    <span class="benefit-number">02</span>
+                    <div class="benefit-content">
+                        <h4>Transparent Communication</h4>
+                        <p>Regular updates, clear timelines, and honest feedback. You'll always know the status of your project.</p>
                     </div>
-                    <h3 class="benefit-title" data-i18n="whyMe.b2.title">Fast Turnaround</h3>
-                    <p class="benefit-description" data-i18n="whyMe.b2.desc">Efficient workflows and clear communication ensure your project is delivered on time, every time.</p>
                 </div>
-
-                <div class="benefit-card scroll-reveal">
-                    <div class="benefit-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                            <circle cx="9" cy="7" r="4"/>
-                            <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
-                        </svg>
+                <div class="benefit-card">
+                    <span class="benefit-number">03</span>
+                    <div class="benefit-content">
+                        <h4>Full-Stack Expertise</h4>
+                        <p>From development to marketing, I understand how all pieces fit together for maximum impact.</p>
                     </div>
-                    <h3 class="benefit-title" data-i18n="whyMe.b3.title">Personal Approach</h3>
-                    <p class="benefit-description" data-i18n="whyMe.b3.desc">Direct communication with no middlemen. Your project gets my full attention from start to finish.</p>
                 </div>
-
-                <div class="benefit-card scroll-reveal">
-                    <div class="benefit-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-                            <path d="M2 17l10 5 10-5"/>
-                            <path d="M2 12l10 5 10-5"/>
-                        </svg>
+                <div class="benefit-card">
+                    <span class="benefit-number">04</span>
+                    <div class="benefit-content">
+                        <h4>Post-Launch Support</h4>
+                        <p>Our relationship doesn't end at launch. I provide ongoing support and optimization recommendations.</p>
                     </div>
-                    <h3 class="benefit-title" data-i18n="whyMe.b4.title">Full-Stack Expertise</h3>
-                    <p class="benefit-description" data-i18n="whyMe.b4.desc">From development to marketing, I handle all aspects of your digital presence cohesively.</p>
                 </div>
-
-                <div class="benefit-card scroll-reveal">
-                    <div class="benefit-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
-                        </svg>
+                <div class="benefit-card">
+                    <span class="benefit-number">05</span>
+                    <div class="benefit-content">
+                        <h4>Fair Pricing</h4>
+                        <p>Competitive rates with no hidden fees. You get premium quality without agency overhead costs.</p>
                     </div>
-                    <h3 class="benefit-title" data-i18n="whyMe.b5.title">Transparent Pricing</h3>
-                    <p class="benefit-description" data-i18n="whyMe.b5.desc">No hidden fees or surprises. Clear quotes upfront with detailed breakdowns of all costs.</p>
                 </div>
-
-                <div class="benefit-card scroll-reveal">
-                    <div class="benefit-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
-                        </svg>
+                <div class="benefit-card">
+                    <span class="benefit-number">06</span>
+                    <div class="benefit-content">
+                        <h4>Proven Track Record</h4>
+                        <p>50+ successful projects across various industries. Check my portfolio and client testimonials.</p>
                     </div>
-                    <h3 class="benefit-title" data-i18n="whyMe.b6.title">Ongoing Support</h3>
-                    <p class="benefit-description" data-i18n="whyMe.b6.desc">Post-launch support and maintenance to ensure your digital assets continue performing.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Section 4: Portfolio -->
+    <!-- Portfolio Section -->
     <section class="portfolio" id="portfolio">
-        <div class="container">
-            <div class="section-header scroll-reveal">
-                <span class="section-tag" data-i18n="portfolio.tag">Portfolio</span>
-                <h2 class="section-title" data-i18n="portfolio.title">Featured <span class="gradient-text">Projects</span></h2>
-                <p class="section-description" data-i18n="portfolio.desc">See examples of my work in action</p>
-            </div>
-            <div class="portfolio-showcase scroll-reveal">
+        <div class="section-container">
+            <span class="section-label">Portfolio</span>
+            <h2 class="section-title">Recent project showcase</h2>
+            <p class="section-description">
+                Take a look at one of my recent projects. This demonstrates my approach to design, development, and user experience.
+            </p>
+            <div class="portfolio-showcase">
                 <div class="portfolio-card">
                     <div class="portfolio-preview">
-                        <div class="preview-frame">
-                            <div class="preview-header">
-                                <div class="preview-dots">
-                                    <span></span>
-                                    <span></span>
-                                    <span></span>
+                        <div class="portfolio-mockup">
+                            <div class="mockup-browser">
+                                <div class="mockup-header">
+                                    <span class="mockup-dot"></span>
+                                    <span class="mockup-dot"></span>
+                                    <span class="mockup-dot"></span>
+                                    <span class="mockup-url">demo-project.com</span>
                                 </div>
-                                <div class="preview-url">demo-website.example</div>
-                            </div>
-                            <div class="preview-content">
-                                <div class="preview-placeholder">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                        <rect x="3" y="3" width="18" height="18" rx="2"/>
-                                        <path d="M3 9h18M9 21V9"/>
-                                    </svg>
-                                    <span data-i18n="portfolio.preview">Demo Website Preview</span>
+                                <div class="mockup-content">
+                                    <div class="mockup-line"></div>
+                                    <div class="mockup-line"></div>
+                                    <div class="mockup-line"></div>
+                                    <div class="mockup-line"></div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="portfolio-info">
-                        <h3 class="portfolio-title" data-i18n="portfolio.projectTitle">Test Project Showcase</h3>
-                        <p class="portfolio-description" data-i18n="portfolio.projectDesc">
-                            A demonstration of modern web development techniques featuring responsive design, 
-                            smooth animations, and optimized performance. This showcase represents the quality 
-                            and attention to detail I bring to every project.
-                        </p>
+                        <h3>E-Commerce Platform Demo</h3>
+                        <p>A modern online store built with WordPress and WooCommerce. Features include custom product filters, integrated payment systems, and optimized checkout flow.</p>
                         <div class="portfolio-tags">
-                            <span class="tag">WordPress</span>
-                            <span class="tag" data-i18n="portfolio.tag1">Custom Theme</span>
-                            <span class="tag" data-i18n="portfolio.tag2">SEO Ready</span>
+                            <span class="portfolio-tag">WordPress</span>
+                            <span class="portfolio-tag">WooCommerce</span>
+                            <span class="portfolio-tag">SEO</span>
+                            <span class="portfolio-tag">Custom Design</span>
                         </div>
-                        <a href="https://demo-website.example" class="btn btn-primary" target="_blank" rel="noopener">
-                            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/>
+                        <a href="#" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                                <polyline points="15 3 21 3 21 9"/>
+                                <line x1="10" y1="14" x2="21" y2="3"/>
                             </svg>
-                            <span data-i18n="portfolio.visitBtn">Visit Demo Site</span>
+                            View Live Demo
                         </a>
                     </div>
                 </div>
@@ -325,290 +1494,243 @@
         </div>
     </section>
 
-    <!-- Section 5: Work Process -->
+    <!-- Process Section -->
     <section class="process" id="process">
-        <div class="container">
-            <div class="section-header scroll-reveal">
-                <span class="section-tag" data-i18n="process.tag">How It Works</span>
-                <h2 class="section-title" data-i18n="process.title">My <span class="gradient-text">Process</span></h2>
-                <p class="section-description" data-i18n="process.desc">A proven 5-step approach to delivering exceptional results</p>
-            </div>
+        <div class="section-container">
+            <span class="section-label">Process</span>
+            <h2 class="section-title">How we work together</h2>
+            <p class="section-description">
+                A clear, structured approach that keeps you informed at every step. From concept to launch and beyond.
+            </p>
             <div class="process-timeline">
-                <div class="timeline-line">
-                    <div class="timeline-progress"></div>
+                <div class="process-line"></div>
+                <div class="process-step">
+                    <div class="process-marker">1</div>
+                    <div class="process-content">
+                        <h4>Discovery Call</h4>
+                        <p>We discuss your goals, requirements, and vision. I analyze your current situation and propose the best approach.</p>
+                    </div>
                 </div>
-                
-                <div class="process-steps">
-                    <article class="process-step scroll-reveal" data-step="1">
-                        <div class="step-number">01</div>
-                        <div class="step-content">
-                            <h3 class="step-title" data-i18n="process.s1.title">Discovery</h3>
-                            <p class="step-description" data-i18n="process.s1.desc">We discuss your goals, target audience, and requirements to understand exactly what you need.</p>
-                        </div>
-                    </article>
-
-                    <article class="process-step scroll-reveal" data-step="2">
-                        <div class="step-number">02</div>
-                        <div class="step-content">
-                            <h3 class="step-title" data-i18n="process.s2.title">Strategy</h3>
-                            <p class="step-description" data-i18n="process.s2.desc">I develop a comprehensive plan tailored to your business objectives and budget.</p>
-                        </div>
-                    </article>
-
-                    <article class="process-step scroll-reveal" data-step="3">
-                        <div class="step-number">03</div>
-                        <div class="step-content">
-                            <h3 class="step-title" data-i18n="process.s3.title">Execution</h3>
-                            <p class="step-description" data-i18n="process.s3.desc">Implementation with regular updates, ensuring everything aligns with your vision.</p>
-                        </div>
-                    </article>
-
-                    <article class="process-step scroll-reveal" data-step="4">
-                        <div class="step-number">04</div>
-                        <div class="step-content">
-                            <h3 class="step-title" data-i18n="process.s4.title">Testing</h3>
-                            <p class="step-description" data-i18n="process.s4.desc">Rigorous quality checks across devices and browsers to ensure flawless performance.</p>
-                        </div>
-                    </article>
-
-                    <article class="process-step scroll-reveal" data-step="5">
-                        <div class="step-number">05</div>
-                        <div class="step-content">
-                            <h3 class="step-title" data-i18n="process.s5.title">Launch & Support</h3>
-                            <p class="step-description" data-i18n="process.s5.desc">Smooth deployment followed by ongoing support and optimization.</p>
-                        </div>
-                    </article>
+                <div class="process-step">
+                    <div class="process-marker">2</div>
+                    <div class="process-content">
+                        <h4>Strategy & Planning</h4>
+                        <p>Detailed project plan with timelines, milestones, and deliverables. Clear scope and transparent pricing.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="process-marker">3</div>
+                    <div class="process-content">
+                        <h4>Development & Testing</h4>
+                        <p>Agile development with regular updates. Rigorous testing ensures everything works flawlessly.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="process-marker">4</div>
+                    <div class="process-content">
+                        <h4>Review & Launch</h4>
+                        <p>Final review with your feedback. Smooth launch with minimal downtime and full documentation.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="process-marker">5</div>
+                    <div class="process-content">
+                        <h4>Support & Growth</h4>
+                        <p>Ongoing support, analytics tracking, and optimization recommendations for continuous improvement.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Section 6: Pricing -->
+    <!-- Pricing Section -->
     <section class="pricing" id="pricing">
-        <div class="container">
-            <div class="section-header scroll-reveal">
-                <span class="section-tag" data-i18n="pricing.tag">Pricing</span>
-                <h2 class="section-title" data-i18n="pricing.title">Investment <span class="gradient-text">Plans</span></h2>
-                <p class="section-description" data-i18n="pricing.desc">Choose the package that fits your business needs</p>
-            </div>
+        <div class="section-container">
+            <span class="section-label">Pricing</span>
+            <h2 class="section-title">Transparent pricing plans</h2>
+            <p class="section-description">
+                Choose the package that fits your needs. All plans include dedicated support and quality guarantee.
+            </p>
             <div class="pricing-grid">
-                <article class="pricing-card scroll-reveal">
-                    <div class="pricing-header">
-                        <h3 class="pricing-name" data-i18n="pricing.start.name">Start</h3>
-                        <p class="pricing-desc" data-i18n="pricing.start.desc">Perfect for small businesses</p>
-                        <div class="pricing-price">
-                            <span class="currency">$</span>
-                            <span class="amount">499</span>
-                            <span class="period" data-i18n="pricing.period">/project</span>
-                        </div>
-                    </div>
+                <div class="pricing-card">
+                    <div class="pricing-name">Starter</div>
+                    <h3 class="pricing-title">Landing Page</h3>
+                    <div class="pricing-price">$499 <span>/ project</span></div>
                     <ul class="pricing-features">
                         <li>
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M20 6L9 17l-5-5"/>
+                                <polyline points="20 6 9 17 4 12"/>
                             </svg>
-                            <span data-i18n="pricing.start.f1">5-page WordPress site</span>
+                            Up to 5 pages
                         </li>
                         <li>
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M20 6L9 17l-5-5"/>
+                                <polyline points="20 6 9 17 4 12"/>
                             </svg>
-                            <span data-i18n="pricing.start.f2">Mobile responsive</span>
+                            Mobile responsive design
                         </li>
                         <li>
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M20 6L9 17l-5-5"/>
+                                <polyline points="20 6 9 17 4 12"/>
                             </svg>
-                            <span data-i18n="pricing.start.f3">Basic SEO setup</span>
+                            Basic SEO setup
                         </li>
                         <li>
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M20 6L9 17l-5-5"/>
+                                <polyline points="20 6 9 17 4 12"/>
                             </svg>
-                            <span data-i18n="pricing.start.f4">Contact form</span>
+                            Contact form integration
                         </li>
                         <li>
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M20 6L9 17l-5-5"/>
+                                <polyline points="20 6 9 17 4 12"/>
                             </svg>
-                            <span data-i18n="pricing.start.f5">2 weeks delivery</span>
+                            1 month support
                         </li>
                     </ul>
-                    <a href="https://t.me/konstcreative" class="btn btn-outline" target="_blank" rel="noopener" data-i18n="pricing.cta">Get Started</a>
-                </article>
-
-                <article class="pricing-card pricing-popular scroll-reveal">
-                    <div class="popular-badge" data-i18n="pricing.popular">Most Popular</div>
-                    <div class="pricing-header">
-                        <h3 class="pricing-name" data-i18n="pricing.business.name">Business</h3>
-                        <p class="pricing-desc" data-i18n="pricing.business.desc">For growing companies</p>
-                        <div class="pricing-price">
-                            <span class="currency">$</span>
-                            <span class="amount">999</span>
-                            <span class="period" data-i18n="pricing.period">/project</span>
-                        </div>
-                    </div>
+                    <a href="https://t.me/konstcreative" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Get Started</a>
+                </div>
+                <div class="pricing-card featured">
+                    <div class="pricing-name">Business</div>
+                    <h3 class="pricing-title">Business Website</h3>
+                    <div class="pricing-price">$999 <span>/ project</span></div>
                     <ul class="pricing-features">
                         <li>
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M20 6L9 17l-5-5"/>
+                                <polyline points="20 6 9 17 4 12"/>
                             </svg>
-                            <span data-i18n="pricing.business.f1">10-page WordPress site</span>
+                            Up to 15 pages
                         </li>
                         <li>
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M20 6L9 17l-5-5"/>
+                                <polyline points="20 6 9 17 4 12"/>
                             </svg>
-                            <span data-i18n="pricing.business.f2">Custom design</span>
+                            Custom design
                         </li>
                         <li>
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M20 6L9 17l-5-5"/>
+                                <polyline points="20 6 9 17 4 12"/>
                             </svg>
-                            <span data-i18n="pricing.business.f3">Advanced SEO package</span>
+                            Advanced SEO optimization
                         </li>
                         <li>
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M20 6L9 17l-5-5"/>
+                                <polyline points="20 6 9 17 4 12"/>
                             </svg>
-                            <span data-i18n="pricing.business.f4">Speed optimization</span>
+                            Analytics setup
                         </li>
                         <li>
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M20 6L9 17l-5-5"/>
+                                <polyline points="20 6 9 17 4 12"/>
                             </svg>
-                            <span data-i18n="pricing.business.f5">1 month support</span>
+                            3 months support
                         </li>
                     </ul>
-                    <a href="https://t.me/konstcreative" class="btn btn-primary btn-glow" target="_blank" rel="noopener" data-i18n="pricing.cta">Get Started</a>
-                </article>
-
-                <article class="pricing-card scroll-reveal">
-                    <div class="pricing-header">
-                        <h3 class="pricing-name" data-i18n="pricing.pro.name">Pro</h3>
-                        <p class="pricing-desc" data-i18n="pricing.pro.desc">Enterprise solutions</p>
-                        <div class="pricing-price">
-                            <span class="currency">$</span>
-                            <span class="amount">2,499</span>
-                            <span class="period" data-i18n="pricing.period">/project</span>
-                        </div>
-                    </div>
+                    <a href="https://t.me/konstcreative" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Get Started</a>
+                </div>
+                <div class="pricing-card">
+                    <div class="pricing-name">Professional</div>
+                    <h3 class="pricing-title">Full Solution</h3>
+                    <div class="pricing-price">$2499 <span>/ project</span></div>
                     <ul class="pricing-features">
                         <li>
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M20 6L9 17l-5-5"/>
+                                <polyline points="20 6 9 17 4 12"/>
                             </svg>
-                            <span data-i18n="pricing.pro.f1">Unlimited pages</span>
+                            Unlimited pages
                         </li>
                         <li>
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M20 6L9 17l-5-5"/>
+                                <polyline points="20 6 9 17 4 12"/>
                             </svg>
-                            <span data-i18n="pricing.pro.f2">WooCommerce store</span>
+                            E-commerce capability
                         </li>
                         <li>
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M20 6L9 17l-5-5"/>
+                                <polyline points="20 6 9 17 4 12"/>
                             </svg>
-                            <span data-i18n="pricing.pro.f3">Full SEO + Ads setup</span>
+                            SEO + Ads setup
                         </li>
                         <li>
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M20 6L9 17l-5-5"/>
+                                <polyline points="20 6 9 17 4 12"/>
                             </svg>
-                            <span data-i18n="pricing.pro.f4">Custom functionality</span>
+                            Custom integrations
                         </li>
                         <li>
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M20 6L9 17l-5-5"/>
+                                <polyline points="20 6 9 17 4 12"/>
                             </svg>
-                            <span data-i18n="pricing.pro.f5">3 months support</span>
+                            6 months support
                         </li>
                     </ul>
-                    <a href="https://t.me/konstcreative" class="btn btn-outline" target="_blank" rel="noopener" data-i18n="pricing.cta">Get Started</a>
-                </article>
+                    <a href="https://t.me/konstcreative" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Get Started</a>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Section 7: Testimonials -->
+    <!-- Testimonials Section -->
     <section class="testimonials" id="testimonials">
-        <div class="container">
-            <div class="section-header scroll-reveal">
-                <span class="section-tag" data-i18n="testimonials.tag">Testimonials</span>
-                <h2 class="section-title" data-i18n="testimonials.title">Client <span class="gradient-text">Reviews</span></h2>
-                <p class="section-description" data-i18n="testimonials.desc">What my clients say about working with me</p>
-            </div>
-            <div class="testimonials-slider scroll-reveal">
-                <div class="testimonials-track" id="testimonials-track">
-                    <article class="testimonial-card">
-                        <div class="testimonial-rating">
-                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        </div>
-                        <p class="testimonial-text" data-i18n="testimonials.t1.text">"Konst delivered our website ahead of schedule and exceeded all expectations. The SEO work has already brought in 40% more organic traffic in just two months."</p>
+        <div class="section-container">
+            <span class="section-label">Testimonials</span>
+            <h2 class="section-title">What clients say</h2>
+            <p class="section-description">
+                Don't just take my word for it. Here's what business owners say about working with me.
+            </p>
+            <div class="testimonials-slider">
+                <div class="testimonial-track">
+                    <div class="testimonial-card">
+                        <p class="testimonial-quote">
+                            Konstantin transformed our outdated website into a modern, fast-loading platform. Our organic traffic increased by 340% within 6 months. His attention to detail and strategic thinking made all the difference.
+                        </p>
                         <div class="testimonial-author">
-                            <div class="author-avatar">AM</div>
-                            <div class="author-info">
-                                <span class="author-name" data-i18n="testimonials.t1.name">Alex Mitchell</span>
-                                <span class="author-role" data-i18n="testimonials.t1.role">CEO, TechStart Inc.</span>
+                            <div class="testimonial-avatar">AK</div>
+                            <div class="testimonial-info">
+                                <h4>Alexander K.</h4>
+                                <p>CEO, TechStart Solutions</p>
                             </div>
                         </div>
-                    </article>
-
-                    <article class="testimonial-card">
-                        <div class="testimonial-rating">
-                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        </div>
-                        <p class="testimonial-text" data-i18n="testimonials.t2.text">"The Google Ads campaigns have been a game-changer for our business. ROI improved by 300% and the targeting is spot-on. Highly recommend!"</p>
+                    </div>
+                    <div class="testimonial-card">
+                        <p class="testimonial-quote">
+                            The Google Ads campaign Konstantin set up exceeded our expectations. We saw a 200% increase in qualified leads while actually reducing our ad spend. Highly recommend his services.
+                        </p>
                         <div class="testimonial-author">
-                            <div class="author-avatar">SK</div>
-                            <div class="author-info">
-                                <span class="author-name" data-i18n="testimonials.t2.name">Sarah Kim</span>
-                                <span class="author-role" data-i18n="testimonials.t2.role">Marketing Director, Bloom Co.</span>
+                            <div class="testimonial-avatar">MV</div>
+                            <div class="testimonial-info">
+                                <h4>Maria V.</h4>
+                                <p>Marketing Director, GreenLeaf Co.</p>
                             </div>
                         </div>
-                    </article>
-
-                    <article class="testimonial-card">
-                        <div class="testimonial-rating">
-                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        </div>
-                        <p class="testimonial-text" data-i18n="testimonials.t3.text">"Professional, responsive, and incredibly skilled. Our e-commerce store looks amazing and sales have increased significantly since launch."</p>
+                    </div>
+                    <div class="testimonial-card">
+                        <p class="testimonial-quote">
+                            Professional, responsive, and truly understands business needs. Our new WordPress site loads in under 2 seconds and converts visitors into customers. Best investment we made this year.
+                        </p>
                         <div class="testimonial-author">
-                            <div class="author-avatar">MR</div>
-                            <div class="author-info">
-                                <span class="author-name" data-i18n="testimonials.t3.name">Michael Roberts</span>
-                                <span class="author-role" data-i18n="testimonials.t3.role">Founder, Artisan Goods</span>
+                            <div class="testimonial-avatar">DS</div>
+                            <div class="testimonial-info">
+                                <h4>Dmitry S.</h4>
+                                <p>Founder, Digital Craft Agency</p>
                             </div>
                         </div>
-                    </article>
+                    </div>
                 </div>
-                <div class="testimonials-controls">
-                    <button class="slider-btn slider-prev" id="slider-prev" aria-label="Previous testimonial">
+                <div class="testimonials-nav">
+                    <button class="testimonial-btn prev" aria-label="Previous testimonial">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M19 12H5M12 19l-7-7 7-7"/>
+                            <polyline points="15 18 9 12 15 6"/>
                         </svg>
                     </button>
-                    <div class="slider-dots" id="slider-dots">
-                        <button class="dot active" data-index="0" aria-label="Go to slide 1"></button>
-                        <button class="dot" data-index="1" aria-label="Go to slide 2"></button>
-                        <button class="dot" data-index="2" aria-label="Go to slide 3"></button>
+                    <div class="testimonial-dots">
+                        <span class="testimonial-dot active" data-index="0" aria-label="Go to testimonial 1"></span>
+                        <span class="testimonial-dot" data-index="1" aria-label="Go to testimonial 2"></span>
+                        <span class="testimonial-dot" data-index="2" aria-label="Go to testimonial 3"></span>
                     </div>
-                    <button class="slider-btn slider-next" id="slider-next" aria-label="Next testimonial">
+                    <button class="testimonial-btn next" aria-label="Next testimonial">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                            <polyline points="9 18 15 12 9 6"/>
                         </svg>
                     </button>
                 </div>
@@ -616,69 +1738,243 @@
         </div>
     </section>
 
-    <!-- Section 8: Final CTA -->
+    <!-- Final CTA Section -->
     <section class="final-cta" id="contact">
-        <div class="container">
-            <div class="cta-content scroll-reveal">
-                <h2 class="cta-title" data-i18n="cta.title">Ready to <span class="gradient-text">Transform</span> Your Business?</h2>
-                <p class="cta-description" data-i18n="cta.desc">
-                    Let's discuss your project and create something amazing together. 
-                    Get in touch now for a free consultation.
-                </p>
-                <a href="https://t.me/konstcreative" class="btn btn-cta btn-glow" target="_blank" rel="noopener">
-                    <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
-                    </svg>
-                    <span data-i18n="cta.button">Discuss Project in Telegram</span>
-                </a>
-                <p class="cta-note" data-i18n="cta.note">Response within 24 hours • Free initial consultation</p>
-            </div>
+        <div class="section-container">
+            <span class="section-label">Ready to Start?</span>
+            <h2 class="section-title">Let's build something great together</h2>
+            <p class="section-description">
+                Have a project in mind? I'm ready to discuss your ideas and help you achieve your business goals. Let's talk.
+            </p>
+            <a href="https://t.me/konstcreative" class="btn btn-primary btn-large" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24">
+                    <path d="M21.198 2.433a2.242 2.242 0 0 0-1.022.215l-16.5 6.875a2.25 2.25 0 0 0 .087 4.257l3.45 1.143 1.143 3.45a2.25 2.25 0 0 0 4.257.087l6.875-16.5a2.242 2.242 0 0 0-.215-1.022z"/>
+                </svg>
+                Discuss Your Project in Telegram
+            </a>
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <a href="#" class="logo">
-                        <span class="logo-icon">K</span>
-                        <span class="logo-text">Konst<span class="logo-accent">Creative</span></span>
-                    </a>
-                    <p class="footer-tagline" data-i18n="footer.tagline">Transforming digital visions into reality</p>
-                </div>
-                <div class="footer-links">
-                    <div class="footer-column">
-                        <h4 data-i18n="footer.services">Services</h4>
-                        <ul>
-                            <li><a href="#services" data-i18n="footer.link1">WordPress Development</a></li>
-                            <li><a href="#services" data-i18n="footer.link2">SEO Optimization</a></li>
-                            <li><a href="#services" data-i18n="footer.link3">Context Advertising</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-column">
-                        <h4 data-i18n="footer.quickLinks">Quick Links</h4>
-                        <ul>
-                            <li><a href="#portfolio" data-i18n="footer.link4">Portfolio</a></li>
-                            <li><a href="#pricing" data-i18n="footer.link5">Pricing</a></li>
-                            <li><a href="#process" data-i18n="footer.link6">Process</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-column">
-                        <h4 data-i18n="footer.contact">Contact</h4>
-                        <ul>
-                            <li><a href="https://t.me/konstcreative" target="_blank" rel="noopener">Telegram</a></li>
-                            <li><a href="mailto:hello@konstcreative.com">hello@konstcreative.com</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Konst Creative. <span data-i18n="footer.rights">All rights reserved.</span></p>
+        <div class="footer-content">
+            <p>2025 Konst Creative. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="https://t.me/konstcreative" target="_blank" rel="noopener noreferrer">Telegram</a>
+                <a href="mailto:contact@konstcreative.com">Email</a>
             </div>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        // Initialize variables first
+        const canvas = document.getElementById('particle-canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        let animationId = null;
+        let currentTestimonial = 0;
+        const totalTestimonials = 3;
+
+        // Particle System
+        function initParticles() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            
+            particles = [];
+            const particleCount = Math.min(80, Math.floor(window.innerWidth / 20));
+            
+            for (let i = 0; i < particleCount; i++) {
+                particles.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    vx: (Math.random() - 0.5) * 0.3,
+                    vy: (Math.random() - 0.5) * 0.3,
+                    radius: Math.max(1, Math.random() * 2),
+                    opacity: Math.random() * 0.5 + 0.1
+                });
+            }
+        }
+
+        function drawParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            particles.forEach((p, i) => {
+                // Update position
+                p.x += p.vx;
+                p.y += p.vy;
+                
+                // Wrap around edges
+                if (p.x < 0) p.x = canvas.width;
+                if (p.x > canvas.width) p.x = 0;
+                if (p.y < 0) p.y = canvas.height;
+                if (p.y > canvas.height) p.y = 0;
+                
+                // Draw particle
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(0, 229, 204, ${p.opacity})`;
+                ctx.fill();
+                
+                // Draw connections
+                particles.slice(i + 1).forEach(p2 => {
+                    const dx = p.x - p2.x;
+                    const dy = p.y - p2.y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    
+                    if (dist < 150) {
+                        ctx.beginPath();
+                        ctx.moveTo(p.x, p.y);
+                        ctx.lineTo(p2.x, p2.y);
+                        const opacity = Math.max(0.01, (1 - dist / 150) * 0.15);
+                        ctx.strokeStyle = `rgba(0, 229, 204, ${opacity})`;
+                        ctx.stroke();
+                    }
+                });
+            });
+            
+            animationId = requestAnimationFrame(drawParticles);
+        }
+
+        // Check for reduced motion preference
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        if (!prefersReducedMotion) {
+            initParticles();
+            drawParticles();
+            
+            window.addEventListener('resize', () => {
+                initParticles();
+            });
+        }
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements
+        document.querySelectorAll('.section-label, .section-title, .section-description, .hero-badge, .hero-title, .hero-subtitle, .hero-buttons, .hero-stats, .service-card, .benefit-card, .portfolio-card, .process-step, .pricing-card').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Testimonial Slider
+        const track = document.querySelector('.testimonial-track');
+        const dots = document.querySelectorAll('.testimonial-dot');
+        const prevBtn = document.querySelector('.testimonial-btn.prev');
+        const nextBtn = document.querySelector('.testimonial-btn.next');
+
+        function updateSlider() {
+            if (track) {
+                track.style.transform = `translateX(-${currentTestimonial * 100}%)`;
+            }
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === currentTestimonial);
+            });
+        }
+
+        function nextTestimonial() {
+            currentTestimonial = (currentTestimonial + 1) % totalTestimonials;
+            updateSlider();
+        }
+
+        function prevTestimonial() {
+            currentTestimonial = (currentTestimonial - 1 + totalTestimonials) % totalTestimonials;
+            updateSlider();
+        }
+
+        if (prevBtn && nextBtn) {
+            prevBtn.addEventListener('click', prevTestimonial);
+            nextBtn.addEventListener('click', nextTestimonial);
+        }
+
+        dots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                currentTestimonial = parseInt(dot.dataset.index);
+                updateSlider();
+            });
+        });
+
+        // Auto-advance testimonials
+        if (!prefersReducedMotion) {
+            setInterval(nextTestimonial, 6000);
+        }
+
+        // Mobile Menu
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const mobileMenuLinks = mobileMenu ? mobileMenu.querySelectorAll('a') : [];
+
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('active');
+                mobileMenuBtn.setAttribute('aria-expanded', mobileMenu.classList.contains('active'));
+            });
+
+            mobileMenuLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.remove('active');
+                    mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                });
+            });
+        }
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: prefersReducedMotion ? 'auto' : 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+
+        // Add staggered delays to service cards
+        document.querySelectorAll('.service-card').forEach((card, i) => {
+            card.style.transitionDelay = `${i * 0.1}s`;
+        });
+
+        // Add staggered delays to benefit cards
+        document.querySelectorAll('.benefit-card').forEach((card, i) => {
+            card.style.transitionDelay = `${i * 0.08}s`;
+        });
+
+        // Add staggered delays to pricing cards
+        document.querySelectorAll('.pricing-card').forEach((card, i) => {
+            card.style.transitionDelay = `${i * 0.1}s`;
+        });
+
+        // Add staggered delays to process steps
+        document.querySelectorAll('.process-step').forEach((step, i) => {
+            step.style.transitionDelay = `${i * 0.1}s`;
+        });
+
+        // Keyboard navigation for dots
+        dots.forEach((dot, index) => {
+            dot.setAttribute('tabindex', '0');
+            dot.setAttribute('role', 'button');
+            dot.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    currentTestimonial = index;
+                    updateSlider();
+                }
+            });
+        });
+    </script>
 </body>
 </html>
