@@ -1,90 +1,225 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Разработка сайтов под ключ</title>
-  <meta name="description" content="Создание современных сайтов: лендинги, корпоративные сайты и интернет‑магазины. Быстро, красиво, эффективно." />
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Профессиональная разработка на WordPress, SEO-оптимизация и контекстная реклама. Экспертные решения для вашего бизнеса.">
+    <meta name="keywords" content="разработка WordPress, SEO оптимизация, контекстная реклама, Google Ads, Яндекс Директ, фриланс разработчик">
+    <meta name="author" content="Konst Creative">
+    <meta property="og:title" content="Konst Creative | Эксперт в Digital-решениях">
+    <meta property="og:description" content="Разработка сайтов на WordPress, продвижение и реклама.">
+    <meta property="og:type" content="website">
+    <title data-i18n="meta.title">Konst Creative | WordPress, SEO и контекстная реклама</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="header">
-    <div class="container header-inner">
-      <div class="logo">AQUILON</div>
-      <nav class="nav">
-        <a href="#services" data-ru="Услуги" data-en="Services">Услуги</a>
-        <a href="#portfolio" data-ru="Портфолио" data-en="Portfolio">Портфолио</a>
-        <a href="#process" data-ru="Процесс" data-en="Process">Процесс</a>
-        <a href="#contact" data-ru="Контакты" data-en="Contact">Контакты</a>
-      </nav>
-      <button id="lang-toggle" class="lang-btn">EN</button>
-    </div>
-  </header>
+    <canvas id="particle-canvas" class="particle-canvas"></canvas>
+    <div class="gradient-overlay"></div>
 
-  <section class="hero">
-    <div class="container hero-inner">
-      <h1 data-ru="Разработка сайтов под ключ" data-en="Turnkey website development">Разработка сайтов под ключ</h1>
-      <p data-ru="Создаю современные сайты, которые приводят клиентов" data-en="I create modern websites that bring clients">Создаю современные сайты, которые приводят клиентов</p>
-      <a class="btn" href="https://t.me/yourtelegram" target="_blank" data-ru="Обсудить проект" data-en="Discuss project">Обсудить проект</a>
-    </div>
-  </section>
-
-  <section id="services" class="section">
-    <div class="container">
-      <h2 data-ru="Услуги" data-en="Services">Услуги</h2>
-      <div class="grid">
-        <div class="card">
-          <h3 data-ru="Лендинг" data-en="Landing page">Лендинг</h3>
-          <p data-ru="Одностраничный сайт для продажи услуги или товара" data-en="Single‑page website for selling services or products">Одностраничный сайт для продажи услуги или товара</p>
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <span class="logo-icon">K</span>
+                <span class="logo-text">Konst<span class="logo-accent">Creative</span></span>
+            </a>
+            <div class="nav-right">
+                <div class="language-switcher">
+                    <button class="lang-btn active" data-lang="ru">RU</button>
+                    <span class="lang-divider">/</span>
+                    <button class="lang-btn" data-lang="en">EN</button>
+                </div>
+                <button class="nav-toggle" id="nav-toggle" aria-label="Открыть меню">
+                    <span class="hamburger"></span>
+                </button>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#services" class="nav-link" data-i18n="nav.services">Услуги</a></li>
+                <li><a href="#why-me" class="nav-link" data-i18n="nav.whyMe">Преимущества</a></li>
+                <li><a href="#portfolio" class="nav-link" data-i18n="nav.portfolio">Портфолио</a></li>
+                <li><a href="#process" class="nav-link" data-i18n="nav.process">Процесс</a></li>
+                <li><a href="#pricing" class="nav-link" data-i18n="nav.pricing">Цены</a></li>
+                <li><a href="#testimonials" class="nav-link" data-i18n="nav.reviews">Отзывы</a></li>
+                <li><a href="https://t.me/konstcreative" class="nav-link nav-cta" target="_blank" rel="noopener" data-i18n="nav.contact">Связаться</a></li>
+            </ul>
         </div>
-        <div class="card">
-          <h3 data-ru="Корпоративный сайт" data-en="Business website">Корпоративный сайт</h3>
-          <p data-ru="Многостраничный сайт компании" data-en="Multi‑page company website">Многостраничный сайт компании</p>
+    </nav>
+
+    <section class="hero" id="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge scroll-reveal">
+                    <span class="badge-dot"></span>
+                    <span data-i18n="hero.badge">Открыт для новых проектов</span>
+                </div>
+                <h1 class="hero-title scroll-reveal">
+                    <span data-i18n="hero.title1">Трансформируйте свой</span><br>
+                    <span class="gradient-text" data-i18n="hero.title2">Digital-бизнес</span>
+                </h1>
+                <p class="hero-subtitle scroll-reveal" data-i18n="hero.subtitle">
+                    Создаю высококонверсионные сайты на WordPress, повышаю позиции в поиске через SEO 
+                    и привлекаю целевой трафик с помощью контекстной рекламы. Результаты, которые важны.
+                </p>
+                <div class="hero-buttons scroll-reveal">
+                    <a href="https://t.me/konstcreative" class="btn btn-primary btn-glow" target="_blank" rel="noopener">
+                        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+                        </svg>
+                        <span data-i18n="hero.ctaPrimary">Обсудить проект в Telegram</span>
+                    </a>
+                    <a href="#portfolio" class="btn btn-secondary">
+                        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                            <circle cx="12" cy="12" r="3"/>
+                        </svg>
+                        <span data-i18n="hero.ctaSecondary">Смотреть работы</span>
+                    </a>
+                </div>
+                <div class="hero-stats scroll-reveal">
+                    <div class="stat-item">
+                        <span class="stat-number">50+</span>
+                        <span class="stat-label" data-i18n="hero.stat1">Завершенных проектов</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <span class="stat-number">98%</span>
+                        <span class="stat-label" data-i18n="hero.stat2">Довольных клиентов</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <span class="stat-number">5+</span>
+                        <span class="stat-label" data-i18n="hero.stat3">Лет опыта</span>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="card">
-          <h3 data-ru="Интернет‑магазин" data-en="Online store">Интернет‑магазин</h3>
-          <p data-ru="Продажа товаров онлайн" data-en="Sell products online">Продажа товаров онлайн</p>
+        <div class="hero-scroll-indicator">
+            <div class="scroll-mouse">
+                <div class="scroll-wheel"></div>
+            </div>
+            <span data-i18n="hero.scroll">Листайте вниз</span>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="portfolio" class="section dark">
-    <div class="container">
-      <h2 data-ru="Портфолио" data-en="Portfolio">Портфолио</h2>
-      <div class="grid portfolio">
-        <div class="portfolio-item">Demo Project 1</div>
-        <div class="portfolio-item">Demo Project 2</div>
-        <div class="portfolio-item">Demo Project 3</div>
-      </div>
-    </div>
-  </section>
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header scroll-reveal">
+                <span class="section-tag" data-i18n="services.tag">Что я делаю</span>
+                <h2 class="section-title" data-i18n="services.title">Услуги для <span class="gradient-text">роста</span> вашего бизнеса</h2>
+                <p class="section-description" data-i18n="services.desc">Комплексные digital-решения, адаптированные под ваши задачи</p>
+            </div>
+            <div class="services-grid">
+                <article class="service-card scroll-reveal">
+                    <div class="service-icon-wrapper">
+                        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                            <path d="M2 17l10 5 10-5"/>
+                            <path d="M2 12l10 5 10-5"/>
+                        </svg>
+                    </div>
+                    <h3 class="service-title" data-i18n="services.wp.title">Разработка на WordPress</h3>
+                    <p class="service-description" data-i18n="services.wp.desc">
+                        Создание сайтов, заточенных под конверсию и скорость. От корпоративных ресурсов до сложных интернет-магазинов на WooCommerce.
+                    </p>
+                    <ul class="service-features">
+                        <li data-i18n="services.wp.f1">Индивидуальные темы и плагины</li>
+                        <li data-i18n="services.wp.f2">Магазины на WooCommerce</li>
+                        <li data-i18n="services.wp.f3">Оптимизация скорости</li>
+                        <li data-i18n="services.wp.f4">Адаптивный дизайн</li>
+                    </ul>
+                    <a href="https://t.me/konstcreative" class="service-link" target="_blank" rel="noopener">
+                        <span data-i18n="services.learnMore">Подробнее</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </article>
 
-  <section id="process" class="section">
-    <div class="container">
-      <h2 data-ru="Как проходит работа" data-en="Workflow">Как проходит работа</h2>
-      <ol class="process">
-        <li data-ru="Обсуждение проекта" data-en="Project discussion">Обсуждение проекта</li>
-        <li data-ru="Дизайн и прототип" data-en="Design and prototype">Дизайн и прототип</li>
-        <li data-ru="Разработка" data-en="Development">Разработка</li>
-        <li data-ru="Запуск" data-en="Launch">Запуск</li>
-      </ol>
-    </div>
-  </section>
+                <article class="service-card scroll-reveal">
+                    <div class="service-icon-wrapper">
+                        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <circle cx="11" cy="11" r="8"/>
+                            <path d="M21 21l-4.35-4.35"/>
+                            <path d="M11 8v6M8 11h6"/>
+                        </svg>
+                    </div>
+                    <h3 class="service-title" data-i18n="services.seo.title">SEO Оптимизация</h3>
+                    <p class="service-description" data-i18n="services.seo.desc">
+                        Стратегии, основанные на данных, для улучшения позиций и роста органического трафика. Технический аудит и контент-план.
+                    </p>
+                    <ul class="service-features">
+                        <li data-i18n="services.seo.f1">Технический SEO-аудит</li>
+                        <li data-i18n="services.seo.f2">Подбор семантического ядра</li>
+                        <li data-i18n="services.seo.f3">Внутренняя оптимизация</li>
+                        <li data-i18n="services.seo.f4">Работа со ссылочной массой</li>
+                    </ul>
+                    <a href="https://t.me/konstcreative" class="service-link" target="_blank" rel="noopener">
+                        <span data-i18n="services.learnMore">Подробнее</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </article>
 
-  <section id="contact" class="section dark">
-    <div class="container contact">
-      <h2 data-ru="Связаться со мной" data-en="Contact me">Связаться со мной</h2>
-      <a class="btn" href="https://t.me/yourtelegram" target="_blank" data-ru="Написать в Telegram" data-en="Message on Telegram">Написать в Telegram</a>
-    </div>
-  </section>
+                <article class="service-card scroll-reveal">
+                    <div class="service-icon-wrapper">
+                        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                        </svg>
+                    </div>
+                    <h3 class="service-title" data-i18n="services.ads.title">Контекстная реклама</h3>
+                    <p class="service-description" data-i18n="services.ads.desc">
+                        Запуск эффективных кампаний в Яндекс Директ и Google Ads. Точный таргетинг и непрерывная оптимизация для высокого ROI.
+                    </p>
+                    <ul class="service-features">
+                        <li data-i18n="services.ads.f1">Настройка Яндекс Директ</li>
+                        <li data-i18n="services.ads.f2">Google Ads кампании</li>
+                        <li data-i18n="services.ads.f3">Ретаргетинг и ремаркетинг</li>
+                        <li data-i18n="services.ads.f4">Настройка сквозной аналитики</li>
+                    </ul>
+                    <a href="https://t.me/konstcreative" class="service-link" target="_blank" rel="noopener">
+                        <span data-i18n="services.learnMore">Подробнее</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </article>
+            </div>
+        </div>
+    </section>
 
-  <footer class="footer">
-    <div class="container">
-      <p>© 2026 Aquilon</p>
-    </div>
-  </footer>
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <div class="section-header scroll-reveal">
+                <span class="section-tag" data-i18n="pricing.tag">Цены</span>
+                <h2 class="section-title" data-i18n="pricing.title">Тарифные <span class="gradient-text">планы</span></h2>
+            </div>
+            <div class="pricing-grid">
+                <article class="pricing-card scroll-reveal">
+                    <div class="pricing-header">
+                        <h3 class="pricing-name" data-i18n="pricing.start.name">Старт</h3>
+                        <p class="pricing-desc" data-i18n="pricing.start.desc">Для малого бизнеса</p>
+                        <div class="pricing-price">
+                            <span class="currency">$</span>
+                            <span class="amount">499</span>
+                        </div>
+                    </div>
+                    <a href="https://t.me/konstcreative" class="btn btn-outline" data-i18n="pricing.cta">Начать проект</a>
+                </article>
+                </div>
+        </div>
+    </section>
 
-  <script src="script.js"></script>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2024 Konst Creative. <span data-i18n="footer.rights">Все права защищены.</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
