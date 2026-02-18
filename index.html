@@ -188,22 +188,37 @@
             width: 100%;
         }
 
-        .mobile-menu-btn {
-            display: none;
-            flex-direction: column;
-            gap: 5px;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 5px;
-        }
+        /* === БУРГЕР-МЕНЮ === */
+.mobile-menu-btn {
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+}
 
-        .mobile-menu-btn span {
-            width: 24px;
-            height: 2px;
-            background: var(--fg-primary);
-            transition: all 0.3s ease;
-        }
+.mobile-menu-btn span {
+    height: 2px;
+    background: var(--fg-primary);
+    transition: all 0.3s ease;
+    border-radius: 2px;
+}
+
+.mobile-menu-btn span:nth-child(1) {
+    width: 28px;
+    margin-left: 9px;
+}
+.mobile-menu-btn span:nth-child(3) {
+    width: 31px;
+    margin-left: 6px;
+}
+
+.mobile-menu-btn span:nth-child(2) {
+    width: 37px;
+}
 
         /* Sections Base */
         section {
@@ -883,24 +898,32 @@
             overflow: hidden;
         }
 
-        .testimonials-slider {
-            margin-top: 3rem;
-            position: relative;
-        }
+          /* === СЛАЙДЕР ОТЗЫВОВ === */
+.testimonials-slider {
+    margin-top: 3rem;
+    position: relative;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
 
-        .testimonial-track {
-            display: flex;
-            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-        }
+.testimonial-track {
+    display: flex;
+    gap: 2rem;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
 
-        .testimonial-card {
-            min-width: 100%;
-            padding: 3rem;
-            background: var(--glass-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 24px;
-            backdrop-filter: blur(20px);
-        }
+.testimonial-card {
+    flex: 0 0 calc(100% - 3rem);
+    min-width: calc(100% - 3rem);
+    padding: 2.5rem;
+    margin: 0 auto;
+    background: var(--glass-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 24px;
+    backdrop-filter: blur(20px);
+    box-sizing: border-box;
+}
 
         .testimonial-quote {
             font-size: 1.25rem;
