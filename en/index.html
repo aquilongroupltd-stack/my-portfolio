@@ -1196,6 +1196,26 @@
         font-size: 2rem;
     }
 
+
+    @media (max-width: 768px) {
+    /* Убираем ограничения ширины у секций */
+    section,
+    .container,
+    .wrapper {
+        max-width: 100% !important;
+        width: 100% !important;
+        padding-left: 1.25rem !important;
+        padding-right: 1.25rem !important;
+    }
+    
+    /* Если есть какие-то внутренние контейнеры */
+    .services-grid,
+    .benefits-grid,
+    .pricing-grid {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+}
     /* === SERVICES === */
     .services-grid {
         grid-template-columns: 1fr;
