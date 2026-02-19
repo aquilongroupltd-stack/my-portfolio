@@ -1197,13 +1197,45 @@
     }
 
 
-   @media (max-width: 768px) {
+  @media (max-width: 768px) {
+    /* Показываем границы всех элементов */
     * {
-        max-width: 100% !important;
+        outline: 1px solid rgba(255, 0, 0, 0.2) !important;
     }
     
+    /* Убираем горизонтальный скролл */
+    body, html {
+        overflow-x: hidden !important;
+        max-width: 100vw !important;
+    }
+    
+    /* Все секции на всю ширину */
     section {
-        padding: 4rem 0 !important; /* Убираем боковые отступы временно */
+        width: 100% !important;
+        max-width: 100% !important;
+        padding-left: 1.25rem !important;
+        padding-right: 1.25rem !important;
+        box-sizing: border-box !important;
+    }
+    
+    /* Все гриды и контейнеры */
+    .services-grid,
+    .benefits-grid,
+    .pricing-grid,
+    .portfolio-showcase {
+        width: 100% !important;
+        max-width: 100% !important;
+        justify-items: stretch !important; /* Растягиваем элементы */
+    }
+    
+    /* Карточки */
+    .service-card,
+    .benefit-card,
+    .pricing-card,
+    .portfolio-card {
+        width: 100% !important;
+        max-width: none !important; /* Убираем ограничение 400px */
+        justify-self: center !important;
     }
 }
     /* === SERVICES === */
