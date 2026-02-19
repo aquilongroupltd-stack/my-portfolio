@@ -1199,14 +1199,17 @@
     /* === SERVICES === */
     .services-grid {
         grid-template-columns: 1fr;
-        justify-items: center; /* Карточки по центру */
+        /* justify-items: center;  <-- Можно убрать, так как width: 100% растянет карточку */
         gap: 1.25rem;
     }
     
     .service-card {
-        text-align: center; /* Текст внутри карточек по центру */
-        max-width: 400px;
+        text-align: center;
+        width: 100%; /* <-- ДОБАВИТЬ: Занимать всю ширину */
+        max-width: 100%; /* <-- ДОБАВИТЬ: Разрешить быть шире 400px */
+        /* max-width: 400px; <-- УДАЛИТЬ или закомментировать эту строку */
     }
+
     
     .service-icon {
         margin-left: auto;
