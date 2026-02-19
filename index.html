@@ -1,2005 +1,2033 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Профессиональная разработка сайтов на WordPress, SEO-оптимизация и настройка контекстной рекламы. Превращаю ваш онлайн-присутствие в мощный бизнес-инструмент.">
-    <meta name="keywords" content="разработка сайтов WordPress, SEO оптимизация, Google Ads, Яндекс Директ, фрилансер веб-разработчик">
-    <title>Konst Creative | WordPress & SEO Специалист</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <style>
-        :root {
-            --bg-primary: #0d0d0f;
-            --bg-secondary: #131316;
-            --bg-card: rgba(22, 22, 28, 0.6);
-            --fg-primary: #f5f5f7;
-            --fg-secondary: #9ca3af;
-            --fg-muted: #6b7280;
-            --accent-cyan: #00e5cc;
-            --accent-gold: #ffc857;
-            --accent-cyan-glow: rgba(0, 229, 204, 0.4);
-            --accent-gold-glow: rgba(255, 200, 87, 0.3);
-            --border-color: rgba(255, 255, 255, 0.08);
-            --glass-bg: rgba(255, 255, 255, 0.03);
-            --glass-border: rgba(255, 255, 255, 0.1);
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Разработка сайтов на WordPress|Продвижение|Реклама.">
+<meta name="keywords" content="разработка сайтов WordPress, SEO продвижение, контекстная реклама, Яндекс Директ, Google Ads, веб-разработчик фрилансер">
+<title>Konst Creative | Разработка сайтов & SEO-продвижение</title>
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-        html {
-            scroll-behavior: smooth;
-        }
+<script src="https://cdn.tailwindcss.com"></script>
 
-        @media (prefers-reduced-motion: reduce) {
-            html {
-                scroll-behavior: auto;
-            }
-            *, *::before, *::after {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-            }
-        }
+<style>
+:root {
+--bg-primary: #0d0d0f;
+--bg-secondary: #131316;
+--bg-card: rgba(22, 22, 28, 0.6);
+--fg-primary: #f5f5f7;
+--fg-secondary: #9ca3af;
+--fg-muted: #6b7280;
+--accent-cyan: #00e5cc;
+--accent-gold: #ffc857;
+--accent-cyan-glow: rgba(0, 229, 204, 0.4);
+--accent-gold-glow: rgba(255, 200, 87, 0.3);
+--border-color: rgba(255, 255, 255, 0.08);
+--glass-bg: rgba(255, 255, 255, 0.03);
+--glass-border: rgba(255, 255, 255, 0.1);
+}
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-primary);
-            color: var(--fg-primary);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
 
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-weight: 600;
-            line-height: 1.2;
-        }
+html {
+scroll-behavior: smooth;
+}
 
-        /* Particle Canvas */
-        #particle-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-            pointer-events: none;
-        }
+@media (prefers-reduced-motion: reduce) {
+html { scroll-behavior: auto; }
+*, *::before, *::after {
+animation-duration: 0.01ms !important;
+animation-iteration-count: 1 !important;
+transition-duration: 0.01ms !important;
+}
+}
 
-        /* Ambient Background */
-        .ambient-glow {
-            position: fixed;
-            width: 600px;
-            height: 600px;
-            border-radius: 50%;
-            filter: blur(150px);
-            opacity: 0.15;
-            pointer-events: none;
-            z-index: 0;
-        }
+body {
+font-family: 'Inter', sans-serif;
+background-color: var(--bg-primary);
+color: var(--fg-primary);
+line-height: 1.6;
+overflow-x: hidden;
+}
 
-        .glow-1 {
-            top: -200px;
-            right: -200px;
-            background: var(--accent-cyan);
-            animation: floatGlow 20s ease-in-out infinite;
-        }
+h1, h2, h3, h4, h5, h6 {
+font-family: 'Space Grotesk', sans-serif;
+font-weight: 600;
+line-height: 1.2;
+}
 
-        .glow-2 {
-            bottom: -200px;
-            left: -200px;
-            background: var(--accent-gold);
-            animation: floatGlow 25s ease-in-out infinite reverse;
-        }
+/* Particle Canvas */
+#particle-canvas {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+z-index: 0;
+pointer-events: none;
+}
 
-        @keyframes floatGlow {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            33% { transform: translate(50px, 30px) scale(1.1); }
-            66% { transform: translate(-30px, 50px) scale(0.9); }
-        }
+/* Ambient Background */
+.ambient-glow {
+position: fixed;
+width: 600px;
+height: 600px;
+border-radius: 50%;
+filter: blur(150px);
+opacity: 0.15;
+pointer-events: none;
+z-index: 0;
+}
 
-        /* Navigation */
-        .nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 100;
-            padding: 1rem 2rem;
-            backdrop-filter: blur(20px);
-            background: rgba(13, 13, 15, 0.8);
-            border-bottom: 1px solid var(--border-color);
-            transform: translateY(-100%);
-            animation: slideDown 0.6s ease forwards 0.3s;
-        }
+.glow-1 {
+top: -200px;
+right: -200px;
+background: var(--accent-cyan);
+animation: floatGlow 20s ease-in-out infinite;
+}
 
-        @keyframes slideDown {
-            to { transform: translateY(0); }
-        }
+.glow-2 {
+bottom: -200px;
+left: -200px;
+background: var(--accent-gold);
+animation: floatGlow 25s ease-in-out infinite reverse;
+}
 
-        .nav-inner {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+@keyframes floatGlow {
+0%, 100% { transform: translate(0, 0) scale(1); }
+33% { transform: translate(50px, 30px) scale(1.1); }
+66% { transform: translate(-30px, 50px) scale(0.9); }
+}
 
-        .logo {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--fg-primary);
-            text-decoration: none;
-            position: relative;
-        }
+/* Navigation */
+.nav {
+position: fixed;
+top: 0;
+left: 0;
+right: 0;
+z-index: 100;
+padding: 1rem 2rem;
+backdrop-filter: blur(20px);
+background: rgba(13, 13, 15, 0.8);
+border-bottom: 1px solid var(--border-color);
+transform: translateY(-100%);
+animation: slideDown 0.6s ease forwards 0.3s;
+}
 
-        .logo::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-gold));
-        }
+@keyframes slideDown {
+to { transform: translateY(0); }
+}
 
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
+.nav-inner {
+max-width: 1400px;
+margin: 0 auto;
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
 
-        .nav-links a {
-            color: var(--fg-secondary);
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: color 0.3s ease;
-            position: relative;
-        }
+.logo {
+font-family: 'Space Grotesk', sans-serif;
+font-size: 1.5rem;
+font-weight: 700;
+color: var(--fg-primary);
+text-decoration: none;
+position: relative;
+}
 
-        .nav-links a::before {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 1px;
-            background: var(--accent-cyan);
-            transition: width 0.3s ease;
-        }
+.logo::after {
+content: '';
+position: absolute;
+bottom: -4px;
+left: 0;
+width: 100%;
+height: 2px;
+background: linear-gradient(90deg, var(--accent-cyan), var(--accent-gold));
+}
 
-        .nav-links a:hover {
-            color: var(--fg-primary);
-        }
+.nav-links {
+display: flex;
+gap: 2rem;
+list-style: none;
+}
 
-        .nav-links a:hover::before {
-            width: 100%;
-        }
+.nav-links a {
+color: var(--fg-secondary);
+text-decoration: none;
+font-size: 0.9rem;
+font-weight: 500;
+transition: color 0.3s ease;
+position: relative;
+}
 
-        /* === БУРГЕР-МЕНЮ === */
+.nav-links a::before {
+content: '';
+position: absolute;
+bottom: -4px;
+left: 0;
+width: 0;
+height: 1px;
+background: var(--accent-cyan);
+transition: width 0.3s ease;
+}
+
+.nav-links a:hover { color: var(--fg-primary); }
+.nav-links a:hover::before { width: 100%; }
+
+/* === БУРГЕР-МЕНЮ === */
 .mobile-menu-btn {
-    display: none;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 6px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 8px;
+display: none;
+flex-direction: column;
+align-items: flex-start;
+gap: 6px;
+background: none;
+border: none;
+cursor: pointer;
+padding: 8px;
 }
 
 .mobile-menu-btn span {
-    height: 2px;
-    background: var(--fg-primary);
-    transition: all 0.3s ease;
-    border-radius: 2px;
+height: 2px;
+background: var(--fg-primary);
+transition: all 0.3s ease;
+border-radius: 2px;
 }
 
-.mobile-menu-btn span:nth-child(1) {
-    width: 28px;
-    margin-left: 9px;
-}
-.mobile-menu-btn span:nth-child(3) {
-    width: 31px;
-    margin-left: 6px;
-}
+.mobile-menu-btn span:nth-child(1) { width: 28px; margin-left: 9px; }
+.mobile-menu-btn span:nth-child(3) { width: 31px; margin-left: 6px; }
+.mobile-menu-btn span:nth-child(2) { width: 37px; }
 
-.mobile-menu-btn span:nth-child(2) {
-    width: 37px;
+/* Sections Base */
+section {
+position: relative;
+z-index: 1;
+padding: 6rem 1.5rem;
 }
 
-        /* Sections Base */
-        section {
-            position: relative;
-            z-index: 1;
-            padding: 6rem 1.5rem;
-        }
-
-        .section-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-label {
-            display: inline-block;
-            font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: var(--accent-cyan);
-            margin-bottom: 1rem;
-            opacity: 0;
-            transform: translateY(20px);
-        }
-
-        .section-title {
-            font-size: clamp(2rem, 5vw, 3.5rem);
-            margin-bottom: 1.5rem;
-            opacity: 0;
-            transform: translateY(30px);
-        }
-
-        .section-description {
-            font-size: 1.125rem;
-            color: var(--fg-secondary);
-            max-width: 600px;
-            opacity: 0;
-            transform: translateY(20px);
-        }
-
-        /* Animation Classes */
-        .animate-in {
-            opacity: 1 !important;
-            transform: translateY(0) !important;
-            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .delay-1 { transition-delay: 0.1s; }
-        .delay-2 { transition-delay: 0.2s; }
-        .delay-3 { transition-delay: 0.3s; }
-        .delay-4 { transition-delay: 0.4s; }
-        .delay-5 { transition-delay: 0.5s; }
-
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            padding-top: 8rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-content {
-            max-width: 800px;
-        }
-
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.5rem 1rem;
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            border-radius: 100px;
-            font-size: 0.85rem;
-            color: var(--fg-secondary);
-            margin-bottom: 2rem;
-            backdrop-filter: blur(10px);
-            opacity: 0;
-            transform: translateY(20px);
-        }
-
-        .hero-badge .dot {
-            width: 8px;
-            height: 8px;
-            background: var(--accent-cyan);
-            border-radius: 50%;
-            animation: pulse 2s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.5; transform: scale(1.2); }
-        }
-
-        .hero-title {
-            font-size: clamp(2.5rem, 8vw, 5rem);
-            font-weight: 700;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-            opacity: 0;
-            transform: translateY(40px);
-        }
-
-        .hero-title .highlight {
-            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-gold));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero-subtitle {
-            font-size: clamp(1.125rem, 2vw, 1.375rem);
-            color: var(--fg-secondary);
-            max-width: 600px;
-            margin-bottom: 2.5rem;
-            opacity: 0;
-            transform: translateY(30px);
-        }
-
-        .hero-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            opacity: 0;
-            transform: translateY(30px);
-        }
-
-        /* Buttons */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.75rem;
-            padding: 1rem 2rem;
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1rem;
-            font-weight: 600;
-            text-decoration: none;
-            border-radius: 12px;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-            border: none;
-            outline: none;
-        }
-
-        .btn:focus-visible {
-            outline: 2px solid var(--accent-cyan);
-            outline-offset: 3px;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, var(--accent-cyan), #00b8a3);
-            color: var(--bg-primary);
-            box-shadow: 0 4px 20px var(--accent-cyan-glow);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 30px var(--accent-cyan-glow);
-        }
-
-        .btn-primary:active {
-            transform: translateY(0);
-        }
-
-        .btn-secondary {
-            background: var(--glass-bg);
-            color: var(--fg-primary);
-            border: 1px solid var(--glass-border);
-            backdrop-filter: blur(10px);
-        }
-
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.08);
-            border-color: rgba(255, 255, 255, 0.2);
-            transform: translateY(-2px);
-        }
-
-        .btn svg {
-            width: 20px;
-            height: 20px;
-        }
-
-        /* Stats Row */
-        .hero-stats {
-            display: flex;
-            gap: 3rem;
-            margin-top: 4rem;
-            padding-top: 3rem;
-            border-top: 1px solid var(--border-color);
-            opacity: 0;
-            transform: translateY(30px);
-        }
-
-        .stat-item {
-            text-align: left;
-        }
-
-        .stat-number {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--fg-primary);
-            line-height: 1;
-        }
-
-        .stat-number .accent {
-            color: var(--accent-cyan);
-        }
-
-        .stat-label {
-            font-size: 0.875rem;
-            color: var(--fg-muted);
-            margin-top: 0.25rem;
-        }
-
-        /* Services Section */
-        .services {
-            background: var(--bg-secondary);
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin-top: 3rem;
-        }
-
-        .service-card {
-            position: relative;
-            padding: 2.5rem;
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 20px;
-            backdrop-filter: blur(20px);
-            overflow: hidden;
-            opacity: 0;
-            transform: translateY(40px);
-            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--accent-cyan), transparent);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .service-card:hover::before {
-            opacity: 1;
-        }
-
-        .service-card:hover {
-            transform: translateY(-8px);
-            border-color: rgba(0, 229, 204, 0.3);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-        }
-
-        .service-icon {
-            width: 60px;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, rgba(0, 229, 204, 0.1), rgba(255, 200, 87, 0.1));
-            border-radius: 16px;
-            margin-bottom: 1.5rem;
-        }
-
-        .service-icon svg {
-            width: 28px;
-            height: 28px;
-            stroke: var(--accent-cyan);
-        }
-
-        .service-card:nth-child(2) .service-icon svg {
-            stroke: var(--accent-gold);
-        }
-
-        .service-card:nth-child(3) .service-icon svg {
-            stroke: #ff6b9d;
-        }
-
-        .service-title {
-            font-size: 1.375rem;
-            margin-bottom: 0.75rem;
-        }
-
-        .service-description {
-            color: var(--fg-secondary);
-            font-size: 0.95rem;
-            line-height: 1.7;
-        }
-
-        .service-features {
-            margin-top: 1.5rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid var(--border-color);
-        }
-
-        .service-feature {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 0.875rem;
-            color: var(--fg-muted);
-            margin-bottom: 0.5rem;
-        }
-
-        .service-feature svg {
-            width: 16px;
-            height: 16px;
-            stroke: var(--accent-cyan);
-        }
-
-        /* Why Choose Me */
-        .why-me {
-            position: relative;
-        }
-
-        .benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin-top: 3rem;
-        }
-
-        .benefit-card {
-            display: flex;
-            gap: 1.25rem;
-            padding: 1.5rem;
-            background: var(--glass-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            opacity: 0;
-            transform: translateX(-30px);
-            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .benefit-card:hover {
-            background: rgba(255, 255, 255, 0.05);
-            border-color: rgba(255, 255, 255, 0.15);
-        }
-
-        .benefit-number {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--accent-cyan);
-            opacity: 0.5;
-            line-height: 1;
-        }
-
-        .benefit-content h4 {
-            font-size: 1.125rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .benefit-content p {
-            font-size: 0.9rem;
-            color: var(--fg-muted);
-        }
-
-        /* Portfolio Section */
-        .portfolio {
-            background: var(--bg-secondary);
-        }
-
-        .portfolio-showcase {
-            margin-top: 3rem;
-            position: relative;
-        }
-
-        .portfolio-card {
-            position: relative;
-            border-radius: 24px;
-            overflow: hidden;
-            background: linear-gradient(135deg, #1a1a22, #0d0d0f);
-            border: 1px solid var(--border-color);
-            opacity: 0;
-            transform: scale(0.95);
-            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .portfolio-card:hover {
-            border-color: rgba(0, 229, 204, 0.3);
-        }
-
-        .portfolio-preview {
-            aspect-ratio: 16/9;
-            background: linear-gradient(135deg, #1e1e28, #14141a);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .portfolio-preview::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: 
-                radial-gradient(ellipse at 30% 30%, rgba(0, 229, 204, 0.1), transparent 50%),
-                radial-gradient(ellipse at 70% 70%, rgba(255, 200, 87, 0.1), transparent 50%);
-        }
-
-        .portfolio-mockup {
-            position: relative;
-            z-index: 1;
-        }
-
-        .mockup-browser {
-            background: #0a0a0c;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-        }
-
-        .mockup-header {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.75rem 1rem;
-            background: #141416;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .mockup-dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-        }
-
-        .mockup-dot:nth-child(1) { background: #ff5f57; }
-        .mockup-dot:nth-child(2) { background: #febc2e; }
-        .mockup-dot:nth-child(3) { background: #28c840; }
-
-        .mockup-url {
-            flex: 1;
-            text-align: center;
-            font-size: 0.75rem;
-            color: var(--fg-muted);
-        }
-
-        .mockup-content {
-            padding: 2rem;
-            min-height: 200px;
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .mockup-line {
-            height: 12px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 6px;
-        }
-
-        .mockup-line:nth-child(1) { width: 60%; }
-        .mockup-line:nth-child(2) { width: 80%; }
-        .mockup-line:nth-child(3) { width: 40%; }
-        .mockup-line:nth-child(4) { width: 70%; }
-
-        .portfolio-info {
-            padding: 2rem;
-        }
-
-        .portfolio-info h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.75rem;
-        }
-
-        .portfolio-info p {
-            color: var(--fg-secondary);
-            margin-bottom: 1.5rem;
-        }
-
-        .portfolio-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .portfolio-tag {
-            padding: 0.375rem 0.875rem;
-            background: rgba(0, 229, 204, 0.1);
-            color: var(--accent-cyan);
-            border-radius: 100px;
-            font-size: 0.75rem;
-            font-weight: 500;
-        }
-
-        /* Process Section */
-        .process {
-            position: relative;
-        }
-
-        .process-timeline {
-            margin-top: 4rem;
-            position: relative;
-        }
-
-        .process-line {
-            position: absolute;
-            left: 28px;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: linear-gradient(to bottom, var(--accent-cyan), var(--accent-gold));
-            opacity: 0.3;
-        }
-
-        .process-step {
-            display: flex;
-            gap: 2rem;
-            margin-bottom: 3rem;
-            position: relative;
-            opacity: 0;
-            transform: translateX(-30px);
-            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .process-marker {
-            width: 56px;
-            height: 56px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--bg-primary);
-            border: 2px solid var(--accent-cyan);
-            border-radius: 50%;
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--accent-cyan);
-            flex-shrink: 0;
-            position: relative;
-            z-index: 1;
-            transition: all 0.3s ease;
-        }
-
-        .process-step:hover .process-marker {
-            background: var(--accent-cyan);
-            color: var(--bg-primary);
-            box-shadow: 0 0 30px var(--accent-cyan-glow);
-        }
-
-        .process-content {
-            flex: 1;
-            padding-top: 0.5rem;
-        }
-
-        .process-content h4 {
-            font-size: 1.25rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .process-content p {
-            color: var(--fg-muted);
-            font-size: 0.95rem;
-        }
-
-        /* Pricing Section */
-        .pricing {
-            background: var(--bg-secondary);
-        }
-
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin-top: 3rem;
-        }
-
-        .pricing-card {
-            position: relative;
-            padding: 2.5rem;
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 24px;
-            backdrop-filter: blur(20px);
-            opacity: 0;
-            transform: translateY(40px);
-            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .pricing-card.featured {
-            border-color: var(--accent-cyan);
-            background: linear-gradient(135deg, rgba(0, 229, 204, 0.05), transparent);
-        }
-
-        .pricing-card.featured::before {
-            content: 'Популярный';
-            position: absolute;
-            top: -12px;
-            left: 50%;
-            transform: translateX(-50%);
-            padding: 0.375rem 1rem;
-            background: linear-gradient(135deg, var(--accent-cyan), #00b8a3);
-            color: var(--bg-primary);
-            font-size: 0.75rem;
-            font-weight: 600;
-            border-radius: 100px;
-        }
-
-        .pricing-card:hover {
-            transform: translateY(-8px);
-        }
-
-        .pricing-name {
-            font-size: 1rem;
-            font-weight: 500;
-            color: var(--fg-muted);
-            margin-bottom: 0.5rem;
-        }
-
-        .pricing-title {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .pricing-price {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-        }
-
-        .pricing-price span {
-            font-size: 1rem;
-            font-weight: 400;
-            color: var(--fg-muted);
-        }
-
-        .pricing-features {
-            list-style: none;
-            margin-bottom: 2rem;
-        }
-
-        .pricing-features li {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            padding: 0.75rem 0;
-            border-bottom: 1px solid var(--border-color);
-            font-size: 0.95rem;
-            color: var(--fg-secondary);
-        }
-
-        .pricing-features li:last-child {
-            border-bottom: none;
-        }
-
-        .pricing-features svg {
-            width: 18px;
-            height: 18px;
-            stroke: var(--accent-cyan);
-            flex-shrink: 0;
-        }
-
-        .pricing-card .btn {
-            width: 100%;
-            justify-content: center;
-        }
-
-        /* Testimonials */
-        .testimonials {
-            position: relative;
-            overflow: hidden;
-        }
-
-          /* === СЛАЙДЕР ОТЗЫВОВ === */
+.section-container {
+max-width: 1200px;
+margin: 0 auto;
+}
+
+.section-label {
+display: inline-block;
+font-size: 0.75rem;
+font-weight: 600;
+letter-spacing: 0.2em;
+text-transform: uppercase;
+color: var(--accent-cyan);
+margin-bottom: 1rem;
+opacity: 0;
+transform: translateY(20px);
+}
+
+.section-title {
+font-size: clamp(2rem, 5vw, 3.5rem);
+margin-bottom: 1.5rem;
+opacity: 0;
+transform: translateY(30px);
+}
+
+.section-description {
+font-size: 1.125rem;
+color: var(--fg-secondary);
+max-width: 600px;
+opacity: 0;
+transform: translateY(20px);
+}
+
+/* Animation Classes */
+.animate-in {
+opacity: 1 !important;
+transform: translateY(0) !important;
+transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Hero Section */
+.hero {
+min-height: 100vh;
+display: flex;
+align-items: center;
+padding-top: 8rem;
+position: relative;
+overflow: hidden;
+}
+
+.hero-content { max-width: 800px; }
+
+.hero-badge {
+display: inline-flex;
+align-items: center;
+gap: 0.5rem;
+padding: 0.5rem 1rem;
+background: var(--glass-bg);
+border: 1px solid var(--glass-border);
+border-radius: 100px;
+font-size: 0.85rem;
+color: var(--fg-secondary);
+margin-bottom: 2rem;
+backdrop-filter: blur(10px);
+opacity: 0;
+transform: translateY(20px);
+}
+
+.hero-badge .dot {
+width: 8px;
+height: 8px;
+background: var(--accent-cyan);
+border-radius: 50%;
+animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+0%, 100% { opacity: 1; transform: scale(1); }
+50% { opacity: 0.5; transform: scale(1.2); }
+}
+
+.hero-title {
+font-size: clamp(2.5rem, 8vw, 5rem);
+font-weight: 700;
+line-height: 1.1;
+margin-bottom: 1.5rem;
+opacity: 0;
+transform: translateY(40px);
+}
+
+.highlight {
+background: linear-gradient(135deg, var(--accent-cyan), var(--accent-gold));
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+color: transparent;
+display: inline-block;
+}
+
+.hero-subtitle {
+font-size: clamp(1.125rem, 2vw, 1.375rem);
+color: var(--fg-secondary);
+max-width: 600px;
+margin-bottom: 2.5rem;
+opacity: 0;
+transform: translateY(30px);
+}
+
+.hero-buttons {
+display: flex;
+flex-wrap: wrap;
+gap: 1rem;
+opacity: 0;
+transform: translateY(30px);
+}
+
+/* Buttons */
+.btn {
+display: inline-flex;
+align-items: center;
+gap: 0.75rem;
+padding: 1rem 2rem;
+font-family: 'Space Grotesk', sans-serif;
+font-size: 1rem;
+font-weight: 600;
+text-decoration: none;
+border-radius: 12px;
+cursor: pointer;
+transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+border: none;
+outline: none;
+}
+
+.btn:focus-visible {
+outline: 2px solid var(--accent-cyan);
+outline-offset: 3px;
+}
+
+.btn-primary {
+background: linear-gradient(135deg, var(--accent-cyan), #00b8a3);
+color: var(--bg-primary);
+box-shadow: 0 4px 20px var(--accent-cyan-glow);
+}
+
+.btn-primary:hover {
+transform: translateY(-2px);
+box-shadow: 0 8px 30px var(--accent-cyan-glow);
+}
+
+.btn-secondary {
+background: var(--glass-bg);
+color: var(--fg-primary);
+border: 1px solid var(--glass-border);
+backdrop-filter: blur(10px);
+}
+
+.btn-secondary:hover {
+background: rgba(255, 255, 255, 0.08);
+border-color: rgba(255, 255, 255, 0.2);
+transform: translateY(-2px);
+}
+
+.btn svg { width: 20px; height: 20px; }
+
+/* Stats Row */
+.hero-stats {
+display: flex;
+gap: 3rem;
+margin-top: 4rem;
+padding-top: 3rem;
+border-top: 1px solid var(--border-color);
+opacity: 0;
+transform: translateY(30px);
+}
+
+.stat-item { text-align: left; }
+
+.stat-number {
+font-family: 'Space Grotesk', sans-serif;
+font-size: 2.5rem;
+font-weight: 700;
+color: var(--fg-primary);
+line-height: 1;
+}
+
+.stat-number .accent { color: var(--accent-cyan); }
+.stat-label { font-size: 0.875rem; color: var(--fg-muted); margin-top: 0.25rem; }
+
+/* Services Section */
+.services { background: var(--bg-secondary); }
+
+.services-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+gap: 1.5rem;
+margin-top: 3rem;
+}
+
+.service-card {
+position: relative;
+padding: 2.5rem;
+background: var(--bg-card);
+border: 1px solid var(--border-color);
+border-radius: 20px;
+backdrop-filter: blur(20px);
+overflow: hidden;
+opacity: 0;
+transform: translateY(40px);
+transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.service-card::before {
+content: '';
+position: absolute;
+top: 0; left: 0; right: 0;
+height: 1px;
+background: linear-gradient(90deg, transparent, var(--accent-cyan), transparent);
+opacity: 0;
+transition: opacity 0.3s ease;
+}
+
+.service-card:hover::before { opacity: 1; }
+.service-card:hover {
+transform: translateY(-8px);
+border-color: rgba(0, 229, 204, 0.3);
+box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.service-icon {
+width: 60px; height: 60px;
+display: flex;
+align-items: center;
+justify-content: center;
+background: linear-gradient(135deg, rgba(0, 229, 204, 0.1), rgba(255, 200, 87, 0.1));
+border-radius: 16px;
+margin-bottom: 1.5rem;
+}
+
+.service-icon svg { width: 28px; height: 28px; stroke: var(--accent-cyan); }
+.service-card:nth-child(2) .service-icon svg { stroke: var(--accent-gold); }
+.service-card:nth-child(3) .service-icon svg { stroke: #ff6b9d; }
+
+.service-title { font-size: 1.375rem; margin-bottom: 0.75rem; }
+.service-description { color: var(--fg-secondary); font-size: 0.95rem; line-height: 1.7; }
+
+.service-features {
+margin-top: 1.5rem;
+padding-top: 1.5rem;
+border-top: 1px solid var(--border-color);
+}
+
+.service-feature {
+display: flex;
+align-items: center;
+gap: 0.5rem;
+font-size: 0.875rem;
+color: var(--fg-muted);
+margin-bottom: 0.5rem;
+}
+
+.service-feature svg { width: 16px; height: 16px; stroke: var(--accent-cyan); }
+
+/* Why Choose Me */
+.why-me { position: relative; }
+
+.benefits-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+gap: 1.5rem;
+margin-top: 3rem;
+}
+
+.benefit-card {
+display: flex;
+gap: 1.25rem;
+padding: 1.5rem;
+background: var(--glass-bg);
+border: 1px solid var(--border-color);
+border-radius: 16px;
+opacity: 0;
+transform: translateX(-30px);
+transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.benefit-card:hover {
+background: rgba(255, 255, 255, 0.05);
+border-color: rgba(255, 255, 255, 0.15);
+}
+
+.benefit-number {
+font-family: 'Space Grotesk', sans-serif;
+font-size: 2rem;
+font-weight: 700;
+color: var(--accent-cyan);
+opacity: 0.5;
+line-height: 1;
+}
+
+.benefit-content h4 { font-size: 1.125rem; margin-bottom: 0.5rem; }
+.benefit-content p { font-size: 0.9rem; color: var(--fg-muted); }
+
+/* Portfolio Section */
+.portfolio { background: var(--bg-secondary); }
+
+.portfolio-showcase { margin-top: 3rem; position: relative; }
+
+.portfolio-card {
+position: relative;
+border-radius: 24px;
+overflow: hidden;
+background: linear-gradient(135deg, #1a1a22, #0d0d0f);
+border: 1px solid var(--border-color);
+opacity: 0;
+transform: scale(0.95);
+transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.portfolio-card:hover { border-color: rgba(0, 229, 204, 0.3); }
+
+.portfolio-preview {
+aspect-ratio: 16/9;
+background: linear-gradient(135deg, #1e1e28, #14141a);
+display: flex;
+align-items: center;
+justify-content: center;
+position: relative;
+overflow: hidden;
+}
+
+.portfolio-preview::before {
+content: '';
+position: absolute;
+inset: 0;
+background:
+radial-gradient(ellipse at 30% 30%, rgba(0, 229, 204, 0.1), transparent 50%),
+radial-gradient(ellipse at 70% 70%, rgba(255, 200, 87, 0.1), transparent 50%);
+}
+
+.portfolio-mockup { position: relative; z-index: 1; }
+
+.mockup-browser {
+background: #0a0a0c;
+border-radius: 8px;
+overflow: hidden;
+box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.mockup-header {
+display: flex;
+align-items: center;
+gap: 0.5rem;
+padding: 0.75rem 1rem;
+background: #141416;
+border-bottom: 1px solid var(--border-color);
+}
+
+.mockup-dot { width: 10px; height: 10px; border-radius: 50%; }
+.mockup-dot:nth-child(1) { background: #ff5f57; }
+.mockup-dot:nth-child(2) { background: #febc2e; }
+.mockup-dot:nth-child(3) { background: #28c840; }
+
+.mockup-url { flex: 1; text-align: center; font-size: 0.75rem; color: var(--fg-muted); }
+
+.mockup-content {
+padding: 2rem;
+min-height: 200px;
+display: flex;
+flex-direction: column;
+gap: 1rem;
+}
+
+.mockup-line { height: 12px; background: rgba(255, 255, 255, 0.05); border-radius: 6px; }
+.mockup-line:nth-child(1) { width: 60%; }
+.mockup-line:nth-child(2) { width: 80%; }
+.mockup-line:nth-child(3) { width: 40%; }
+.mockup-line:nth-child(4) { width: 70%; }
+
+.portfolio-info { padding: 2rem; }
+.portfolio-info h3 { font-size: 1.5rem; margin-bottom: 0.75rem; }
+.portfolio-info p { color: var(--fg-secondary); margin-bottom: 1.5rem; }
+
+.portfolio-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; }
+
+.portfolio-tag {
+padding: 0.375rem 0.875rem;
+background: rgba(0, 229, 204, 0.1);
+color: var(--accent-cyan);
+border-radius: 100px;
+font-size: 0.75rem;
+font-weight: 500;
+}
+
+/* Process Section */
+.process { position: relative; }
+
+.process-timeline { margin-top: 4rem; position: relative; }
+
+.process-line {
+position: absolute;
+left: 28px; top: 0; bottom: 0;
+width: 2px;
+background: linear-gradient(to bottom, var(--accent-cyan), var(--accent-gold));
+opacity: 0.3;
+}
+
+.process-step {
+display: flex;
+gap: 2rem;
+margin-bottom: 3rem;
+position: relative;
+opacity: 0;
+transform: translateX(-30px);
+transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.process-marker {
+width: 56px; height: 56px;
+display: flex;
+align-items: center;
+justify-content: center;
+background: var(--bg-primary);
+border: 2px solid var(--accent-cyan);
+border-radius: 50%;
+font-family: 'Space Grotesk', sans-serif;
+font-size: 1.25rem;
+font-weight: 700;
+color: var(--accent-cyan);
+flex-shrink: 0;
+position: relative;
+z-index: 1;
+transition: all 0.3s ease;
+}
+
+.process-step:hover .process-marker {
+background: var(--accent-cyan);
+color: var(--bg-primary);
+box-shadow: 0 0 30px var(--accent-cyan-glow);
+}
+
+.process-content { flex: 1; padding-top: 0.5rem; }
+.process-content h4 { font-size: 1.25rem; margin-bottom: 0.5rem; }
+.process-content p { color: var(--fg-muted); font-size: 0.95rem; }
+
+/* Pricing Section */
+.pricing { background: var(--bg-secondary); }
+
+.pricing-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+gap: 1.5rem;
+margin-top: 3rem;
+}
+
+.pricing-card {
+position: relative;
+padding: 2.5rem;
+background: var(--bg-card);
+border: 1px solid var(--border-color);
+border-radius: 24px;
+backdrop-filter: blur(20px);
+opacity: 0;
+transform: translateY(40px);
+transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.pricing-card.featured {
+border-color: var(--accent-cyan);
+background: linear-gradient(135deg, rgba(0, 229, 204, 0.05), transparent);
+}
+
+.pricing-card.featured::before {
+content: 'Популярный выбор';
+position: absolute;
+top: -12px; left: 50%;
+transform: translateX(-50%);
+padding: 0.375rem 1rem;
+background: linear-gradient(135deg, var(--accent-cyan), #00b8a3);
+color: var(--bg-primary);
+font-size: 0.75rem;
+font-weight: 600;
+border-radius: 100px;
+}
+
+.pricing-card:hover { transform: translateY(-8px); }
+
+.pricing-name { font-size: 1rem; font-weight: 500; color: var(--fg-muted); margin-bottom: 0.5rem; }
+.pricing-title { font-size: 1.5rem; margin-bottom: 1rem; }
+
+.pricing-price {
+font-family: 'Space Grotesk', sans-serif;
+font-size: 3rem;
+font-weight: 700;
+margin-bottom: 1.5rem;
+background: linear-gradient(135deg, var(--accent-cyan), var(--accent-gold));
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+color: transparent;
+display: inline-block;
+}
+
+.pricing-price span { font-size: 1rem; font-weight: 400; color: var(--fg-muted); }
+
+.pricing-features { list-style: none; margin-bottom: 2rem; }
+.pricing-features li {
+display: flex;
+align-items: center;
+gap: 0.75rem;
+padding: 0.75rem 0;
+border-bottom: 1px solid var(--border-color);
+font-size: 0.95rem;
+color: var(--fg-secondary);
+}
+.pricing-features li:last-child { border-bottom: none; }
+.pricing-features svg { width: 18px; height: 18px; stroke: var(--accent-cyan); flex-shrink: 0; }
+.pricing-card .btn { width: 100%; justify-content: center; }
+
+/* === FAQ ACCORDION === */
+.faq {
+    background: transparent;}
+
+.accordion {
+margin-top: 3rem;
+max-width: 800px;
+width: 100%;
+}
+
+.accordion-item {
+background: var(--bg-card);
+border: 1px solid var(--border-color);
+border-radius: 16px;
+margin-bottom: 1rem;
+overflow: hidden;
+opacity: 0;
+transform: translateY(20px);
+transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.accordion-item:hover { border-color: rgba(0, 229, 204, 0.2); }
+
+.accordion-item.active {
+border-color: rgba(0, 229, 204, 0.4);
+background: linear-gradient(135deg, rgba(0, 229, 204, 0.03), transparent);
+}
+
+.accordion-header {
+width: 100%;
+padding: 1.25rem 1.5rem;
+display: flex;
+justify-content: space-between;
+align-items: center;
+gap: 1rem;
+background: transparent;
+border: none;
+color: var(--fg-primary);
+font-family: 'Space Grotesk', sans-serif;
+font-size: 1.05rem;
+font-weight: 500;
+text-align: left;
+cursor: pointer;
+transition: all 0.3s ease;
+}
+
+.accordion-header span { flex: 1; }
+.accordion-header:hover { color: var(--accent-cyan); }
+.accordion-header:focus-visible {
+outline: 2px solid var(--accent-cyan);
+outline-offset: -2px;
+border-radius: 16px;
+}
+
+.accordion-icon {
+width: 24px; height: 24px;
+flex-shrink: 0;
+stroke: var(--fg-muted);
+transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.accordion-item.active .accordion-icon {
+transform: rotate(45deg);
+stroke: var(--accent-cyan);
+}
+
+.accordion-content {
+max-height: 0;
+overflow: hidden;
+transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.accordion-item.active .accordion-content { max-height: 500px; }
+
+.accordion-body {
+padding: 0 1.5rem 1.5rem;
+color: var(--fg-secondary);
+font-size: 0.95rem;
+line-height: 1.7;
+}
+
+.accordion-body p { margin: 0; }
+
+/* Testimonials */
+.testimonials {
+position: relative;
+overflow: hidden;
+background: var(--bg-secondary);
+}
+
 .testimonials-slider {
-    margin-top: 3rem;
-    position: relative;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
+margin-top: 3rem;
+position: relative;
+max-width: 800px;
+margin-left: auto;
+margin-right: auto;
 }
 
 .testimonial-track {
-    display: flex;
-    gap: 2rem;
-    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+display: flex;
+gap: 2rem;
+transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .testimonial-card {
-    flex: 0 0 calc(100% - 3rem);
-    min-width: calc(100% - 3rem);
-    padding: 2.5rem;
-    margin: 0 auto;
-    background: var(--glass-bg);
-    border: 1px solid var(--border-color);
-    border-radius: 24px;
-    backdrop-filter: blur(20px);
-    box-sizing: border-box;
+flex: 0 0 calc(100% - 3rem);
+min-width: calc(100% - 3rem);
+padding: 2.5rem;
+margin: 0 auto;
+background: var(--glass-bg);
+border: 1px solid var(--border-color);
+border-radius: 24px;
+backdrop-filter: blur(20px);
+box-sizing: border-box;
 }
 
-        .testimonial-quote {
-            font-size: 1.25rem;
-            line-height: 1.8;
-            color: var(--fg-primary);
-            margin-bottom: 2rem;
-            position: relative;
-        }
+.testimonial-quote {
+font-size: 1.25rem;
+line-height: 1.8;
+color: var(--fg-primary);
+margin-bottom: 2rem;
+position: relative;
+}
 
-        .testimonial-quote::before {
-            content: '"';
-            position: absolute;
-            top: -20px;
-            left: -10px;
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 5rem;
-            color: var(--accent-cyan);
-            opacity: 0.2;
-            line-height: 1;
-        }
+.testimonial-quote::before {
+content: '"';
+position: absolute;
+top: -20px; left: -10px;
+font-family: 'Space Grotesk', sans-serif;
+font-size: 5rem;
+color: var(--accent-cyan);
+opacity: 0.2;
+line-height: 1;
+}
 
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
+.testimonial-author { display: flex; align-items: center; gap: 1rem; }
 
-        .testimonial-avatar {
-            width: 56px;
-            height: 56px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-gold));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--bg-primary);
-        }
+.testimonial-avatar {
+width: 56px; height: 56px;
+border-radius: 50%;
+background: linear-gradient(135deg, var(--accent-cyan), var(--accent-gold));
+display: flex;
+align-items: center;
+justify-content: center;
+font-family: 'Space Grotesk', sans-serif;
+font-size: 1.25rem;
+font-weight: 700;
+color: var(--bg-primary);
+}
 
-        .testimonial-info h4 {
-            font-size: 1rem;
-            margin-bottom: 0.25rem;
-        }
+.testimonial-info h4 { font-size: 1rem; margin-bottom: 0.25rem; }
+.testimonial-info p { font-size: 0.875rem; color: var(--fg-muted); }
 
-        .testimonial-info p {
-            font-size: 0.875rem;
-            color: var(--fg-muted);
-        }
+.testimonials-nav { display: flex; justify-content: center; gap: 1rem; margin-top: 2rem; }
 
-        .testimonials-nav {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-top: 2rem;
-        }
+.testimonial-btn {
+width: 48px; height: 48px;
+display: flex;
+align-items: center;
+justify-content: center;
+background: var(--glass-bg);
+border: 1px solid var(--border-color);
+border-radius: 50%;
+cursor: pointer;
+transition: all 0.3s ease;
+}
 
-        .testimonial-btn {
-            width: 48px;
-            height: 48px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--glass-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 50%;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
+.testimonial-btn:hover { background: rgba(255, 255, 255, 0.08); border-color: var(--accent-cyan); }
+.testimonial-btn:focus-visible { outline: 2px solid var(--accent-cyan); outline-offset: 3px; }
+.testimonial-btn svg { width: 20px; height: 20px; stroke: var(--fg-primary); }
 
-        .testimonial-btn:hover {
-            background: rgba(255, 255, 255, 0.08);
-            border-color: var(--accent-cyan);
-        }
+.testimonial-dots { display: flex; align-items: center; gap: 0.5rem; }
 
-        .testimonial-btn:focus-visible {
-            outline: 2px solid var(--accent-cyan);
-            outline-offset: 3px;
-        }
+.testimonial-dot {
+width: 8px; height: 8px;
+background: var(--fg-muted);
+border-radius: 50%;
+cursor: pointer;
+transition: all 0.3s ease;
+}
 
-        .testimonial-btn svg {
-            width: 20px;
-            height: 20px;
-            stroke: var(--fg-primary);
-        }
+.testimonial-dot.active { width: 24px; border-radius: 4px; background: var(--accent-cyan); }
 
-        .testimonial-dots {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
+/* Final CTA */
+.final-cta {
+text-align: center;
+padding: 8rem 1.5rem;
+position: relative;
+}
 
-        .testimonial-dot {
-            width: 8px;
-            height: 8px;
-            background: var(--fg-muted);
-            border-radius: 50%;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
+.final-cta::before {
+content: '';
+position: absolute;
+top: 50%; left: 50%;
+transform: translate(-50%, -50%);
+width: 600px; height: 600px;
+background: radial-gradient(circle, var(--accent-cyan-glow), transparent 70%);
+opacity: 0.2;
+pointer-events: none;
+}
 
-        .testimonial-dot.active {
-            width: 24px;
-            border-radius: 4px;
-            background: var(--accent-cyan);
-        }
+.final-cta .section-title { font-size: clamp(2rem, 6vw, 4rem); }
+.final-cta .section-description { margin: 0 auto 2.5rem; }
+.btn-large { padding: 1.25rem 3rem; font-size: 1.125rem; }
 
-        /* Final CTA */
-        .final-cta {
-            text-align: center;
-            padding: 8rem 1.5rem;
-            position: relative;
-        }
+/* === SHOWCASE MARQUEE SLIDER === */
+.showcase {
+    padding: 4rem 0 6rem;
+    background: var(--bg-primary);
+    overflow: hidden;
+}
 
-        .final-cta::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, var(--accent-cyan-glow), transparent 70%);
-            opacity: 0.2;
-            pointer-events: none;
-        }
+/* Классы для разной высоты фото */
+.h-300 { height: 300px; width: 400px; }
+.h-320 { height: 320px; width: 420px; }
+.h-350 { height: 350px; width: 450px; }
+.h-380 { height: 380px; width: 480px; }
+.h-400 { height: 400px; width: 500px; }
+.h-450 { height: 450px; width: 550px; }
 
-        .final-cta .section-title {
-            font-size: clamp(2rem, 6vw, 4rem);
-        }
+.marquee-wrapper {
+    overflow: hidden;
+    width: 100%;
+    margin-bottom: 1.5rem;
+    position: relative;
+}
 
-        .final-cta .section-description {
-            margin: 0 auto 2.5rem;
-        }
+.marquee-track {
+    display: flex;
+    gap: 1.5rem;
+    width: max-content; /* Ширина зависит от контента */
+    align-items: center; /* Выравнивание по центру по вертикали */
+}
 
-        .btn-large {
-            padding: 1.25rem 3rem;
-            font-size: 1.125rem;
-        }
+/* Анимация движения */
+@keyframes scrollLeft {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); } /* Движение влево на половину ширины (так как контент дублируется) */
+}
 
-        /* Footer */
-        .footer {
-            padding: 3rem 1.5rem;
-            border-top: 1px solid var(--border-color);
-            text-align: center;
-        }
+@keyframes scrollRight {
+    0% { transform: translateX(-50%); } /* Начинаем с -50% для плавного старта второй линии */
+    100% { transform: translateX(0); }
+}
 
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: center;
-            gap: 1rem;
-        }
+.marquee-track-left {
+    animation: scrollLeft 40s linear infinite;
+}
 
-        .footer p {
-            color: var(--fg-muted);
-            font-size: 0.875rem;
-        }
+.marquee-track-right {
+    animation: scrollRight 45s linear infinite;
+}
 
-        .footer-links {
-            display: flex;
-            gap: 1.5rem;
-        }
+/* Пауза при наведении на область слайдера */
+.marquee-wrapper:hover .marquee-track {
+    animation-play-state: paused;
+}
 
-        .footer-links a {
-            color: var(--fg-muted);
-            text-decoration: none;
-            font-size: 0.875rem;
-            transition: color 0.3s ease;
-        }
+/* Карточка проекта */
+.marquee-item {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    flex-shrink: 0; /* Запрещаем сжимать элементы */
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+}
 
-        .footer-links a:hover {
-            color: var(--accent-cyan);
-        }
+.marquee-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Обрезаем фото под размер блока красиво */
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
 
+/* Оверлей с названием */
+.marquee-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 2rem 1.5rem;
+    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.5) 60%, transparent 100%);
+    transform: translateY(100%); /* Скрыт внизу изначально */
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
 
-        
-       /* Mobile Responsive */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
+.marquee-overlay h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.25rem;
+    color: #fff;
+    margin-bottom: 0.25rem;
+    font-weight: 600;
+}
 
-            .mobile-menu-btn {
-                display: flex;
-            }
+.marquee-overlay p {
+    font-size: 0.85rem;
+    color: var(--accent-cyan);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
 
-            .hero-stats {
-                flex-direction: column;
-                gap: 1.5rem;
-            }
+/* Эффекты при наведении на конкретную карточку */
+.marquee-item:hover {
+    transform: scale(1.05); /* Небольшое увеличение карточки */
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    z-index: 10;
+}
 
-            .stat-item {
-                display: flex;
-                align-items: baseline;
-                gap: 0.75rem;
-            }
+.marquee-item:hover img {
+    transform: scale(1.1); /* Зум фото внутри */
+}
 
-            .stat-number {
-                font-size: 2rem;
-            }
+.marquee-item:hover .marquee-overlay {
+    transform: translateY(0); /* Появление заголовка */
+    opacity: 1;
+}
 
-            .process-line {
-                left: 20px;
-            }
+/* Мобильная адаптация */
+@media (max-width: 768px) {
+    .showcase { padding: 3rem 0 4rem; }
+    
+    /* Уменьшаем размеры блоков */
+    .h-300 { height: 200px; width: 280px; }
+    .h-320 { height: 220px; width: 290px; }
+    .h-350 { height: 240px; width: 300px; }
+    .h-380 { height: 260px; width: 320px; }
+    .h-400 { height: 280px; width: 340px; }
+    .h-450 { height: 300px; width: 360px; }
 
-            .process-marker {
-                width: 40px;
-                height: 40px;
-                font-size: 1rem;
-            }
+    .marquee-track { gap: 1rem; }
+    
+    .marquee-track-left { animation-duration: 30s; }
+    .marquee-track-right { animation-duration: 35s; }
+}
 
-            .process-step {
-                gap: 1rem;
-            }
+/* Footer */
+.footer {
+padding: 3rem 1.5rem;
+border-top: 1px solid var(--border-color);
+text-align: center;
+}
 
-            .testimonial-card {
-                padding: 2rem;
-            }
+.footer-content {
+max-width: 1200px;
+margin: 0 auto;
+display: flex;
+flex-wrap: wrap;
+justify-content: space-between;
+align-items: center;
+gap: 1rem;
+}
 
-            .testimonial-quote {
-                font-size: 1.1rem;
-            }
+.footer p { color: var(--fg-muted); font-size: 0.875rem; }
+.footer-links { display: flex; gap: 1.5rem; }
+.footer-links a {
+color: var(--fg-muted);
+text-decoration: none;
+font-size: 0.875rem;
+transition: color 0.3s ease;
+}
+.footer-links a:hover { color: var(--accent-cyan); }
 
-            .footer-content {
-                flex-direction: column;
-                text-align: center;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            section {
-                padding: 4rem 1rem;
-            }
+/* Mobile Menu */
+.mobile-menu {
+position: fixed;
+top: 0; left: 0; right: 0; bottom: 0;
+background: var(--bg-primary);
+z-index: 99;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+gap: 2rem;
+opacity: 0;
+visibility: hidden;
+transition: all 0.3s ease;
+}
 
-            .hero {
-                padding-top: 6rem;
-            }
+.mobile-menu.active { opacity: 1; visibility: visible; }
+.mobile-menu a {
+font-family: 'Space Grotesk', sans-serif;
+font-size: 1.5rem;
+color: var(--fg-primary);
+text-decoration: none;
+transition: color 0.3s ease;
+}
+.mobile-menu a:hover { color: var(--accent-cyan); }
 
-            .hero-buttons {
-                flex-direction: column;
-            }
+/* Mobile Responsive */
+@media (max-width: 768px) {
+.nav-links { display: none; }
+.mobile-menu-btn { display: flex; }
 
-            .btn {
-                width: 100%;
-                justify-content: center;
-            }
+.hero-stats { flex-direction: column; gap: 1.5rem; }
+.stat-item { display: flex; align-items: baseline; gap: 0.75rem; }
+.stat-number { font-size: 2rem; }
 
-            .pricing-grid {
-                grid-template-columns: 1fr;
-            }
-        }
+.process-line { left: 20px; }
+.process-marker { width: 40px; height: 40px; font-size: 1rem; }
+.process-step { gap: 1rem; }
 
-        /* Mobile Menu */
-        .mobile-menu {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: var(--bg-primary);
-            z-index: 99;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            gap: 2rem;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-        }
+.testimonial-card { padding: 2rem; }
+.testimonial-quote { font-size: 1.1rem; }
 
-        .mobile-menu.active {
-            opacity: 1;
-            visibility: visible;
-        }
+.accordion-header { padding: 1rem 1.25rem; font-size: 0.95rem; }
+.accordion-icon { width: 20px; height: 20px; }
+.accordion-body { padding: 0 1.25rem 1.25rem; font-size: 0.9rem; }
 
-        .mobile-menu a {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.5rem;
-            color: var(--fg-primary);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
+.footer-content { flex-direction: column; text-align: center; }
+}
 
-        .mobile-menu a:hover {
-            color: var(--accent-cyan);
-        }
-    </style>
+@media (max-width: 480px) {
+section { padding: 4rem 1rem; }
+.hero { padding-top: 6rem; }
+.hero-buttons { flex-direction: column; }
+.btn { width: 100%; justify-content: center; }
+.pricing-grid { grid-template-columns: 1fr; }
+.accordion-header { padding: 0.875rem 1rem; font-size: 0.9rem; }
+.accordion-body { padding: 0 1rem 1rem; }
+}
+</style>
 </head>
 <body>
-    <!-- Particle Canvas -->
-    <canvas id="particle-canvas" aria-hidden="true"></canvas>
 
-    <!-- Ambient Glows -->
-    <div class="ambient-glow glow-1" aria-hidden="true"></div>
-    <div class="ambient-glow glow-2" aria-hidden="true"></div>
+<!-- Particle Canvas -->
+<canvas id="particle-canvas" aria-hidden="true"></canvas>
 
-    <!-- Navigation -->
-    <nav class="nav" role="navigation" aria-label="Главная навигация">
-        <div class="nav-inner">
-            <a href="#" class="logo">Konst Creative</a>
-            <ul class="nav-links">
-                <li><a href="#services">Услуги</a></li>
-                <li><a href="#why-me">Преимущества</a></li>
-                <li><a href="#portfolio">Портфолио</a></li>
-                <li><a href="#process">Процесс</a></li>
-                <li><a href="#pricing">Цены</a></li>
-            </ul>
-            <button class="mobile-menu-btn" aria-label="Открыть меню" aria-expanded="false">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </div>
-    </nav>
+<!-- Ambient Glows -->
+<div class="ambient-glow glow-1" aria-hidden="true"></div>
+<div class="ambient-glow glow-2" aria-hidden="true"></div>
 
-    <!-- Mobile Menu -->
-    <div class="mobile-menu" role="dialog" aria-modal="true" aria-label="Мобильная навигация">
-        <a href="#services">Услуги</a>
-        <a href="#why-me">Преимущества</a>
-        <a href="#portfolio">Портфолио</a>
-        <a href="#process">Процесс</a>
-        <a href="#pricing">Цены</a>
-        <a href="https://t.me/konstcreative" class="btn btn-primary">Связаться</a>
+<!-- Navigation -->
+<nav class="nav" role="navigation" aria-label="Главная навигация">
+<div class="nav-inner">
+<a href="#" class="logo">Konst Creative</a>
+<ul class="nav-links">
+<li><a href="#services">Услуги</a></li>
+<li><a href="#why-me">Преимущества</a></li>
+<li><a href="#portfolio">Кейсы</a></li>
+<li><a href="#pricing">Стоимость</a></li>
+<li><a href="#faq">FAQ</a></li>
+</ul>
+<button class="mobile-menu-btn" aria-label="Открыть меню" aria-expanded="false">
+<span></span>
+<span></span>
+<span></span>
+</button>
+</div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" role="dialog" aria-modal="true" aria-label="Мобильная навигация">
+<a href="#services">Услуги</a>
+<a href="#why-me">Преимущества</a>
+<a href="#portfolio">Портфолио</a>
+<a href="#process">Процесс работы</a>
+<a href="#pricing">Стоимость</a>
+<a href="#faq">FAQ</a>
+<a href="https://t.me/konstcreative" class="btn btn-primary">Связаться</a>
+</div>
+
+<!-- Hero Section -->
+<section class="hero" id="hero">
+<div class="section-container">
+<div class="hero-content">
+<div class="hero-badge">
+<span class="dot"></span>
+Открыт для сотрудничества
+</div>
+<h1 class="hero-title">
+Сайты, которые <span class="highlight">конвертируют трафик в прибыль</span>
+</h1>
+<p class="hero-subtitle">
+Создаю высококонверсионные сайты на WordPress, повышаю позиции в поиске SEO/GEO 
+и привлекаю целевой трафик с помощью контекстной рекламы. Комплексный подход к цифровому росту.
+</p>
+<div class="hero-buttons">
+<a href="https://t.me/konstcreative" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+<path d="M21.198 2.433a2.242 2.242 0 0 0-1.022.215l-16.5 6.875a2.25 2.25 0 0 0 .087 4.257l3.45 1.143 1.143 3.45a2.25 2.25 0 0 0 4.257.087l6.875-16.5a2.242 2.242 0 0 0-.215-1.022z"/>
+</svg>
+Обсудить задачу в Telegram
+</a>
+<a href="#portfolio" class="btn btn-secondary">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+<circle cx="12" cy="12" r="3"/>
+</svg>
+Смотреть кейсы
+</a>
+</div>
+<div class="hero-stats">
+<div class="stat-item">
+<div class="stat-number">50<span class="accent">+</span></div>
+<div class="stat-label">Реализованных проектов</div>
+</div>
+<div class="stat-item">
+<div class="stat-number">3<span class="accent">x</span></div>
+<div class="stat-label">Средний рост трафика</div>
+</div>
+<div class="stat-item">
+<div class="stat-number">98<span class="accent">%</span></div>
+<div class="stat-label">Довольных клиентов</div>
+</div>
+<div class="stat-item">
+<div class="stat-number">5<span class="accent">+</span></div>
+<div class="stat-label">Лет на рынке</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Services Section -->
+<section class="services" id="services">
+<div class="section-container">
+<span class="section-label">Услуги</span>
+<h2 class="section-title"><span class="highlight">Инструменты для</span> масштабирования бизнеса</h2>
+<p class="section-description">
+Полный цикл цифровых услуг под ключ. От технической реализации до маркетингового продвижения.
+</p>
+<div class="services-grid">
+<article class="service-card">
+<div class="service-icon">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+<rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+<line x1="3" y1="9" x2="21" y2="9"/>
+<line x1="9" y1="21" x2="9" y2="9"/>
+</svg>
+</div>
+<h3 class="service-title">Веб-разработка на WordPress</h3>
+<p class="service-description">
+Создание быстрых, безопасных и удобных в управлении сайтов. От продающих лендингов до сложных корпоративных порталов.
+</p>
+<div class="service-features">
+<div class="service-feature">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+Разработка уникальных тем
+</div>
+<div class="service-feature">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+Внедрение интернет-магазинов
+</div>
+<div class="service-feature">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+Техническая оптимизация
+</div>
+</div>
+</article>
+<article class="service-card">
+<div class="service-icon">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+<circle cx="11" cy="11" r="8"/>
+<line x1="21" y1="21" x2="16.65" y2="16.65"/>
+<line x1="11" y1="8" x2="11" y2="14"/>
+<line x1="8" y1="11" x2="14" y2="11"/>
+</svg>
+</div>
+<h3 class="service-title">SEO-продвижение</h3>
+<p class="service-description">
+Стратегии продвижения, основанные на данных. Улучшение видимости в поиске и привлечение органического трафика.
+</p>
+<div class="service-features">
+<div class="service-feature">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+Технический SEO-аудит
+</div>
+<div class="service-feature">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+Сбор семантического ядра
+</div>
+<div class="service-feature">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+Оптимизация контента
+</div>
+</div>
+</article>
+<article class="service-card">
+<div class="service-icon">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+<polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+</svg>
+</div>
+<h3 class="service-title">Контекстная реклама (PPC)</h3>
+<p class="service-description">
+Настройка эффективных кампаний в Яндекс Директ и Google Ads. Максимальный охват целевой аудитории.
+</p>
+<div class="service-features">
+<div class="service-feature">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+Настройка и ведение рекламы
+</div>
+<div class="service-feature">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+A/B тестирование объявлений
+</div>
+<div class="service-feature">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+Сквозная аналитика
+</div>
+</div>
+</article>
+</div>
+</div>
+</section>
+<!-- Why Choose Me Section -->
+<section class="why-me" id="why-me">
+<div class="section-container">
+<span class="section-label">Преимущества</span>
+<h2 class="section-title"><span class="highlight">Надёжный технический</span> партнёр</h2>
+<p class="section-description">
+Я сочетаю глубокую техническую экспертизу с пониманием бизнес-процессов.
+</p>
+<div class="benefits-grid">
+<div class="benefit-card">
+<span class="benefit-number">01</span>
+<div class="benefit-content">
+<h4>Фокус на бизнес-показателях</h4>
+<p>Каждое техническое решение обосновано с точки зрения прибыли.</p>
+</div>
+</div>
+<div class="benefit-card">
+<span class="benefit-number">02</span>
+<div class="benefit-content">
+<h4>Прозрачная коммуникация</h4>
+<p>Регулярные отчеты, соблюдение дедлайнов и честная обратная связь.</p>
+</div>
+</div>
+<div class="benefit-card">
+<span class="benefit-number">03</span>
+<div class="benefit-content">
+<h4>Комплексная экспертиза</h4>
+<p>От верстки до маркетинга — понимаю, как все элементы работают вместе.</p>
+</div>
+</div>
+<div class="benefit-card">
+<span class="benefit-number">04</span>
+<div class="benefit-content">
+<h4>Поддержка после запуска</h4>
+<p>Работа не заканчивается релизом. Обеспечиваю техническую поддержку.</p>
+</div>
+</div>
+<div class="benefit-card">
+<span class="benefit-number">05</span>
+<div class="benefit-content">
+<h4>Честное ценообразование</h4>
+<p>Конкурентные ставки без скрытых комиссий и агентских наценок.</p>
+</div>
+</div>
+<div class="benefit-card">
+<span class="benefit-number">06</span>
+<div class="benefit-content">
+<h4>Подтвержденный опыт</h4>
+<p>Более 50 успешных кейсов в различных нишах.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Showcase Section -->
+<section class="showcase" id="showcase">
+    <div class="section-container" style="text-align: center; margin-bottom: 2rem;">
+        <span class="section-label">Портфолио</span>
+        <h2 class="section-title"><span class="highlight">Реализованые</span> проекты</h2
     </div>
 
-    <!-- Hero Section -->
-    <section class="hero" id="hero">
-        <div class="section-container">
-            <div class="hero-content">
-                <div class="hero-badge">
-                    <span class="dot"></span>
-                    Открыт для новых проектов
-                </div>
-                <h1 class="hero-title">
-                    Создаю сайты, которые <span class="highlight">приносят результат</span>
-                </h1>
-                <p class="hero-subtitle">
-                    Разработка на WordPress, SEO-оптимизация и контекстная реклама — превращаю ваше онлайн-присутствие в мощный инструмент для бизнеса. Больше заявок, выше конверсия, измеримый рост.
-                </p>
-                <div class="hero-buttons">
-                    <a href="https://t.me/konstcreative" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M21.198 2.433a2.242 2.242 0 0 0-1.022.215l-16.5 6.875a2.25 2.25 0 0 0 .087 4.257l3.45 1.143 1.143 3.45a2.25 2.25 0 0 0 4.257.087l6.875-16.5a2.242 2.242 0 0 0-.215-1.022z"/>
-                        </svg>
-                        Обсудить проект в Telegram
-                    </a>
-                    <a href="#portfolio" class="btn btn-secondary">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
-                            <circle cx="12" cy="12" r="3"/>
-                        </svg>
-                        Смотреть демо-сайт
-                    </a>
-                </div>
-                <div class="hero-stats">
-                    <div class="stat-item">
-                        <div class="stat-number">50<span class="accent">+</span></div>
-                        <div class="stat-label">Завершённых проектов</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">3<span class="accent">x</span></div>
-                        <div class="stat-label">Средний рост трафика</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">98<span class="accent">%</span></div>
-                        <div class="stat-label">Довольных клиентов</div>
-                    </div>
+    <!-- Верхняя лента (движется влево) -->
+    <div class="marquee-wrapper">
+        <div class="marquee-track marquee-track-left">
+            <!-- Повторяемый блок карточки -->
+            <div class="marquee-item h-300">
+                <img src="https://picsum.photos/600/400" alt="Проект 1">
+                <div class="marquee-overlay">
+                    <h3>Интернет-магазин электроники</h3>
+                    <p>WordPress / WooCommerce</p>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section class="services" id="services">
-        <div class="section-container">
-            <span class="section-label">Услуги</span>
-            <h2 class="section-title">Решения для роста вашего бизнеса</h2>
-            <p class="section-description">
-                Комплексные веб-услуги, адаптированные под ваши цели. От создания до продвижения — я отвечаю за все аспекты вашего цифрового присутствия.
-            </p>
-            <div class="services-grid">
-                <article class="service-card">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
-                            <line x1="3" y1="9" x2="21" y2="9"/>
-                            <line x1="9" y1="21" x2="9" y2="9"/>
-                        </svg>
-                    </div>
-                    <h3 class="service-title">Разработка на WordPress</h3>
-                    <p class="service-description">
-                        Кастомные сайты на WordPress, созданные для производительности, безопасности и удобного управления. От лендингов до сложных бизнес-решений.
-                    </p>
-                    <div class="service-features">
-                        <div class="service-feature">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="20 6 9 17 4 12"/>
-                            </svg>
-                            Разработка уникальных тем
-                        </div>
-                        <div class="service-feature">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="20 6 9 17 4 12"/>
-                            </svg>
-                            Интеграция интернет-магазина
-                        </div>
-                        <div class="service-feature">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="20 6 9 17 4 12"/>
-                            </svg>
-                            Оптимизация скорости
-                        </div>
-                    </div>
-                </article>
-                <article class="service-card">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="11" cy="11" r="8"/>
-                            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
-                            <line x1="11" y1="8" x2="11" y2="14"/>
-                            <line x1="8" y1="11" x2="14" y2="11"/>
-                        </svg>
-                    </div>
-                    <h3 class="service-title">SEO-оптимизация</h3>
-                    <p class="service-description">
-                        SEO-стратегии на основе данных, которые улучшают позиции в поиске и привлекают органический трафик. Техническая, контентная и внешняя оптимизация.
-                    </p>
-                    <div class="service-features">
-                        <div class="service-feature">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="20 6 9 17 4 12"/>
-                            </svg>
-                            Технический SEO-аудит
-                        </div>
-                        <div class="service-feature">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="20 6 9 17 4 12"/>
-                            </svg>
-                            Подбор семантики
-                        </div>
-                        <div class="service-feature">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="20 6 9 17 4 12"/>
-                            </svg>
-                            Оптимизация контента
-                        </div>
-                    </div>
-                </article>
-                <article class="service-card">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
-                        </svg>
-                    </div>
-                    <h3 class="service-title">Контекстная реклама</h3>
-                    <p class="service-description">
-                        Таргетированные рекламные кампании в Google Ads и Яндекс Директ, которые приводят квалифицированных лидов и максимизируют ROI.
-                    </p>
-                    <div class="service-features">
-                        <div class="service-feature">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="20 6 9 17 4 12"/>
-                            </svg>
-                            Настройка и ведение кампаний
-                        </div>
-                        <div class="service-feature">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="20 6 9 17 4 12"/>
-                            </svg>
-                            A/B тестирование
-                        </div>
-                        <div class="service-feature">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="20 6 9 17 4 12"/>
-                            </svg>
-                            Отслеживание конверсий
-                        </div>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <!-- Why Choose Me Section -->
-    <section class="why-me" id="why-me">
-        <div class="section-container">
-            <span class="section-label">Почему я</span>
-            <h2 class="section-title">Партнёр, которому можно доверять</h2>
-            <p class="section-description">
-                Я объединяю техническую экспертизу с пониманием бизнеса. Ваш успех — мой приоритет.
-            </p>
-            <div class="benefits-grid">
-                <div class="benefit-card">
-                    <span class="benefit-number">01</span>
-                    <div class="benefit-content">
-                        <h4>Ориентация на результат</h4>
-                        <p>Каждое решение принимается с учётом ваших бизнес-целей. Я измеряю успех вашим ростом, а не просто сдачей проекта.</p>
-                    </div>
-                </div>
-                <div class="benefit-card">
-                    <span class="benefit-number">02</span>
-                    <div class="benefit-content">
-                        <h4>Прозрачная коммуникация</h4>
-                        <p>Регулярные обновления, чёткие сроки и честная обратная связь. Вы всегда знаете статус вашего проекта.</p>
-                    </div>
-                </div>
-                <div class="benefit-card">
-                    <span class="benefit-number">03</span>
-                    <div class="benefit-content">
-                        <h4>Комплексная экспертиза</h4>
-                        <p>От разработки до маркетинга — я понимаю, как все элементы работают вместе для максимального эффекта.</p>
-                    </div>
-                </div>
-                <div class="benefit-card">
-                    <span class="benefit-number">04</span>
-                    <div class="benefit-content">
-                        <h4>Поддержка после запуска</h4>
-                        <p>Наше сотрудничество не заканчивается запуском. Я предоставляю ongoing поддержку и рекомендации по оптимизации.</p>
-                    </div>
-                </div>
-                <div class="benefit-card">
-                    <span class="benefit-number">05</span>
-                    <div class="benefit-content">
-                        <h4>Честное ценообразование</h4>
-                        <p>Конкурентные расценки без скрытых платежей. Премиум-качество без агентских наценок.</p>
-                    </div>
-                </div>
-                <div class="benefit-card">
-                    <span class="benefit-number">06</span>
-                    <div class="benefit-content">
-                        <h4>Проверенный опыт</h4>
-                        <p>Более 50 успешных проектов в разных нишах. Ознакомьтесь с портфолио и отзывами клиентов.</p>
-                    </div>
+            <div class="marquee-item h-400">
+                <img src="https://picsum.photos/600/500?random=2" alt="Проект 2">
+                <div class="marquee-overlay">
+                    <h3>Корпоративный портал</h3>
+                    <p>Разработка / SEO</p>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Portfolio Section -->
-    <section class="portfolio" id="portfolio">
-        <div class="section-container">
-            <span class="section-label">Портфолио</span>
-            <h2 class="section-title">Примеры recent проектов</h2>
-            <p class="section-description">
-                Посмотрите один из моих недавних проектов. Здесь демонстрируется мой подход к дизайну, разработке и пользовательскому опыту.
-            </p>
-            <div class="portfolio-showcase">
-                <div class="portfolio-card">
-                    <div class="portfolio-preview">
-                        <div class="portfolio-mockup">
-                            <div class="mockup-browser">
-                                <div class="mockup-header">
-                                    <span class="mockup-dot"></span>
-                                    <span class="mockup-dot"></span>
-                                    <span class="mockup-dot"></span>
-                                    <span class="mockup-url">demo-project.com</span>
-                                </div>
-                                <div class="mockup-content">
-                                    <div class="mockup-line"></div>
-                                    <div class="mockup-line"></div>
-                                    <div class="mockup-line"></div>
-                                    <div class="mockup-line"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="portfolio-info">
-                        <h3>Демо интернет-магазина</h3>
-                        <p>Современный интернет-магазин на WordPress и WooCommerce. Включает кастомные фильтры товаров, интеграцию платёжных систем и оптимизированный процесс оформления заказа.</p>
-                        <div class="portfolio-tags">
-                            <span class="portfolio-tag">WordPress</span>
-                            <span class="portfolio-tag">WooCommerce</span>
-                            <span class="portfolio-tag">SEO</span>
-                            <span class="portfolio-tag">Кастомный дизайн</span>
-                        </div>
-                        <a href="#" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
-                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-                                <polyline points="15 3 21 3 21 9"/>
-                                <line x1="10" y1="14" x2="21" y2="3"/>
-                            </svg>
-                            Открыть демо
-                        </a>
-                    </div>
+            <div class="marquee-item h-350">
+                <img src="https://picsum.photos/600/450?random=3" alt="Проект 3">
+                <div class="marquee-overlay">
+                    <h3>Лендинг строительной компании</h3>
+                    <p>Дизайн / Разработка</p>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Process Section -->
-    <section class="process" id="process">
-        <div class="section-container">
-            <span class="section-label">Процесс</span>
-            <h2 class="section-title">Как мы будем работать</h2>
-            <p class="section-description">
-                Чёткий структурированный подход, который держит вас в курсе на каждом этапе. От концепции до запуска и далее.
-            </p>
-            <div class="process-timeline">
-                <div class="process-line"></div>
-                <div class="process-step">
-                    <div class="process-marker">1</div>
-                    <div class="process-content">
-                        <h4>Знакомство и обсуждение</h4>
-                        <p>Обсуждаем ваши цели, требования и видение. Я анализирую текущую ситуацию и предлагаю оптимальный подход.</p>
-                    </div>
-                </div>
-                <div class="process-step">
-                    <div class="process-marker">2</div>
-                    <div class="process-content">
-                        <h4>Стратегия и планирование</h4>
-                        <p>Детальный план проекта с таймлайном, этапами и результатами. Чёткий scope и прозрачное ценообразование.</p>
-                    </div>
-                </div>
-                <div class="process-step">
-                    <div class="process-marker">3</div>
-                    <div class="process-content">
-                        <h4>Разработка и тестирование</h4>
-                        <p>Гибкая разработка с регулярными обновлениями. Тщательное тестирование гарантирует безупречную работу.</p>
-                    </div>
-                </div>
-                <div class="process-step">
-                    <div class="process-marker">4</div>
-                    <div class="process-content">
-                        <h4>Согласование и запуск</h4>
-                        <p>Финальное согласование с вашим фидбеком. Плавный запуск с минимальным простоем и полной документацией.</p>
-                    </div>
-                </div>
-                <div class="process-step">
-                    <div class="process-marker">5</div>
-                    <div class="process-content">
-                        <h4>Поддержка и развитие</h4>
-                        <p>Постподдержка, отслеживание аналитики и рекомендации по оптимизации для постоянного улучшения.</p>
-                    </div>
+            <div class="marquee-item h-300">
+                <img src="https://picsum.photos/600/400?random=4" alt="Проект 4">
+                <div class="marquee-overlay">
+                    <h3>Сайт клиники</h3>
+                    <p>WordPress / Интеграции</p>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Pricing Section -->
-    <section class="pricing" id="pricing">
-        <div class="section-container">
-            <span class="section-label">Цены</span>
-            <h2 class="section-title">Прозрачные тарифы</h2>
-            <p class="section-description">
-                Выберите пакет под ваши задачи. Все тарифы включают персональную поддержку и гарантию качества.
-            </p>
-            <div class="pricing-grid">
-                <div class="pricing-card">
-                    <div class="pricing-name">Старт</div>
-                    <h3 class="pricing-title">Лендинг</h3>
-                    <div class="pricing-price">$499 <span>/ проект</span></div>
-                    <ul class="pricing-features">
-                        <li>
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="20 6 9 17 4 12"/>
-                            </svg>
-                            До 5 страниц
-                        </li>
-                        <li>
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="20 6 9 17 4 12"/>
-                            </svg>
-                            Адаптивный дизайн
-                        </li>
-                        <li>
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="20 6 9 17 4 12"/>
-                            </svg>
-                            Базовое SEO
-                        </li>
-                        <li>
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="20 6 9 17 4 12"/>
-                            </svg>
-                            Интеграция форм
-                        </li>
-                        <li>
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="20 6 9 17 4 12"/>
-                            </svg>
-                            1 месяц поддержки
-                        </li>
-                    </ul>
-                    <a href="https://t.me/konstcreative" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Заказать</a>
-                </div>
-                <div class="pricing-card featured">
-                    <div class="pricing-name">Бизнес</div>
-                    <h3 class="pricing-title">Сайт компании</h3>
-                    <div class="pricing-price">$999 <span>/ проект</span></div>
-                    <ul class="pricing-features">
-                        <li>
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="20 6 9 17 4 12"/>
-                            </svg>
-                            До 15 страниц
-                        </li>
-                        <li>
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="20 6 9 17 4 12"/>
-                            </svg>
-                            Уникальный дизайн
-                        </li>
-                        <li>
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="20 6 9 17 4 12"/>
-                            </svg>
-                            Продвинутое SEO
-                        </li>
-                        <li>
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="20 6 9 17 4 12"/>
-                            </svg>
-                            Настройка аналитики
-                        </li>
-                        <li>
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="20 6 9 17 4 12"/>
-                            </svg>
-                            3 месяца поддержки
-                        </li>
-                    </ul>
-                    <a href="https://t.me/konstcreative" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Заказать</a>
-                </div>
-                <div class="pricing-card">
-                    <div class="pricing-name">Профи</div>
-                    <h3 class="pricing-title">Комплексное решение</h3>
-                    <div class="pricing-price">$2499 <span>/ проект</span></div>
-                    <ul class="pricing-features">
-                        <li>
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="20 6 9 17 4 12"/>
-                            </svg>
-                            Без ограничений
-                        </li>
-                        <li>
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="20 6 9 17 4 12"/>
-                            </svg>
-                            Интернет-магазин
-                        </li>
-                        <li>
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="20 6 9 17 4 12"/>
-                            </svg>
-                            SEO + реклама
-                        </li>
-                        <li>
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="20 6 9 17 4 12"/>
-                            </svg>
-                            Кастомные интеграции
-                        </li>
-                        <li>
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="20 6 9 17 4 12"/>
-                            </svg>
-                            6 месяцев поддержки
-                        </li>
-                    </ul>
-                    <a href="https://t.me/konstcreative" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Заказать</a>
+            <div class="marquee-item h-450">
+                <img src="https://picsum.photos/600/550?random=5" alt="Проект 5">
+                <div class="marquee-overlay">
+                    <h3>Агрегатор курсов</h3>
+                    <p>Сложная логика / Фильтры</p>
                 </div>
             </div>
+            <!-- Дублируем для бесшовности (JS сделает это автоматически, но для надежности можно и руками) -->
         </div>
-    </section>
+    </div>
+</section>
+   
 
-    <!-- Testimonials Section -->
-    <section class="testimonials" id="testimonials">
-        <div class="section-container">
-            <span class="section-label">Отзывы</span>
-            <h2 class="section-title">Что говорят клиенты</h2>
-            <p class="section-description">
-                Не верьте просто на слово. Вот что говорят владельцы бизнеса о работе со мной.
-            </p>
-            <div class="testimonials-slider">
-                <div class="testimonial-track">
-                    <div class="testimonial-card">
-                        <p class="testimonial-quote">
-                            Константин превратил наш устаревший сайт в современную, быстро загружающуюся платформу. Органический трафик вырос на 340% за 6 месяцев. Его внимание к деталям и стратегическое мышление сделали всё возможное.
-                        </p>
-                        <div class="testimonial-author">
-                            <div class="testimonial-avatar">АК</div>
-                            <div class="testimonial-info">
-                                <h4>Александр К.</h4>
-                                <p>CEO, TechStart Solutions</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-card">
-                        <p class="testimonial-quote">
-                            Рекламная кампания в Google Ads, которую настроил Константин, превзошла все ожидания. Мы получили на 200% больше квалифицированных заявок, при этом фактически сократив рекламный бюджет. Очень рекомендую.
-                        </p>
-                        <div class="testimonial-author">
-                            <div class="testimonial-avatar">МВ</div>
-                            <div class="testimonial-info">
-                                <h4>Мария В.</h4>
-                                <p>Маркетинг-директор, GreenLeaf Co.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-card">
-                        <p class="testimonial-quote">
-                            Профессионализм, отзывчивость и настоящее понимание бизнеса. Наш новый сайт на WordPress загружается меньше чем за 2 секунды и конвертирует посетителей в клиентов. Лучшая инвестиция в этом году.
-                        </p>
-                        <div class="testimonial-author">
-                            <div class="testimonial-avatar">ДС</div>
-                            <div class="testimonial-info">
-                                <h4>Дмитрий С.</h4>
-                                <p>Основатель, Digital Craft Agency</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonials-nav">
-                    <button class="testimonial-btn prev" aria-label="Предыдущий отзыв">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <polyline points="15 18 9 12 15 6"/>
-                        </svg>
-                    </button>
-                    <div class="testimonial-dots">
-                        <span class="testimonial-dot active" data-index="0" aria-label="Перейти к отзыву 1"></span>
-                        <span class="testimonial-dot" data-index="1" aria-label="Перейти к отзыву 2"></span>
-                        <span class="testimonial-dot" data-index="2" aria-label="Перейти к отзыву 3"></span>
-                    </div>
-                    <button class="testimonial-btn next" aria-label="Следующий отзыв">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <polyline points="9 18 15 12 9 6"/>
-                        </svg>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- Portfolio Section -->
+<section class="portfolio" id="portfolio">
+<div class="section-container">
+<span class="section-label">На практике</span>
+<h2 class="section-title"><span class="highlight">Демо</span> сайт</h2>
+<p class="section-description">
+Один из моих недавних проектов. После обращения предоставлю доступ к демо-сайту, где можно посмотреть проект "изнутри" и оценить удобства работы админ панели.
+</p>
+<div class="portfolio-showcase">
+<div class="portfolio-card">
+<div class="portfolio-preview">
+<div class="portfolio-mockup">
+<div class="mockup-browser">
+<div class="mockup-header">
+<span class="mockup-dot"></span>
+<span class="mockup-dot"></span>
+<span class="mockup-dot"></span>
+<span class="mockup-url">demo-project.com</span>
+</div>
+<div class="mockup-content">
+<div class="mockup-line"></div>
+<div class="mockup-line"></div>
+<div class="mockup-line"></div>
+<div class="mockup-line"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="portfolio-info">
+<h3>Демо на основе Интернет-магазина</h3>
+<p>Магазин на связке WordPress и WooCommerce. Реализованы умные фильтры товаров, интеграция платежных шлюзов и оптимизированная воронка оформления заказа.</p>
+<div class="portfolio-tags">
+<span class="portfolio-tag">WordPress</span>
+<span class="portfolio-tag">WooCommerce</span>
+<span class="portfolio-tag">SEO</span>
+<span class="portfolio-tag">UI/UX Дизайн</span>
+</div>
+<a href="https://ce734779.tw1.ru/" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+<polyline points="15 3 21 3 21 9"/>
+<line x1="10" y1="14" x2="21" y2="3"/>
+</svg>
+Открыть демо-версию
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
 
-    <!-- Final CTA Section -->
-    <section class="final-cta" id="contact">
-        <div class="section-container">
-            <span class="section-label">Готовы начать?</span>
-            <h2 class="section-title">Создадим что-то великое вместе</h2>
-            <p class="section-description">
-                Есть идея проекта? Я готов обсудить ваши задумки и помочь достичь бизнес-целей. Давайте поговорим.
-            </p>
-            <a href="https://t.me/konstcreative" class="btn btn-primary btn-large" target="_blank" rel="noopener noreferrer">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24">
-                    <path d="M21.198 2.433a2.242 2.242 0 0 0-1.022.215l-16.5 6.875a2.25 2.25 0 0 0 .087 4.257l3.45 1.143 1.143 3.45a2.25 2.25 0 0 0 4.257.087l6.875-16.5a2.242 2.242 0 0 0-.215-1.022z"/>
-                </svg>
-                Обсудить проект в Telegram
-            </a>
-        </div>
-    </section>
+<!-- Process Section -->
+<section class="process" id="process">
+<div class="section-container">
+<span class="section-label">Процесс</span>
+<h2 class="section-title"><span class="highlight">Этапы</span> сотрудничества</h2>
+<p class="section-description">
+Структурированный подход к работе, который гарантирует соблюдение сроков и бюджета.
+</p>
+<div class="process-timeline">
+<div class="process-line"></div>
+<div class="process-step">
+<div class="process-marker">1</div>
+<div class="process-content">
+<h4>Брифинг и анализ</h4>
+<p>Глубокое погружение в ваш бизнес, анализ конкурентов и целевой аудитории.</p>
+</div>
+</div>
+<div class="process-step">
+<div class="process-marker">2</div>
+<div class="process-content">
+<h4>Стратегия и планирование</h4>
+<p>Составление детального плана работ, утверждение дизайн-концепции.</p>
+</div>
+</div>
+<div class="process-step">
+<div class="process-marker">3</div>
+<div class="process-content">
+<h4>Разработка и тестирование</h4>
+<p>Верстка и программирование функционала. Многоступенчатое тестирование.</p>
+</div>
+</div>
+<div class="process-step">
+<div class="process-marker">4</div>
+<div class="process-content">
+<h4>Запуск и обучение</h4>
+<p>Перенос сайта на боевой сервер, финальная настройка. Обучение команды.</p>
+</div>
+</div>
+<div class="process-step">
+<div class="process-marker">5</div>
+<div class="process-content">
+<h4>Поддержка и аналитика</h4>
+<p>Мониторинг работы сайта, сбор статистики и внесение правок.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-content">
-            <p>2025 Konst Creative. Все права защищены.</p>
-            <div class="footer-links">
-                <a href="https://t.me/konstcreative" target="_blank" rel="noopener noreferrer">Telegram</a>
-                <a href="mailto:contact@konstcreative.com">Email</a>
-            </div>
-        </div>
-    </footer>
+<!-- Pricing Section -->
+<section class="pricing" id="pricing">
+<div class="section-container">
+<span class="section-label">Стоимость</span>
+<h2 class="section-title"><span class="highlight">Прозрачные</span> тарифы</h2>
+<p class="section-description">
+Выберите пакет, соответствующий вашим текущим задачам.
+</p>
+<div class="pricing-grid">
+<div class="pricing-card">
+<div class="pricing-name">Старт</div>
+<h3 class="pricing-title">Лендинг пейдж</h3>
+<div class="pricing-price">₽10000 <span>/ под ключ</span></div>
+<ul class="pricing-features">
+<li>
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+До 7 экранов/блоков
+</li>
+<li>
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+Адаптивная вёрстка (мобильная + десктоп)
+</li>
+<li>
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+Базовая SEO-подготовка (title, description, H1)
+</li>
+<li>
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+Форма заявки + уведомления в Telegram
+</li>
+<li>
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+Установка на ваш хостинг / домен
+</li>
+<li>
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+14 дней технической поддержки
+</li>
+</ul>
+<a href="https://t.me/konstcreative" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Заказать</a>
+</div>
+<div class="pricing-card featured">
+<div class="pricing-name">Аудит</div>
+<h3 class="pricing-title">SEO-оптимизация</h3>
+<div class="pricing-price">₽15000 <span>/ единоразово</span></div>
+<ul class="pricing-features">
+<li>
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+Технический аудит сайта
+</li>
+<li>
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+Сбор семантики (до 50 запросов)
+</li>
+<li>
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+Оптимизация meta-тегов для главных страниц
+</li>
+<li>
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+Настройка Яндекс.Вебмастер / Google Search Console
+</li>
+<li>
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+Рекомендации по структуре и контенту
+</li>
+</ul>
+<a href="https://t.me/konstcreative" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Заказать</a>
+</div>
+<div class="pricing-card">
+<div class="pricing-name">Быстрый старт</div>
+<h3 class="pricing-title">Яндекс/Google</h3>
+<div class="pricing-price">₽4000 <span>/ единоразово</span></div>
+<ul class="pricing-features">
+<li>
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+Сбор минимальной семантики (до 30 запросов)
+</li>
+<li>
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+Настройка 1 кампании (поиск ИЛИ РСЯ/КМС)
+</li>
+<li>
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+3-5 объявлений с A/B-вариантами заголовков
+</li>
+<li>
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+Базовые минус-слова и геотаргетинг
+</li>
+<li>
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+Ведение и оптимизация (оплачивается отдельно)
+</li>
+</ul>
+<a href="https://t.me/konstcreative" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Заказать</a>
+</div>
+</div>
+</div>
+</section>
 
-    <script>
-        // Initialize variables first
-        const canvas = document.getElementById('particle-canvas');
-        const ctx = canvas.getContext('2d');
-        let particles = [];
-        let animationId = null;
-        let currentTestimonial = 0;
-        const totalTestimonials = 3;
+<!-- FAQ Section -->
+<section class="faq" id="faq">
+<div class="section-container">
+<span class="section-label">FAQ</span>
+<h2 class="section-title"><span class="highlight">Часто задаваемые</span> вопросы</h2>
+<p class="section-description">
+Ответы на популярные вопросы о работе, сроках и процессе сотрудничества.
+</p>
 
-        // Particle System
-        function initParticles() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-            
-            particles = [];
-            const particleCount = Math.min(80, Math.floor(window.innerWidth / 20));
-            
-            for (let i = 0; i < particleCount; i++) {
-                particles.push({
-                    x: Math.random() * canvas.width,
-                    y: Math.random() * canvas.height,
-                    vx: (Math.random() - 0.5) * 0.3,
-                    vy: (Math.random() - 0.5) * 0.3,
-                    radius: Math.max(1, Math.random() * 2),
-                    opacity: Math.random() * 0.5 + 0.1
-                });
-            }
-        }
+<div class="accordion">
+<div class="accordion-item">
+<button class="accordion-header" aria-expanded="false">
+<span>Сколько времени занимает разработка сайта?</span>
+<svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+<line x1="12" y1="5" x2="12" y2="19"/>
+<line x1="5" y1="12" x2="19" y2="12"/>
+</svg>
+</button>
+<div class="accordion-content">
+<div class="accordion-body">
+<p>Лендинг — 2–7 рабочих дней. Корпоративный сайт (до 15 страниц) — от 2 недель. Интернет-магазин или сложный проект — от 4 недель. Перед стартом я составляю детальный план с этапами и дедлайнами, чтобы вы всегда понимали, на каком мы этапе.</p>
+</div>
+</div>
+</div>
 
-        function drawParticles() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            
-            particles.forEach((p, i) => {
-                // Update position
-                p.x += p.vx;
-                p.y += p.vy;
-                
-                // Wrap around edges
-                if (p.x < 0) p.x = canvas.width;
-                if (p.x > canvas.width) p.x = 0;
-                if (p.y < 0) p.y = canvas.height;
-                if (p.y > canvas.height) p.y = 0;
-                
-                // Draw particle
-                ctx.beginPath();
-                ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-                ctx.fillStyle = `rgba(0, 229, 204, ${p.opacity})`;
-                ctx.fill();
-                
-                // Draw connections
-                particles.slice(i + 1).forEach(p2 => {
-                    const dx = p.x - p2.x;
-                    const dy = p.y - p2.y;
-                    const dist = Math.sqrt(dx * dx + dy * dy);
-                    
-                    if (dist < 150) {
-                        ctx.beginPath();
-                        ctx.moveTo(p.x, p.y);
-                        ctx.lineTo(p2.x, p2.y);
-                        const opacity = Math.max(0.01, (1 - dist / 150) * 0.15);
-                        ctx.strokeStyle = `rgba(0, 229, 204, ${opacity})`;
-                        ctx.stroke();
-                    }
-                });
-            });
-            
-            animationId = requestAnimationFrame(drawParticles);
-        }
+<div class="accordion-item">
+<button class="accordion-header" aria-expanded="false">
+<span>Что нужно для начала работы?</span>
+<svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+<line x1="12" y1="5" x2="12" y2="19"/>
+<line x1="5" y1="12" x2="19" y2="12"/>
+</svg>
+</button>
+<div class="accordion-content">
+<div class="accordion-body">
+<p>Минимум: ваше видение, примеры сайтов, которые нравятся, и базовые тексты/фото. Если чего-то нет — помогу сформулировать ТЗ, подберу изображения или напишу тексты. Доступ к хостингу и домену понадобится ближе к запуску.</p>
+</div>
+</div>
+</div>
 
-        // Check for reduced motion preference
-        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+<div class="accordion-item">
+<button class="accordion-header" aria-expanded="false">
+<span>Предоставляете ли вы гарантию на работу?</span>
+<svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+<line x1="12" y1="5" x2="12" y2="19"/>
+<line x1="5" y1="12" x2="19" y2="12"/>
+</svg>
+</button>
+<div class="accordion-content">
+<div class="accordion-body">
+<p>В гарантийный период (14–30 дней в зависимости от тарифа) я бесплатно исправляю технические ошибки, сбои и проблемы с отображением. Не входит: добавление нового функционала, изменение дизайна или наполнение новым контентом.</p>
+</div>
+</div>
+</div>
 
-        if (!prefersReducedMotion) {
-            initParticles();
-            drawParticles();
-            
-            window.addEventListener('resize', () => {
-                initParticles();
-            });
-        }
+<div class="accordion-item">
+<button class="accordion-header" aria-expanded="false">
+<span>Как проходит оплата?</span>
+<svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+<line x1="12" y1="5" x2="12" y2="19"/>
+<line x1="5" y1="12" x2="19" y2="12"/>
+</svg>
+</button>
+<div class="accordion-content">
+<div class="accordion-body">
+<p>Предоплата 50% для старта, остаток — после сдачи проекта и вашего одобрения. Для крупных проектов возможна поэтапная оплата. Принимаю переводы на карту, криптовалюту и платежные системы.</p>
+</div>
+</div>
+</div>
 
-        // Intersection Observer for animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+<div class="accordion-item">
+<button class="accordion-header" aria-expanded="false">
+<span>Можно ли внести изменения после запуска сайта?</span>
+<svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+<line x1="12" y1="5" x2="12" y2="19"/>
+<line x1="5" y1="12" x2="19" y2="12"/>
+</svg>
+</button>
+<div class="accordion-content">
+<div class="accordion-body">
+<p>Конечно. После запуска вы можете обращаться за доработками, добавлением нового функционала или изменением дизайна. Это оплачивается отдельно либо входит в пакет поддержки.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate-in');
-                }
-            });
-        }, observerOptions);
+<!-- Testimonials Section -->
+<section class="testimonials" id="testimonials">
+<div class="section-container">
+<span class="section-label">Отзывы</span>
+<h2 class="section-title"><span class="highlight">Что говорят</span> клиенты</h2>
+<p class="section-description">
+Реальные истории успеха владельцев бизнеса, которые уже воспользовались моими услугами.
+</p>
+<div class="testimonials-slider">
+<div class="testimonial-track">
+<div class="testimonial-card">
+<p class="testimonial-quote">
+Константин полностью модернизировал наш устаревший сайт. Теперь это быстрая и современная платформа. Органический трафик вырос на 340% за полгода. Его внимание к деталям и стратегический подход превзошли ожидания.
+</p>
+<div class="testimonial-author">
+<div class="testimonial-avatar">АК</div>
+<div class="testimonial-info">
+<h4>Александр К.</h4>
+<p>Генеральный директор, TechStart Solutions</p>
+</div>
+</div>
+</div>
+<div class="testimonial-card">
+<p class="testimonial-quote">
+Настройка рекламы в Google Ads оказалась крайне эффективной. Мы получили на 200% больше квалифицированных лидов, при этом стоимость привлечения клиента снизилась. Рекомендую как профессионала своего дела.
+</p>
+<div class="testimonial-author">
+<div class="testimonial-avatar">МВ</div>
+<div class="testimonial-info">
+<h4>Мария В.</h4>
+<p>Директор по маркетингу, GreenLeaf</p>
+</div>
+</div>
+</div>
+<div class="testimonial-card">
+<p class="testimonial-quote">
+Профессионализм, оперативность и глубокое понимание бизнес-задач. Новый сайт на WordPress загружается менее чем за 2 секунды и отлично конвертирует посетителей. Лучшая инвестиция в развитие компании за этот год.
+</p>
+<div class="testimonial-author">
+<div class="testimonial-avatar">ДС</div>
+<div class="testimonial-info">
+<h4>Дмитрий С.</h4>
+<p>Основатель, Start Craft Agency</p>
+</div>
+</div>
+</div>
+</div>
+<div class="testimonials-nav">
+<button class="testimonial-btn prev" aria-label="Предыдущий отзыв">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+<polyline points="15 18 9 12 15 6"/>
+</svg>
+</button>
+<div class="testimonial-dots">
+<span class="testimonial-dot active" data-index="0" aria-label="Перейти к отзыву 1"></span>
+<span class="testimonial-dot" data-index="1" aria-label="Перейти к отзыву 2"></span>
+<span class="testimonial-dot" data-index="2" aria-label="Перейти к отзыву 3"></span>
+</div>
+<button class="testimonial-btn next" aria-label="Следующий отзыв">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+<polyline points="9 18 15 12 9 6"/>
+</svg>
+</button>
+</div>
+</div>
+</div>
+</section>
 
-        // Observe elements
-        document.querySelectorAll('.section-label, .section-title, .section-description, .hero-badge, .hero-title, .hero-subtitle, .hero-buttons, .hero-stats, .service-card, .benefit-card, .portfolio-card, .process-step, .pricing-card').forEach(el => {
-            observer.observe(el);
-        });
+<!-- Final CTA Section -->
+<section class="final-cta" id="contact">
+<div class="section-container">
+<span class="section-label">Готовы начать?</span>
+<h2 class="section-title"><span class="highlight">Реализуем ваш проект вместе?</span></h2>
+<p class="section-description">
+Есть идея или задача? Я готов обсудить детали и предложить оптимальное решение для достижения ваших бизнес-целей.
+</p>
+<a href="https://t.me/konstcreative" class="btn btn-primary btn-large" target="_blank" rel="noopener noreferrer">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24">
+<path d="M21.198 2.433a2.242 2.242 0 0 0-1.022.215l-16.5 6.875a2.25 2.25 0 0 0 .087 4.257l3.45 1.143 1.143 3.45a2.25 2.25 0 0 0 4.257.087l6.875-16.5a2.242 2.242 0 0 0-.215-1.022z"/>
+</svg>
+Написать в Telegram
+</a>
+</div>
+</section>
 
-        // Testimonial Slider
-        const track = document.querySelector('.testimonial-track');
-        const dots = document.querySelectorAll('.testimonial-dot');
-        const prevBtn = document.querySelector('.testimonial-btn.prev');
-        const nextBtn = document.querySelector('.testimonial-btn.next');
+<!-- Footer -->
+<footer class="footer">
+<div class="footer-content">
+<p><span class="highlight">© 2026 KonstCreative.</span> Все права защищены.</p>
+<div class="footer-links">
+<a href="https://t.me/konstcreative" target="_blank" rel="noopener noreferrer">Telegram</a>
+<a href="https://wa.me/+375292211008" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+<a href="https://www.facebook.com/konstantin.feliz" target="_blank" rel="noopener noreferrer">FaceBook</a>
+<a href="mailto:konstcreative@ya.ru">Email</a>
+</div>
+</div>
+</footer>
 
-        function updateSlider() {
-            if (track) {
-                track.style.transform = `translateX(-${currentTestimonial * 100}%)`;
-            }
-            dots.forEach((dot, i) => {
-                dot.classList.toggle('active', i === currentTestimonial);
-            });
-        }
+<script>
+// === ИНИЦИАЛИЗАЦИЯ ПЕРЕМЕННЫХ ===
+const canvas = document.getElementById('particle-canvas');
+const ctx = canvas.getContext('2d');
+let particles = [];
+let animationId = null;
+let currentTestimonial = 0;
+const totalTestimonials = 3;
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-        function nextTestimonial() {
-            currentTestimonial = (currentTestimonial + 1) % totalTestimonials;
-            updateSlider();
-        }
+// === PARTICLE SYSTEM ===
+function initParticles() {
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+particles = [];
+const particleCount = Math.min(80, Math.floor(window.innerWidth / 20));
+for (let i = 0; i < particleCount; i++) {
+particles.push({
+x: Math.random() * canvas.width,
+y: Math.random() * canvas.height,
+vx: (Math.random() - 0.5) * 0.3,
+vy: (Math.random() - 0.5) * 0.3,
+radius: Math.max(1, Math.random() * 2),
+opacity: Math.random() * 0.5 + 0.1
+});
+}
+}
 
-        function prevTestimonial() {
-            currentTestimonial = (currentTestimonial - 1 + totalTestimonials) % totalTestimonials;
-            updateSlider();
-        }
+function drawParticles() {
+ctx.clearRect(0, 0, canvas.width, canvas.height);
+particles.forEach((p, i) => {
+p.x += p.vx;
+p.y += p.vy;
+if (p.x < 0) p.x = canvas.width;
+if (p.x > canvas.width) p.x = 0;
+if (p.y < 0) p.y = canvas.height;
+if (p.y > canvas.height) p.y = 0;
 
-        if (prevBtn && nextBtn) {
-            prevBtn.addEventListener('click', prevTestimonial);
-            nextBtn.addEventListener('click', nextTestimonial);
-        }
+ctx.beginPath();
+ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+ctx.fillStyle = `rgba(0, 229, 204, ${p.opacity})`;
+ctx.fill();
 
-        dots.forEach(dot => {
-            dot.addEventListener('click', () => {
-                currentTestimonial = parseInt(dot.dataset.index);
-                updateSlider();
-            });
-        });
+particles.slice(i + 1).forEach(p2 => {
+const dx = p.x - p2.x;
+const dy = p.y - p2.y;
+const dist = Math.sqrt(dx * dx + dy * dy);
+if (dist < 150) {
+ctx.beginPath();
+ctx.moveTo(p.x, p.y);
+ctx.lineTo(p2.x, p2.y);
+const opacity = Math.max(0.01, (1 - dist / 150) * 0.15);
+ctx.strokeStyle = `rgba(0, 229, 204, ${opacity})`;
+ctx.stroke();
+}
+});
+});
+animationId = requestAnimationFrame(drawParticles);
+}
 
-        // Auto-advance testimonials
-        if (!prefersReducedMotion) {
-            setInterval(nextTestimonial, 6000);
-        }
+if (!prefersReducedMotion) {
+initParticles();
+drawParticles();
+window.addEventListener('resize', initParticles);
+}
 
-        // Mobile Menu
-        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-        const mobileMenu = document.querySelector('.mobile-menu');
-        const mobileMenuLinks = mobileMenu ? mobileMenu.querySelectorAll('a') : [];
+// === INTERSECTION OBSERVER ===
+const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+const observer = new IntersectionObserver((entries) => {
+entries.forEach(entry => {
+if (entry.isIntersecting) {
+entry.target.classList.add('animate-in');
+}
+});
+}, observerOptions);
 
-        if (mobileMenuBtn && mobileMenu) {
-            mobileMenuBtn.addEventListener('click', () => {
-                mobileMenu.classList.toggle('active');
-                mobileMenuBtn.setAttribute('aria-expanded', mobileMenu.classList.contains('active'));
-            });
+// Наблюдаемые элементы
+document.querySelectorAll('.section-label, .section-title, .section-description, .hero-badge, .hero-title, .hero-subtitle, .hero-buttons, .hero-stats, .service-card, .benefit-card, .portfolio-card, .process-step, .pricing-card, .accordion-item').forEach(el => {
+observer.observe(el);
+});
 
-            mobileMenuLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    mobileMenu.classList.remove('active');
-                    mobileMenuBtn.setAttribute('aria-expanded', 'false');
-                });
-            });
-        }
+// === TESTIMONIAL SLIDER ===
+const track = document.querySelector('.testimonial-track');
+const dots = document.querySelectorAll('.testimonial-dot');
+const prevBtn = document.querySelector('.testimonial-btn.prev');
+const nextBtn = document.querySelector('.testimonial-btn.next');
 
-        // Smooth scroll for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                const href = this.getAttribute('href');
-                if (href !== '#') {
-                    e.preventDefault();
-                    const target = document.querySelector(href);
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: prefersReducedMotion ? 'auto' : 'smooth'
-                        });
-                    }
-                }
-            });
-        });
+function updateSlider() {
+if (track) track.style.transform = `translateX(-${currentTestimonial * 100}%)`;
+dots.forEach((dot, i) => dot.classList.toggle('active', i === currentTestimonial));
+}
 
-        // Add staggered delays to service cards
-        document.querySelectorAll('.service-card').forEach((card, i) => {
-            card.style.transitionDelay = `${i * 0.1}s`;
-        });
+function nextTestimonial() {
+currentTestimonial = (currentTestimonial + 1) % totalTestimonials;
+updateSlider();
+}
 
-        // Add staggered delays to benefit cards
-        document.querySelectorAll('.benefit-card').forEach((card, i) => {
-            card.style.transitionDelay = `${i * 0.08}s`;
-        });
+function prevTestimonial() {
+currentTestimonial = (currentTestimonial - 1 + totalTestimonials) % totalTestimonials;
+updateSlider();
+}
 
-        // Add staggered delays to pricing cards
-        document.querySelectorAll('.pricing-card').forEach((card, i) => {
-            card.style.transitionDelay = `${i * 0.1}s`;
-        });
+if (prevBtn && nextBtn) {
+prevBtn.addEventListener('click', prevTestimonial);
+nextBtn.addEventListener('click', nextTestimonial);
+}
 
-        // Add staggered delays to process steps
-        document.querySelectorAll('.process-step').forEach((step, i) => {
-            step.style.transitionDelay = `${i * 0.1}s`;
-        });
+dots.forEach(dot => {
+dot.addEventListener('click', () => {
+currentTestimonial = parseInt(dot.dataset.index);
+updateSlider();
+});
+});
 
-        // Keyboard navigation for dots
-        dots.forEach((dot, index) => {
-            dot.setAttribute('tabindex', '0');
-            dot.setAttribute('role', 'button');
-            dot.addEventListener('keydown', (e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    currentTestimonial = index;
-                    updateSlider();
-                }
-            });
-        });
-    </script>
+if (!prefersReducedMotion) {
+setInterval(nextTestimonial, 6000);
+}
+
+// === ACCORDION FAQ ===
+const accordionItems = document.querySelectorAll('.accordion-item');
+
+accordionItems.forEach(item => {
+const header = item.querySelector('.accordion-header');
+
+header.addEventListener('click', () => {
+const isActive = item.classList.contains('active');
+accordionItems.forEach(otherItem => {
+if (otherItem !== item) {
+otherItem.classList.remove('active');
+otherItem.querySelector('.accordion-header').setAttribute('aria-expanded', 'false');
+}
+});
+item.classList.toggle('active', !isActive);
+header.setAttribute('aria-expanded', !isActive);
+});
+
+header.addEventListener('keydown', (e) => {
+if (e.key === 'Enter' || e.key === ' ') {
+e.preventDefault();
+header.click();
+}
+});
+});
+
+// === MOBILE MENU ===
+const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+const mobileMenu = document.querySelector('.mobile-menu');
+const mobileMenuLinks = mobileMenu ? mobileMenu.querySelectorAll('a') : [];
+
+if (mobileMenuBtn && mobileMenu) {
+mobileMenuBtn.addEventListener('click', () => {
+mobileMenu.classList.toggle('active');
+mobileMenuBtn.setAttribute('aria-expanded', mobileMenu.classList.contains('active'));
+});
+
+mobileMenuLinks.forEach(link => {
+link.addEventListener('click', () => {
+mobileMenu.classList.remove('active');
+mobileMenuBtn.setAttribute('aria-expanded', 'false');
+});
+});
+}
+
+// === SMOOTH SCROLL ===
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+anchor.addEventListener('click', function(e) {
+const href = this.getAttribute('href');
+if (href !== '#') {
+e.preventDefault();
+const target = document.querySelector(href);
+if (target) {
+target.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth' });
+}
+}
+});
+});
+
+// === STAGGERED DELAYS ===
+document.querySelectorAll('.service-card').forEach((card, i) => card.style.transitionDelay = `${i * 0.1}s`);
+document.querySelectorAll('.benefit-card').forEach((card, i) => card.style.transitionDelay = `${i * 0.08}s`);
+document.querySelectorAll('.pricing-card').forEach((card, i) => card.style.transitionDelay = `${i * 0.1}s`);
+document.querySelectorAll('.process-step').forEach((step, i) => step.style.transitionDelay = `${i * 0.1}s`);
+document.querySelectorAll('.accordion-item').forEach((item, i) => item.style.transitionDelay = `${i * 0.08}s`);
+
+// === KEYBOARD NAV FOR DOTS ===
+dots.forEach((dot, index) => {
+dot.setAttribute('tabindex', '0');
+dot.setAttribute('role', 'button');
+dot.addEventListener('keydown', (e) => {
+if (e.key === 'Enter' || e.key === ' ') {
+e.preventDefault();
+currentTestimonial = index;
+updateSlider();
+}
+});
+});
+</script>
+
 </body>
 </html>
