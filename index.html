@@ -2,32 +2,25 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
+    <!-- ЭТОТ ТЕГ КРИТИЧЕСКИ ВАЖЕН ДЛЯ МОБИЛЬНЫХ -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Профессиональная разработка сайтов на WordPress, SEO-оптимизация и настройка контекстной рекламы. Превращаю ваш онлайн-присутствие в мощный бизнес-инструмент.">
-    <meta name="keywords" content="разработка сайтов WordPress, SEO оптимизация, Google Ads, Яндекс Директ, фрилансер веб-разработчик">
     <title>Konst Creative | WordPress & SEO Специалист</title>
-    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
     
     <style>
+        /* === БАЗОВЫЕ НАСТРОЙКИ === */
         :root {
-            --bg-primary: #0d0d0f;
-            --bg-secondary: #131316;
-            --bg-card: rgba(22, 22, 28, 0.6);
-            --fg-primary: #f5f5f7;
-            --fg-secondary: #9ca3af;
-            --fg-muted: #6b7280;
-            --accent-cyan: #00e5cc;
-            --accent-gold: #ffc857;
-            --accent-cyan-glow: rgba(0, 229, 204, 0.4);
-            --accent-gold-glow: rgba(255, 200, 87, 0.3);
-            --border-color: rgba(255, 255, 255, 0.08);
-            --glass-bg: rgba(255, 255, 255, 0.03);
-            --glass-border: rgba(255, 255, 255, 0.1);
+            --bg-primary: #0a0e14;
+            --bg-secondary: #111820;
+            --bg-card: #161f28;
+            --fg-primary: #ffffff;
+            --fg-secondary: #94a3b8;
+            --accent-cyan: #06b6d4;
+            --accent-green: #10b981;
+            --accent-yellow: #fbbf24;
+            --border-color: #1f2937;
         }
 
         * {
@@ -40,99 +33,72 @@
             scroll-behavior: smooth;
         }
 
-        @media (prefers-reduced-motion: reduce) {
-            html {
-                scroll-behavior: auto;
-            }
-            *, *::before, *::after {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-            }
-        }
-
         body {
             font-family: 'Inter', sans-serif;
-            background-color: var(--bg-primary);
+            background: var(--bg-primary);
             color: var(--fg-primary);
             line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-weight: 600;
-            line-height: 1.2;
-        }
-
-        /* Particle Canvas */
-        #particle-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
+            overflow-x: hidden; /* Убирает горизонтальный скролл */
             width: 100%;
-            height: 100%;
-            z-index: 0;
-            pointer-events: none;
         }
 
-        /* Ambient Background */
-        .ambient-glow {
-            position: fixed;
-            width: 600px;
-            height: 600px;
-            border-radius: 50%;
-            filter: blur(150px);
-            opacity: 0.15;
-            pointer-events: none;
-            z-index: 0;
+        /* === ИСПРАВЛЕНИЕ ДЛЯ МОБИЛЬНЫХ === */
+        @media (max-width: 768px) {
+            body, html {
+                max-width: 100%;
+                overflow-x: hidden;
+            }
+
+            section {
+                width: 100% !important;
+                max-width: 100% !important;
+                padding: 4rem 1.25rem !important;
+                margin: 0 !important;
+            }
+
+            /* Контейнеры внутри секций */
+            .container, .wrapper {
+                width: 100% !important;
+                max-width: 100% !important;
+                padding: 0 !important;
+            }
+
+            /* Сетки */
+            .services-grid,
+            .benefits-grid,
+            .pricing-grid,
+            .portfolio-showcase {
+                grid-template-columns: 1fr !important;
+                width: 100% !important;
+                justify-items: center;
+            }
+
+            /* Карточки - растягиваем на всю ширину */
+            .service-card,
+            .benefit-card,
+            .pricing-card,
+            .portfolio-card {
+                width: 100% !important;
+                max-width: 100% !important; /* Убираем ограничение в 400px */
+                margin-left: 0 !important;
+                margin-right: 0 !important;
+            }
         }
 
-        .glow-1 {
-            top: -200px;
-            right: -200px;
-            background: var(--accent-cyan);
-            animation: floatGlow 20s ease-in-out infinite;
-        }
-
-        .glow-2 {
-            bottom: -200px;
-            left: -200px;
-            background: var(--accent-gold);
-            animation: floatGlow 25s ease-in-out infinite reverse;
-        }
-
-        @keyframes floatGlow {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            33% { transform: translate(50px, 30px) scale(1.1); }
-            66% { transform: translate(-30px, 50px) scale(0.9); }
-        }
-
-        /* Navigation */
-        .nav {
+        /* === HEADER === */
+        header {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
+            background: rgba(10, 14, 20, 0.95);
+            backdrop-filter: blur(10px);
             z-index: 100;
-            padding: 1rem 2rem;
-            backdrop-filter: blur(20px);
-            background: rgba(13, 13, 15, 0.8);
-            border-bottom: 1px solid var(--border-color);
-            transform: translateY(-100%);
-            animation: slideDown 0.6s ease forwards 0.3s;
-        }
-
-        @keyframes slideDown {
-            to { transform: translateY(0); }
-        }
-
-        .nav-inner {
-            max-width: 1400px;
-            margin: 0 auto;
+            padding: 1rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            border-bottom: 1px solid var(--border-color);
         }
 
         .logo {
@@ -141,17 +107,6 @@
             font-weight: 700;
             color: var(--fg-primary);
             text-decoration: none;
-            position: relative;
-        }
-
-        .logo::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-gold));
         }
 
         .nav-links {
@@ -163,1025 +118,31 @@
         .nav-links a {
             color: var(--fg-secondary);
             text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
             transition: color 0.3s ease;
-            position: relative;
-        }
-
-        .nav-links a::before {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 1px;
-            background: var(--accent-cyan);
-            transition: width 0.3s ease;
         }
 
         .nav-links a:hover {
-            color: var(--fg-primary);
-        }
-
-        .nav-links a:hover::before {
-            width: 100%;
-        }
-
-        /* === БУРГЕР-МЕНЮ === */
-.mobile-menu-btn {
-    display: none;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 6px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 8px;
-}
-
-.mobile-menu-btn span {
-    height: 2px;
-    background: var(--fg-primary);
-    transition: all 0.3s ease;
-    border-radius: 2px;
-}
-
-.mobile-menu-btn span:nth-child(1) {
-    width: 28px;
-    margin-left: 9px;
-}
-.mobile-menu-btn span:nth-child(3) {
-    width: 31px;
-    margin-left: 6px;
-}
-
-.mobile-menu-btn span:nth-child(2) {
-    width: 37px;
-}
-
-        /* Sections Base */
-        section {
-            position: relative;
-            z-index: 1;
-            padding: 6rem 1.5rem;
-        }
-
-        .section-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-label {
-            display: inline-block;
-            font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
             color: var(--accent-cyan);
-            margin-bottom: 1rem;
-            opacity: 0;
-            transform: translateY(20px);
         }
 
-        .section-title {
-            font-size: clamp(2rem, 5vw, 3.5rem);
-            margin-bottom: 1.5rem;
-            opacity: 0;
-            transform: translateY(30px);
-        }
-
-        .section-description {
-            font-size: 1.125rem;
-            color: var(--fg-secondary);
-            max-width: 600px;
-            opacity: 0;
-            transform: translateY(20px);
-        }
-
-        /* Animation Classes */
-        .animate-in {
-            opacity: 1 !important;
-            transform: translateY(0) !important;
-            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .delay-1 { transition-delay: 0.1s; }
-        .delay-2 { transition-delay: 0.2s; }
-        .delay-3 { transition-delay: 0.3s; }
-        .delay-4 { transition-delay: 0.4s; }
-        .delay-5 { transition-delay: 0.5s; }
-
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            padding-top: 8rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-content {
-            max-width: 800px;
-        }
-
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.5rem 1rem;
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            border-radius: 100px;
-            font-size: 0.85rem;
-            color: var(--fg-secondary);
-            margin-bottom: 2rem;
-            backdrop-filter: blur(10px);
-            opacity: 0;
-            transform: translateY(20px);
-        }
-
-        .hero-badge .dot {
-            width: 8px;
-            height: 8px;
-            background: var(--accent-cyan);
-            border-radius: 50%;
-            animation: pulse 2s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.5; transform: scale(1.2); }
-        }
-
-        .hero-title {
-            font-size: clamp(2.5rem, 8vw, 5rem);
-            font-weight: 700;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-            opacity: 0;
-            transform: translateY(40px);
-        }
-
-        .hero-title .highlight {
-            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-gold));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero-subtitle {
-            font-size: clamp(1.125rem, 2vw, 1.375rem);
-            color: var(--fg-secondary);
-            max-width: 600px;
-            margin-bottom: 2.5rem;
-            opacity: 0;
-            transform: translateY(30px);
-        }
-
-        .hero-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            opacity: 0;
-            transform: translateY(30px);
-        }
-
-        /* Buttons */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.75rem;
-            padding: 1rem 2rem;
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1rem;
-            font-weight: 600;
-            text-decoration: none;
-            border-radius: 12px;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        .mobile-menu-btn {
+            display: none;
+            background: none;
             border: none;
-            outline: none;
-        }
-
-        .btn:focus-visible {
-            outline: 2px solid var(--accent-cyan);
-            outline-offset: 3px;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, var(--accent-cyan), #00b8a3);
-            color: var(--bg-primary);
-            box-shadow: 0 4px 20px var(--accent-cyan-glow);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 30px var(--accent-cyan-glow);
-        }
-
-        .btn-primary:active {
-            transform: translateY(0);
-        }
-
-        .btn-secondary {
-            background: var(--glass-bg);
-            color: var(--fg-primary);
-            border: 1px solid var(--glass-border);
-            backdrop-filter: blur(10px);
-        }
-
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.08);
-            border-color: rgba(255, 255, 255, 0.2);
-            transform: translateY(-2px);
-        }
-
-        .btn svg {
-            width: 20px;
-            height: 20px;
-        }
-
-        /* Stats Row */
-        .hero-stats {
-            display: flex;
-            gap: 3rem;
-            margin-top: 4rem;
-            padding-top: 3rem;
-            border-top: 1px solid var(--border-color);
-            opacity: 0;
-            transform: translateY(30px);
-        }
-
-        .stat-item {
-            text-align: left;
-        }
-
-        .stat-number {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--fg-primary);
-            line-height: 1;
-        }
-
-        .stat-number .accent {
-            color: var(--accent-cyan);
-        }
-
-        .stat-label {
-            font-size: 0.875rem;
-            color: var(--fg-muted);
-            margin-top: 0.25rem;
-        }
-
-        /* Services Section */
-        .services {
-            background: var(--bg-secondary);
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin-top: 3rem;
-        }
-
-        .service-card {
-            position: relative;
-            padding: 2.5rem;
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 20px;
-            backdrop-filter: blur(20px);
-            overflow: hidden;
-            opacity: 0;
-            transform: translateY(40px);
-            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--accent-cyan), transparent);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .service-card:hover::before {
-            opacity: 1;
-        }
-
-        .service-card:hover {
-            transform: translateY(-8px);
-            border-color: rgba(0, 229, 204, 0.3);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-        }
-
-        .service-icon {
-            width: 60px;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, rgba(0, 229, 204, 0.1), rgba(255, 200, 87, 0.1));
-            border-radius: 16px;
-            margin-bottom: 1.5rem;
-        }
-
-        .service-icon svg {
-            width: 28px;
-            height: 28px;
-            stroke: var(--accent-cyan);
-        }
-
-        .service-card:nth-child(2) .service-icon svg {
-            stroke: var(--accent-gold);
-        }
-
-        .service-card:nth-child(3) .service-icon svg {
-            stroke: #ff6b9d;
-        }
-
-        .service-title {
-            font-size: 1.375rem;
-            margin-bottom: 0.75rem;
-        }
-
-        .service-description {
-            color: var(--fg-secondary);
-            font-size: 0.95rem;
-            line-height: 1.7;
-        }
-
-        .service-features {
-            margin-top: 1.5rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid var(--border-color);
-        }
-
-        .service-feature {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 0.875rem;
-            color: var(--fg-muted);
-            margin-bottom: 0.5rem;
-        }
-
-        .service-feature svg {
-            width: 16px;
-            height: 16px;
-            stroke: var(--accent-cyan);
-        }
-
-        /* Why Choose Me */
-        .why-me {
-            position: relative;
-        }
-
-        .benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin-top: 3rem;
-        }
-
-        .benefit-card {
-            display: flex;
-            gap: 1.25rem;
-            padding: 1.5rem;
-            background: var(--glass-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            opacity: 0;
-            transform: translateX(-30px);
-            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .benefit-card:hover {
-            background: rgba(255, 255, 255, 0.05);
-            border-color: rgba(255, 255, 255, 0.15);
-        }
-
-        .benefit-number {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--accent-cyan);
-            opacity: 0.5;
-            line-height: 1;
-        }
-
-        .benefit-content h4 {
-            font-size: 1.125rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .benefit-content p {
-            font-size: 0.9rem;
-            color: var(--fg-muted);
-        }
-
-        /* Portfolio Section */
-        .portfolio {
-            background: var(--bg-secondary);
-        }
-
-        .portfolio-showcase {
-            margin-top: 3rem;
-            position: relative;
-        }
-
-        .portfolio-card {
-            position: relative;
-            border-radius: 24px;
-            overflow: hidden;
-            background: linear-gradient(135deg, #1a1a22, #0d0d0f);
-            border: 1px solid var(--border-color);
-            opacity: 0;
-            transform: scale(0.95);
-            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .portfolio-card:hover {
-            border-color: rgba(0, 229, 204, 0.3);
-        }
-
-        .portfolio-preview {
-            aspect-ratio: 16/9;
-            background: linear-gradient(135deg, #1e1e28, #14141a);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .portfolio-preview::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: 
-                radial-gradient(ellipse at 30% 30%, rgba(0, 229, 204, 0.1), transparent 50%),
-                radial-gradient(ellipse at 70% 70%, rgba(255, 200, 87, 0.1), transparent 50%);
-        }
-
-        .portfolio-mockup {
-            position: relative;
-            z-index: 1;
-        }
-
-        .mockup-browser {
-            background: #0a0a0c;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-        }
-
-        .mockup-header {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.75rem 1rem;
-            background: #141416;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .mockup-dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-        }
-
-        .mockup-dot:nth-child(1) { background: #ff5f57; }
-        .mockup-dot:nth-child(2) { background: #febc2e; }
-        .mockup-dot:nth-child(3) { background: #28c840; }
-
-        .mockup-url {
-            flex: 1;
-            text-align: center;
-            font-size: 0.75rem;
-            color: var(--fg-muted);
-        }
-
-        .mockup-content {
-            padding: 2rem;
-            min-height: 200px;
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .mockup-line {
-            height: 12px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 6px;
-        }
-
-        .mockup-line:nth-child(1) { width: 60%; }
-        .mockup-line:nth-child(2) { width: 80%; }
-        .mockup-line:nth-child(3) { width: 40%; }
-        .mockup-line:nth-child(4) { width: 70%; }
-
-        .portfolio-info {
-            padding: 2rem;
-        }
-
-        .portfolio-info h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.75rem;
-        }
-
-        .portfolio-info p {
-            color: var(--fg-secondary);
-            margin-bottom: 1.5rem;
-        }
-
-        .portfolio-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .portfolio-tag {
-            padding: 0.375rem 0.875rem;
-            background: rgba(0, 229, 204, 0.1);
-            color: var(--accent-cyan);
-            border-radius: 100px;
-            font-size: 0.75rem;
-            font-weight: 500;
-        }
-
-        /* Process Section */
-        .process {
-            position: relative;
-        }
-
-        .process-timeline {
-            margin-top: 4rem;
-            position: relative;
-        }
-
-        .process-line {
-            position: absolute;
-            left: 28px;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: linear-gradient(to bottom, var(--accent-cyan), var(--accent-gold));
-            opacity: 0.3;
-        }
-
-        .process-step {
-            display: flex;
-            gap: 2rem;
-            margin-bottom: 3rem;
-            position: relative;
-            opacity: 0;
-            transform: translateX(-30px);
-            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .process-marker {
-            width: 56px;
-            height: 56px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--bg-primary);
-            border: 2px solid var(--accent-cyan);
-            border-radius: 50%;
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--accent-cyan);
-            flex-shrink: 0;
-            position: relative;
-            z-index: 1;
-            transition: all 0.3s ease;
-        }
-
-        .process-step:hover .process-marker {
-            background: var(--accent-cyan);
-            color: var(--bg-primary);
-            box-shadow: 0 0 30px var(--accent-cyan-glow);
-        }
-
-        .process-content {
-            flex: 1;
-            padding-top: 0.5rem;
-        }
-
-        .process-content h4 {
-            font-size: 1.25rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .process-content p {
-            color: var(--fg-muted);
-            font-size: 0.95rem;
-        }
-
-        /* Pricing Section */
-        .pricing {
-            background: var(--bg-secondary);
-        }
-
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin-top: 3rem;
-        }
-
-        .pricing-card {
-            position: relative;
-            padding: 2.5rem;
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 24px;
-            backdrop-filter: blur(20px);
-            opacity: 0;
-            transform: translateY(40px);
-            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .pricing-card.featured {
-            border-color: var(--accent-cyan);
-            background: linear-gradient(135deg, rgba(0, 229, 204, 0.05), transparent);
-        }
-
-        .pricing-card.featured::before {
-            content: 'Популярный';
-            position: absolute;
-            top: -12px;
-            left: 50%;
-            transform: translateX(-50%);
-            padding: 0.375rem 1rem;
-            background: linear-gradient(135deg, var(--accent-cyan), #00b8a3);
-            color: var(--bg-primary);
-            font-size: 0.75rem;
-            font-weight: 600;
-            border-radius: 100px;
-        }
-
-        .pricing-card:hover {
-            transform: translateY(-8px);
-        }
-
-        .pricing-name {
-            font-size: 1rem;
-            font-weight: 500;
-            color: var(--fg-muted);
-            margin-bottom: 0.5rem;
-        }
-
-        .pricing-title {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .pricing-price {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-        }
-
-        .pricing-price span {
-            font-size: 1rem;
-            font-weight: 400;
-            color: var(--fg-muted);
-        }
-
-        .pricing-features {
-            list-style: none;
-            margin-bottom: 2rem;
-        }
-
-        .pricing-features li {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            padding: 0.75rem 0;
-            border-bottom: 1px solid var(--border-color);
-            font-size: 0.95rem;
-            color: var(--fg-secondary);
-        }
-
-        .pricing-features li:last-child {
-            border-bottom: none;
-        }
-
-        .pricing-features svg {
-            width: 18px;
-            height: 18px;
-            stroke: var(--accent-cyan);
-            flex-shrink: 0;
-        }
-
-        .pricing-card .btn {
-            width: 100%;
-            justify-content: center;
-        }
-
-        /* Testimonials */
-        .testimonials {
-            position: relative;
-            overflow: hidden;
-        }
-
-          /* === СЛАЙДЕР ОТЗЫВОВ === */
-.testimonials-slider {
-    margin-top: 3rem;
-    position: relative;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.testimonial-track {
-    display: flex;
-    gap: 2rem;
-    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.testimonial-card {
-    flex: 0 0 calc(100% - 3rem);
-    min-width: calc(100% - 3rem);
-    padding: 2.5rem;
-    margin: 0 auto;
-    background: var(--glass-bg);
-    border: 1px solid var(--border-color);
-    border-radius: 24px;
-    backdrop-filter: blur(20px);
-    box-sizing: border-box;
-}
-
-        .testimonial-quote {
-            font-size: 1.25rem;
-            line-height: 1.8;
-            color: var(--fg-primary);
-            margin-bottom: 2rem;
-            position: relative;
-        }
-
-        .testimonial-quote::before {
-            content: '"';
-            position: absolute;
-            top: -20px;
-            left: -10px;
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 5rem;
-            color: var(--accent-cyan);
-            opacity: 0.2;
-            line-height: 1;
-        }
-
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .testimonial-avatar {
-            width: 56px;
-            height: 56px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-gold));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--bg-primary);
-        }
-
-        .testimonial-info h4 {
-            font-size: 1rem;
-            margin-bottom: 0.25rem;
-        }
-
-        .testimonial-info p {
-            font-size: 0.875rem;
-            color: var(--fg-muted);
-        }
-
-        .testimonials-nav {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-
-        .testimonial-btn {
-            width: 48px;
-            height: 48px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--glass-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 50%;
             cursor: pointer;
-            transition: all 0.3s ease;
+            padding: 0.5rem;
         }
 
-        .testimonial-btn:hover {
-            background: rgba(255, 255, 255, 0.08);
-            border-color: var(--accent-cyan);
+        .mobile-menu-btn span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background: var(--fg-primary);
+            margin: 5px 0;
+            transition: 0.3s;
         }
 
-        .testimonial-btn:focus-visible {
-            outline: 2px solid var(--accent-cyan);
-            outline-offset: 3px;
-        }
-
-        .testimonial-btn svg {
-            width: 20px;
-            height: 20px;
-            stroke: var(--fg-primary);
-        }
-
-        .testimonial-dots {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .testimonial-dot {
-            width: 8px;
-            height: 8px;
-            background: var(--fg-muted);
-            border-radius: 50%;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .testimonial-dot.active {
-            width: 24px;
-            border-radius: 4px;
-            background: var(--accent-cyan);
-        }
-
-        /* Final CTA */
-        .final-cta {
-            text-align: center;
-            padding: 8rem 1.5rem;
-            position: relative;
-        }
-
-        .final-cta::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, var(--accent-cyan-glow), transparent 70%);
-            opacity: 0.2;
-            pointer-events: none;
-        }
-
-        .final-cta .section-title {
-            font-size: clamp(2rem, 6vw, 4rem);
-        }
-
-        .final-cta .section-description {
-            margin: 0 auto 2.5rem;
-        }
-
-        .btn-large {
-            padding: 1.25rem 3rem;
-            font-size: 1.125rem;
-        }
-
-        /* Footer */
-        .footer {
-            padding: 3rem 1.5rem;
-            border-top: 1px solid var(--border-color);
-            text-align: center;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .footer p {
-            color: var(--fg-muted);
-            font-size: 0.875rem;
-        }
-
-        .footer-links {
-            display: flex;
-            gap: 1.5rem;
-        }
-
-        .footer-links a {
-            color: var(--fg-muted);
-            text-decoration: none;
-            font-size: 0.875rem;
-            transition: color 0.3s ease;
-        }
-
-        .footer-links a:hover {
-            color: var(--accent-cyan);
-        }
-
-
-        
-       /* Mobile Responsive */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .mobile-menu-btn {
-                display: flex;
-            }
-
-            .hero-stats {
-                flex-direction: column;
-                gap: 1.5rem;
-            }
-
-            .stat-item {
-                display: flex;
-                align-items: baseline;
-                gap: 0.75rem;
-            }
-
-            .stat-number {
-                font-size: 2rem;
-            }
-
-            .process-line {
-                left: 20px;
-            }
-
-            .process-marker {
-                width: 40px;
-                height: 40px;
-                font-size: 1rem;
-            }
-
-            .process-step {
-                gap: 1rem;
-            }
-
-            .testimonial-card {
-                padding: 2rem;
-            }
-
-            .testimonial-quote {
-                font-size: 1.1rem;
-            }
-
-            .footer-content {
-                flex-direction: column;
-                text-align: center;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            section {
-                padding: 4rem 1rem;
-            }
-
-            .hero {
-                padding-top: 6rem;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-            }
-
-            .btn {
-                width: 100%;
-                justify-content: center;
-            }
-
-            .pricing-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Mobile Menu */
+        /* === MOBILE MENU === */
         .mobile-menu {
             position: fixed;
             top: 0;
@@ -1210,26 +171,559 @@
             font-size: 1.5rem;
             color: var(--fg-primary);
             text-decoration: none;
+        }
+
+        /* === HERO === */
+        .hero {
+            padding: 8rem 5% 4rem;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(6, 182, 212, 0.1);
+            color: var(--accent-cyan);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-title span {
+            color: var(--accent-cyan);
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--fg-secondary);
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: var(--accent-cyan);
+            color: var(--bg-primary);
+        }
+
+        .btn-primary:hover {
+            background: #0891b2;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--fg-primary);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent-cyan);
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 3rem;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .stat-item h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5rem;
+            color: var(--accent-cyan);
+        }
+
+        .stat-item p {
+            color: var(--fg-secondary);
+            font-size: 0.875rem;
+        }
+
+        /* === SECTIONS COMMON === */
+        section {
+            padding: 6rem 5%;
+        }
+
+        .section-label {
+            color: var(--accent-cyan);
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .section-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-description {
+            color: var(--fg-secondary);
+            max-width: 600px;
+            margin-bottom: 3rem;
+        }
+
+        /* === SERVICES === */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            border-color: var(--accent-cyan);
+            transform: translateY(-5px);
+        }
+
+        .service-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(6, 182, 212, 0.1);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .service-card h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            color: var(--fg-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .service-features {
+            list-style: none;
+        }
+
+        .service-features li {
+            color: var(--fg-secondary);
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .service-features li::before {
+            content: "✓";
+            color: var(--accent-green);
+        }
+
+        /* === BENEFITS === */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .benefit-card {
+            background: var(--bg-card);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            display: flex;
+            gap: 1rem;
+        }
+
+        .benefit-number {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2rem;
+            color: var(--accent-cyan);
+            font-weight: 700;
+        }
+
+        .benefit-content h3 {
+            font-size: 1.125rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .benefit-content p {
+            color: var(--fg-secondary);
+            font-size: 0.875rem;
+        }
+
+        /* === PORTFOLIO === */
+        .portfolio-showcase {
+            display: flex;
+            justify-content: center;
+        }
+
+        .portfolio-card {
+            background: var(--bg-card);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            max-width: 800px;
+            width: 100%;
+        }
+
+        .portfolio-preview {
+            height: 400px;
+            background: var(--bg-secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--fg-secondary);
+        }
+
+        .portfolio-info {
+            padding: 2rem;
+        }
+
+        .portfolio-info h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .portfolio-info p {
+            color: var(--fg-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .portfolio-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+
+        .portfolio-tags span {
+            background: rgba(6, 182, 212, 0.1);
+            color: var(--accent-cyan);
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+        }
+
+        /* === PROCESS === */
+        .process-timeline {
+            position: relative;
+            padding-left: 3rem;
+        }
+
+        .process-line {
+            position: absolute;
+            left: 19px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--border-color);
+        }
+
+        .process-step {
+            position: relative;
+            margin-bottom: 3rem;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .process-marker {
+            width: 40px;
+            height: 40px;
+            background: var(--bg-card);
+            border: 2px solid var(--accent-cyan);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: var(--accent-cyan);
+            flex-shrink: 0;
+            z-index: 1;
+        }
+
+        .process-content h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.125rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .process-content p {
+            color: var(--fg-secondary);
+        }
+
+        /* === PRICING === */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .pricing-card {
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            position: relative;
+        }
+
+        .pricing-card.popular {
+            border-color: var(--accent-cyan);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent-cyan);
+            color: var(--bg-primary);
+            padding: 0.25rem 1rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .pricing-card h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .pricing-price {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--fg-primary);
+            margin: 1.5rem 0;
+        }
+
+        .pricing-price span {
+            font-size: 1rem;
+            color: var(--fg-secondary);
+            font-weight: 400;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .pricing-features li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--fg-secondary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .pricing-features li::before {
+            content: "✓";
+            color: var(--accent-green);
+        }
+
+        .pricing-card .btn {
+            width: 100%;
+            justify-content: center;
+        }
+
+        /* === TESTIMONIALS === */
+        .testimonials-slider {
+            display: flex;
+            gap: 2rem;
+            overflow-x: auto;
+            padding: 1rem 0;
+        }
+
+        .testimonial-card {
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            min-width: 300px;
+            max-width: 400px;
+        }
+
+        .testimonial-quote {
+            color: var(--fg-secondary);
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            background: var(--accent-cyan);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: var(--bg-primary);
+        }
+
+        .author-info h4 {
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .author-info p {
+            color: var(--fg-secondary);
+            font-size: 0.875rem;
+        }
+
+        /* === FINAL CTA === */
+        .final-cta {
+            text-align: center;
+            padding: 6rem 5%;
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+        }
+
+        .final-cta .section-title {
+            max-width: 600px;
+            margin: 0 auto 1.5rem;
+        }
+
+        .final-cta .section-description {
+            margin: 0 auto 3rem;
+        }
+
+        /* === FOOTER === */
+        footer {
+            padding: 3rem 5%;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-links a {
+            color: var(--fg-secondary);
+            text-decoration: none;
             transition: color 0.3s ease;
         }
 
-        .mobile-menu a:hover {
+        .footer-links a:hover {
             color: var(--accent-cyan);
+        }
+
+        /* === MOBILE RESPONSIVE === */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            .hero {
+                padding-top: 6rem;
+                text-align: center;
+            }
+
+            .hero-content {
+                margin: 0 auto;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero-stats {
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .process-timeline {
+                padding-left: 2.5rem;
+            }
+
+            .process-line {
+                left: 14px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-links {
+                justify-content: center;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Particle Canvas -->
-    <canvas id="particle-canvas" aria-hidden="true"></canvas>
-
-    <!-- Ambient Glows -->
-    <div class="ambient-glow glow-1" aria-hidden="true"></div>
-    <div class="ambient-glow glow-2" aria-hidden="true"></div>
-
-    <!-- Navigation -->
-    <nav class="nav" role="navigation" aria-label="Главная навигация">
-        <div class="nav-inner">
-            <a href="#" class="logo">Konst Creative</a>
+    <!-- Header -->
+    <header>
+        <a href="#" class="logo">Konst Creative</a>
+        <nav>
             <ul class="nav-links">
                 <li><a href="#services">Услуги</a></li>
                 <li><a href="#why-me">Преимущества</a></li>
@@ -1237,66 +731,50 @@
                 <li><a href="#process">Процесс</a></li>
                 <li><a href="#pricing">Цены</a></li>
             </ul>
-            <button class="mobile-menu-btn" aria-label="Открыть меню" aria-expanded="false">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </div>
-    </nav>
+        </nav>
+        <button class="mobile-menu-btn" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </header>
 
     <!-- Mobile Menu -->
-    <div class="mobile-menu" role="dialog" aria-modal="true" aria-label="Мобильная навигация">
-        <a href="#services">Услуги</a>
-        <a href="#why-me">Преимущества</a>
-        <a href="#portfolio">Портфолио</a>
-        <a href="#process">Процесс</a>
-        <a href="#pricing">Цены</a>
-        <a href="https://t.me/konstcreative" class="btn btn-primary">Связаться</a>
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#services" onclick="toggleMenu()">Услуги</a>
+        <a href="#why-me" onclick="toggleMenu()">Преимущества</a>
+        <a href="#portfolio" onclick="toggleMenu()">Портфолио</a>
+        <a href="#process" onclick="toggleMenu()">Процесс</a>
+        <a href="#pricing" onclick="toggleMenu()">Цены</a>
+        <a href="https://t.me/konstcreative" onclick="toggleMenu()">Связаться</a>
     </div>
 
     <!-- Hero Section -->
     <section class="hero" id="hero">
-        <div class="section-container">
-            <div class="hero-content">
-                <div class="hero-badge">
-                    <span class="dot"></span>
-                    Открыт для новых проектов
+        <div class="hero-content">
+            <span class="hero-badge">🟢 Открыт для новых проектов</span>
+            <h1 class="hero-title">Создаю сайты, которые <span>приносят результат</span></h1>
+            <p class="hero-subtitle">Разработка на WordPress, SEO-оптимизация и контекстная реклама — превращаю ваше онлайн-присутствие в мощный инструмент для бизнеса. Больше заявок, выше конверсия, измеримый рост.</p>
+            <div class="hero-buttons">
+                <a href="https://t.me/konstcreative" class="btn btn-primary">
+                    <span>📩</span> Обсудить проект в Telegram
+                </a>
+                <a href="#portfolio" class="btn btn-secondary">
+                    <span>👁️</span> Смотреть демо-сайт
+                </a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <h3>50+</h3>
+                    <p>Завершённых проектов</p>
                 </div>
-                <h1 class="hero-title">
-                    Создаю сайты, которые <span class="highlight">приносят результат</span>
-                </h1>
-                <p class="hero-subtitle">
-                    Разработка на WordPress, SEO-оптимизация и контекстная реклама — превращаю ваше онлайн-присутствие в мощный инструмент для бизнеса. Больше заявок, выше конверсия, измеримый рост.
-                </p>
-                <div class="hero-buttons">
-                    <a href="https://t.me/konstcreative" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M21.198 2.433a2.242 2.242 0 0 0-1.022.215l-16.5 6.875a2.25 2.25 0 0 0 .087 4.257l3.45 1.143 1.143 3.45a2.25 2.25 0 0 0 4.257.087l6.875-16.5a2.242 2.242 0 0 0-.215-1.022z"/>
-                        </svg>
-                        Обсудить проект в Telegram
-                    </a>
-                    <a href="#portfolio" class="btn btn-secondary">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
-                            <circle cx="12" cy="12" r="3"/>
-                        </svg>
-                        Смотреть демо-сайт
-                    </a>
+                <div class="stat-item">
+                    <h3>3x</h3>
+                    <p>Средний рост трафика</p>
                 </div>
-                <div class="hero-stats">
-                    <div class="stat-item">
-                        <div class="stat-number">50<span class="accent">+</span></div>
-                        <div class="stat-label">Завершённых проектов</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">3<span class="accent">x</span></div>
-                        <div class="stat-label">Средний рост трафика</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">98<span class="accent">%</span></div>
-                        <div class="stat-label">Довольных клиентов</div>
-                    </div>
+                <div class="stat-item">
+                    <h3>98%</h3>
+                    <p>Довольных клиентов</p>
                 </div>
             </div>
         </div>
@@ -1304,165 +782,98 @@
 
     <!-- Services Section -->
     <section class="services" id="services">
-        <div class="section-container">
-            <span class="section-label">Услуги</span>
-            <h2 class="section-title">Решения для роста вашего бизнеса</h2>
-            <p class="section-description">
-                Комплексные веб-услуги, адаптированные под ваши цели. От создания до продвижения — я отвечаю за все аспекты вашего цифрового присутствия.
-            </p>
-            <div class="services-grid">
-                <article class="service-card">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
-                            <line x1="3" y1="9" x2="21" y2="9"/>
-                            <line x1="9" y1="21" x2="9" y2="9"/>
-                        </svg>
-                    </div>
-                    <h3 class="service-title">Разработка на WordPress</h3>
-                    <p class="service-description">
-                        Кастомные сайты на WordPress, созданные для производительности, безопасности и удобного управления. От лендингов до сложных бизнес-решений.
-                    </p>
-                    <div class="service-features">
-                        <div class="service-feature">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="20 6 9 17 4 12"/>
-                            </svg>
-                            Разработка уникальных тем
-                        </div>
-                        <div class="service-feature">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="20 6 9 17 4 12"/>
-                            </svg>
-                            Интеграция интернет-магазина
-                        </div>
-                        <div class="service-feature">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="20 6 9 17 4 12"/>
-                            </svg>
-                            Оптимизация скорости
-                        </div>
-                    </div>
-                </article>
-                <article class="service-card">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="11" cy="11" r="8"/>
-                            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
-                            <line x1="11" y1="8" x2="11" y2="14"/>
-                            <line x1="8" y1="11" x2="14" y2="11"/>
-                        </svg>
-                    </div>
-                    <h3 class="service-title">SEO-оптимизация</h3>
-                    <p class="service-description">
-                        SEO-стратегии на основе данных, которые улучшают позиции в поиске и привлекают органический трафик. Техническая, контентная и внешняя оптимизация.
-                    </p>
-                    <div class="service-features">
-                        <div class="service-feature">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="20 6 9 17 4 12"/>
-                            </svg>
-                            Технический SEO-аудит
-                        </div>
-                        <div class="service-feature">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="20 6 9 17 4 12"/>
-                            </svg>
-                            Подбор семантики
-                        </div>
-                        <div class="service-feature">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="20 6 9 17 4 12"/>
-                            </svg>
-                            Оптимизация контента
-                        </div>
-                    </div>
-                </article>
-                <article class="service-card">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
-                        </svg>
-                    </div>
-                    <h3 class="service-title">Контекстная реклама</h3>
-                    <p class="service-description">
-                        Таргетированные рекламные кампании в Google Ads и Яндекс Директ, которые приводят квалифицированных лидов и максимизируют ROI.
-                    </p>
-                    <div class="service-features">
-                        <div class="service-feature">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="20 6 9 17 4 12"/>
-                            </svg>
-                            Настройка и ведение кампаний
-                        </div>
-                        <div class="service-feature">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="20 6 9 17 4 12"/>
-                            </svg>
-                            A/B тестирование
-                        </div>
-                        <div class="service-feature">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="20 6 9 17 4 12"/>
-                            </svg>
-                            Отслеживание конверсий
-                        </div>
-                    </div>
-                </article>
+        <span class="section-label">Услуги</span>
+        <h2 class="section-title">Решения для роста вашего бизнеса</h2>
+        <p class="section-description">Комплексные веб-услуги, адаптированные под ваши цели. От создания до продвижения — я отвечаю за все аспекты вашего цифрового присутствия.</p>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">💻</div>
+                <h3>Разработка на WordPress</h3>
+                <p>Кастомные сайты на WordPress, созданные для производительности, безопасности и удобного управления. От лендингов до сложных бизнес-решений.</p>
+                <ul class="service-features">
+                    <li>Разработка уникальных тем</li>
+                    <li>Интеграция интернет-магазина</li>
+                    <li>Оптимизация скорости</li>
+                </ul>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">🔍</div>
+                <h3>SEO-оптимизация</h3>
+                <p>SEO-стратегии на основе данных, которые улучшают позиции в поиске и привлекают органический трафик. Техническая, контентная и внешняя оптимизация.</p>
+                <ul class="service-features">
+                    <li>Технический SEO-аудит</li>
+                    <li>Подбор семантики</li>
+                    <li>Оптимизация контента</li>
+                </ul>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">📊</div>
+                <h3>Контекстная реклама</h3>
+                <p>Таргетированные рекламные кампании в Google Ads и Яндекс Директ, которые приводят квалифицированных лидов и максимизируют ROI.</p>
+                <ul class="service-features">
+                    <li>Настройка и ведение кампаний</li>
+                    <li>A/B тестирование</li>
+                    <li>Отслеживание конверсий</li>
+                </ul>
             </div>
         </div>
     </section>
 
-    <!-- Why Choose Me Section -->
+    <!-- Why Me Section -->
     <section class="why-me" id="why-me">
-        <div class="section-container">
-            <span class="section-label">Почему я</span>
-            <h2 class="section-title">Партнёр, которому можно доверять</h2>
-            <p class="section-description">
-                Я объединяю техническую экспертизу с пониманием бизнеса. Ваш успех — мой приоритет.
-            </p>
-            <div class="benefits-grid">
-                <div class="benefit-card">
-                    <span class="benefit-number">01</span>
-                    <div class="benefit-content">
-                        <h4>Ориентация на результат</h4>
-                        <p>Каждое решение принимается с учётом ваших бизнес-целей. Я измеряю успех вашим ростом, а не просто сдачей проекта.</p>
-                    </div>
+        <span class="section-label">Почему я</span>
+        <h2 class="section-title">Партнёр, которому можно доверять</h2>
+        <p class="section-description">Я объединяю техническую экспертизу с пониманием бизнеса. Ваш успех — мой приоритет.</p>
+        
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <div class="benefit-number">01</div>
+                <div class="benefit-content">
+                    <h3>Ориентация на результат</h3>
+                    <p>Каждое решение принимается с учётом ваших бизнес-целей. Я измеряю успех вашим ростом, а не просто сдачей проекта.</p>
                 </div>
-                <div class="benefit-card">
-                    <span class="benefit-number">02</span>
-                    <div class="benefit-content">
-                        <h4>Прозрачная коммуникация</h4>
-                        <p>Регулярные обновления, чёткие сроки и честная обратная связь. Вы всегда знаете статус вашего проекта.</p>
-                    </div>
+            </div>
+            
+            <div class="benefit-card">
+                <div class="benefit-number">02</div>
+                <div class="benefit-content">
+                    <h3>Прозрачная коммуникация</h3>
+                    <p>Регулярные обновления, чёткие сроки и честная обратная связь. Вы всегда знаете статус вашего проекта.</p>
                 </div>
-                <div class="benefit-card">
-                    <span class="benefit-number">03</span>
-                    <div class="benefit-content">
-                        <h4>Комплексная экспертиза</h4>
-                        <p>От разработки до маркетинга — я понимаю, как все элементы работают вместе для максимального эффекта.</p>
-                    </div>
+            </div>
+            
+            <div class="benefit-card">
+                <div class="benefit-number">03</div>
+                <div class="benefit-content">
+                    <h3>Комплексная экспертиза</h3>
+                    <p>От разработки до маркетинга — я понимаю, как все элементы работают вместе для максимального эффекта.</p>
                 </div>
-                <div class="benefit-card">
-                    <span class="benefit-number">04</span>
-                    <div class="benefit-content">
-                        <h4>Поддержка после запуска</h4>
-                        <p>Наше сотрудничество не заканчивается запуском. Я предоставляю ongoing поддержку и рекомендации по оптимизации.</p>
-                    </div>
+            </div>
+            
+            <div class="benefit-card">
+                <div class="benefit-number">04</div>
+                <div class="benefit-content">
+                    <h3>Поддержка после запуска</h3>
+                    <p>Наше сотрудничество не заканчивается запуском. Я предоставляю ongoing поддержку и рекомендации по оптимизации.</p>
                 </div>
-                <div class="benefit-card">
-                    <span class="benefit-number">05</span>
-                    <div class="benefit-content">
-                        <h4>Честное ценообразование</h4>
-                        <p>Конкурентные расценки без скрытых платежей. Премиум-качество без агентских наценок.</p>
-                    </div>
+            </div>
+            
+            <div class="benefit-card">
+                <div class="benefit-number">05</div>
+                <div class="benefit-content">
+                    <h3>Честное ценообразование</h3>
+                    <p>Конкурентные расценки без скрытых платежей. Премиум-качество без агентских наценок.</p>
                 </div>
-                <div class="benefit-card">
-                    <span class="benefit-number">06</span>
-                    <div class="benefit-content">
-                        <h4>Проверенный опыт</h4>
-                        <p>Более 50 успешных проектов в разных нишах. Ознакомьтесь с портфолио и отзывами клиентов.</p>
-                    </div>
+            </div>
+            
+            <div class="benefit-card">
+                <div class="benefit-number">06</div>
+                <div class="benefit-content">
+                    <h3>Проверенный опыт</h3>
+                    <p>Более 50 успешных проектов в разных нишах. Ознакомьтесь с портфолио и отзывами клиентов.</p>
                 </div>
             </div>
         </div>
@@ -1470,50 +881,25 @@
 
     <!-- Portfolio Section -->
     <section class="portfolio" id="portfolio">
-        <div class="section-container">
-            <span class="section-label">Портфолио</span>
-            <h2 class="section-title">Примеры recent проектов</h2>
-            <p class="section-description">
-                Посмотрите один из моих недавних проектов. Здесь демонстрируется мой подход к дизайну, разработке и пользовательскому опыту.
-            </p>
-            <div class="portfolio-showcase">
-                <div class="portfolio-card">
-                    <div class="portfolio-preview">
-                        <div class="portfolio-mockup">
-                            <div class="mockup-browser">
-                                <div class="mockup-header">
-                                    <span class="mockup-dot"></span>
-                                    <span class="mockup-dot"></span>
-                                    <span class="mockup-dot"></span>
-                                    <span class="mockup-url">demo-project.com</span>
-                                </div>
-                                <div class="mockup-content">
-                                    <div class="mockup-line"></div>
-                                    <div class="mockup-line"></div>
-                                    <div class="mockup-line"></div>
-                                    <div class="mockup-line"></div>
-                                </div>
-                            </div>
-                        </div>
+        <span class="section-label">Портфолио</span>
+        <h2 class="section-title">Примеры recent проектов</h2>
+        <p class="section-description">Посмотрите один из моих недавних проектов. Здесь демонстрируется мой подход к дизайну, разработке и пользовательскому опыту.</p>
+        
+        <div class="portfolio-showcase">
+            <div class="portfolio-card">
+                <div class="portfolio-preview">
+                    <p>🖥️ Скриншот проекта</p>
+                </div>
+                <div class="portfolio-info">
+                    <h3>Демо интернет-магазина</h3>
+                    <p>Современный интернет-магазин на WordPress и WooCommerce. Включает кастомные фильтры товаров, интеграцию платёжных систем и оптимизированный процесс оформления заказа.</p>
+                    <div class="portfolio-tags">
+                        <span>WordPress</span>
+                        <span>WooCommerce</span>
+                        <span>SEO</span>
+                        <span>Кастомный дизайн</span>
                     </div>
-                    <div class="portfolio-info">
-                        <h3>Демо интернет-магазина</h3>
-                        <p>Современный интернет-магазин на WordPress и WooCommerce. Включает кастомные фильтры товаров, интеграцию платёжных систем и оптимизированный процесс оформления заказа.</p>
-                        <div class="portfolio-tags">
-                            <span class="portfolio-tag">WordPress</span>
-                            <span class="portfolio-tag">WooCommerce</span>
-                            <span class="portfolio-tag">SEO</span>
-                            <span class="portfolio-tag">Кастомный дизайн</span>
-                        </div>
-                        <a href="#" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
-                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-                                <polyline points="15 3 21 3 21 9"/>
-                                <line x1="10" y1="14" x2="21" y2="3"/>
-                            </svg>
-                            Открыть демо
-                        </a>
-                    </div>
+                    <a href="#" class="btn btn-primary">Открыть демо</a>
                 </div>
             </div>
         </div>
@@ -1521,48 +907,50 @@
 
     <!-- Process Section -->
     <section class="process" id="process">
-        <div class="section-container">
-            <span class="section-label">Процесс</span>
-            <h2 class="section-title">Как мы будем работать</h2>
-            <p class="section-description">
-                Чёткий структурированный подход, который держит вас в курсе на каждом этапе. От концепции до запуска и далее.
-            </p>
-            <div class="process-timeline">
-                <div class="process-line"></div>
-                <div class="process-step">
-                    <div class="process-marker">1</div>
-                    <div class="process-content">
-                        <h4>Знакомство и обсуждение</h4>
-                        <p>Обсуждаем ваши цели, требования и видение. Я анализирую текущую ситуацию и предлагаю оптимальный подход.</p>
-                    </div>
+        <span class="section-label">Процесс</span>
+        <h2 class="section-title">Как мы будем работать</h2>
+        <p class="section-description">Чёткий структурированный подход, который держит вас в курсе на каждом этапе. От концепции до запуска и далее.</p>
+        
+        <div class="process-timeline">
+            <div class="process-line"></div>
+            
+            <div class="process-step">
+                <div class="process-marker">1</div>
+                <div class="process-content">
+                    <h4>Знакомство и обсуждение</h4>
+                    <p>Обсуждаем ваши цели, требования и видение. Я анализирую текущую ситуацию и предлагаю оптимальный подход.</p>
                 </div>
-                <div class="process-step">
-                    <div class="process-marker">2</div>
-                    <div class="process-content">
-                        <h4>Стратегия и планирование</h4>
-                        <p>Детальный план проекта с таймлайном, этапами и результатами. Чёткий scope и прозрачное ценообразование.</p>
-                    </div>
+            </div>
+            
+            <div class="process-step">
+                <div class="process-marker">2</div>
+                <div class="process-content">
+                    <h4>Стратегия и планирование</h4>
+                    <p>Детальный план проекта с таймлайном, этапами и результатами. Чёткий scope и прозрачное ценообразование.</p>
                 </div>
-                <div class="process-step">
-                    <div class="process-marker">3</div>
-                    <div class="process-content">
-                        <h4>Разработка и тестирование</h4>
-                        <p>Гибкая разработка с регулярными обновлениями. Тщательное тестирование гарантирует безупречную работу.</p>
-                    </div>
+            </div>
+            
+            <div class="process-step">
+                <div class="process-marker">3</div>
+                <div class="process-content">
+                    <h4>Разработка и тестирование</h4>
+                    <p>Гибкая разработка с регулярными обновлениями. Тщательное тестирование гарантирует безупречную работу.</p>
                 </div>
-                <div class="process-step">
-                    <div class="process-marker">4</div>
-                    <div class="process-content">
-                        <h4>Согласование и запуск</h4>
-                        <p>Финальное согласование с вашим фидбеком. Плавный запуск с минимальным простоем и полной документацией.</p>
-                    </div>
+            </div>
+            
+            <div class="process-step">
+                <div class="process-marker">4</div>
+                <div class="process-content">
+                    <h4>Согласование и запуск</h4>
+                    <p>Финальное согласование с вашим фидбеком. Плавный запуск с минимальным простоем и полной документацией.</p>
                 </div>
-                <div class="process-step">
-                    <div class="process-marker">5</div>
-                    <div class="process-content">
-                        <h4>Поддержка и развитие</h4>
-                        <p>Постподдержка, отслеживание аналитики и рекомендации по оптимизации для постоянного улучшения.</p>
-                    </div>
+            </div>
+            
+            <div class="process-step">
+                <div class="process-marker">5</div>
+                <div class="process-content">
+                    <h4>Поддержка и развитие</h4>
+                    <p>Постподдержка, отслеживание аналитики и рекомендации по оптимизации для постоянного улучшения.</p>
                 </div>
             </div>
         </div>
@@ -1570,194 +958,93 @@
 
     <!-- Pricing Section -->
     <section class="pricing" id="pricing">
-        <div class="section-container">
-            <span class="section-label">Цены</span>
-            <h2 class="section-title">Прозрачные тарифы</h2>
-            <p class="section-description">
-                Выберите пакет под ваши задачи. Все тарифы включают персональную поддержку и гарантию качества.
-            </p>
-            <div class="pricing-grid">
-                <div class="pricing-card">
-                    <div class="pricing-name">Старт</div>
-                    <h3 class="pricing-title">Лендинг</h3>
-                    <div class="pricing-price">$499 <span>/ проект</span></div>
-                    <ul class="pricing-features">
-                        <li>
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="20 6 9 17 4 12"/>
-                            </svg>
-                            До 5 страниц
-                        </li>
-                        <li>
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="20 6 9 17 4 12"/>
-                            </svg>
-                            Адаптивный дизайн
-                        </li>
-                        <li>
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="20 6 9 17 4 12"/>
-                            </svg>
-                            Базовое SEO
-                        </li>
-                        <li>
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="20 6 9 17 4 12"/>
-                            </svg>
-                            Интеграция форм
-                        </li>
-                        <li>
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="20 6 9 17 4 12"/>
-                            </svg>
-                            1 месяц поддержки
-                        </li>
-                    </ul>
-                    <a href="https://t.me/konstcreative" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Заказать</a>
-                </div>
-                <div class="pricing-card featured">
-                    <div class="pricing-name">Бизнес</div>
-                    <h3 class="pricing-title">Сайт компании</h3>
-                    <div class="pricing-price">$999 <span>/ проект</span></div>
-                    <ul class="pricing-features">
-                        <li>
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="20 6 9 17 4 12"/>
-                            </svg>
-                            До 15 страниц
-                        </li>
-                        <li>
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="20 6 9 17 4 12"/>
-                            </svg>
-                            Уникальный дизайн
-                        </li>
-                        <li>
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="20 6 9 17 4 12"/>
-                            </svg>
-                            Продвинутое SEO
-                        </li>
-                        <li>
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="20 6 9 17 4 12"/>
-                            </svg>
-                            Настройка аналитики
-                        </li>
-                        <li>
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="20 6 9 17 4 12"/>
-                            </svg>
-                            3 месяца поддержки
-                        </li>
-                    </ul>
-                    <a href="https://t.me/konstcreative" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Заказать</a>
-                </div>
-                <div class="pricing-card">
-                    <div class="pricing-name">Профи</div>
-                    <h3 class="pricing-title">Комплексное решение</h3>
-                    <div class="pricing-price">$2499 <span>/ проект</span></div>
-                    <ul class="pricing-features">
-                        <li>
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="20 6 9 17 4 12"/>
-                            </svg>
-                            Без ограничений
-                        </li>
-                        <li>
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="20 6 9 17 4 12"/>
-                            </svg>
-                            Интернет-магазин
-                        </li>
-                        <li>
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="20 6 9 17 4 12"/>
-                            </svg>
-                            SEO + реклама
-                        </li>
-                        <li>
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="20 6 9 17 4 12"/>
-                            </svg>
-                            Кастомные интеграции
-                        </li>
-                        <li>
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="20 6 9 17 4 12"/>
-                            </svg>
-                            6 месяцев поддержки
-                        </li>
-                    </ul>
-                    <a href="https://t.me/konstcreative" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Заказать</a>
-                </div>
+        <span class="section-label">Цены</span>
+        <h2 class="section-title">Прозрачные тарифы</h2>
+        <p class="section-description">Выберите пакет под ваши задачи. Все тарифы включают персональную поддержку и гарантию качества.</p>
+        
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <h3>Старт</h3>
+                <p>Лендинг</p>
+                <div class="pricing-price">$499 <span>/ проект</span></div>
+                <ul class="pricing-features">
+                    <li>До 5 страниц</li>
+                    <li>Адаптивный дизайн</li>
+                    <li>Базовое SEO</li>
+                    <li>Интеграция форм</li>
+                    <li>1 месяц поддержки</li>
+                </ul>
+                <a href="https://t.me/konstcreative" class="btn btn-secondary">Заказать</a>
+            </div>
+            
+            <div class="pricing-card popular">
+                <span class="popular-badge">Популярный</span>
+                <h3>Бизнес</h3>
+                <p>Сайт компании</p>
+                <div class="pricing-price">$999 <span>/ проект</span></div>
+                <ul class="pricing-features">
+                    <li>До 15 страниц</li>
+                    <li>Уникальный дизайн</li>
+                    <li>Продвинутое SEO</li>
+                    <li>Настройка аналитики</li>
+                    <li>3 месяца поддержки</li>
+                </ul>
+                <a href="https://t.me/konstcreative" class="btn btn-primary">Заказать</a>
+            </div>
+            
+            <div class="pricing-card">
+                <h3>Профи</h3>
+                <p>Комплексное решение</p>
+                <div class="pricing-price">$2499 <span>/ проект</span></div>
+                <ul class="pricing-features">
+                    <li>Без ограничений</li>
+                    <li>Интернет-магазин</li>
+                    <li>SEO + реклама</li>
+                    <li>Кастомные интеграции</li>
+                    <li>6 месяцев поддержки</li>
+                </ul>
+                <a href="https://t.me/konstcreative" class="btn btn-secondary">Заказать</a>
             </div>
         </div>
     </section>
 
     <!-- Testimonials Section -->
     <section class="testimonials" id="testimonials">
-        <div class="section-container">
-            <span class="section-label">Отзывы</span>
-            <h2 class="section-title">Что говорят клиенты</h2>
-            <p class="section-description">
-                Не верьте просто на слово. Вот что говорят владельцы бизнеса о работе со мной.
-            </p>
-            <div class="testimonials-slider">
-                <div class="testimonial-track">
-                    <div class="testimonial-card">
-                        <p class="testimonial-quote">
-                            Константин превратил наш устаревший сайт в современную, быстро загружающуюся платформу. Органический трафик вырос на 340% за 6 месяцев. Его внимание к деталям и стратегическое мышление сделали всё возможное.
-                        </p>
-                        <div class="testimonial-author">
-                            <div class="testimonial-avatar">АК</div>
-                            <div class="testimonial-info">
-                                <h4>Александр К.</h4>
-                                <p>CEO, TechStart Solutions</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-card">
-                        <p class="testimonial-quote">
-                            Рекламная кампания в Google Ads, которую настроил Константин, превзошла все ожидания. Мы получили на 200% больше квалифицированных заявок, при этом фактически сократив рекламный бюджет. Очень рекомендую.
-                        </p>
-                        <div class="testimonial-author">
-                            <div class="testimonial-avatar">МВ</div>
-                            <div class="testimonial-info">
-                                <h4>Мария В.</h4>
-                                <p>Маркетинг-директор, GreenLeaf Co.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-card">
-                        <p class="testimonial-quote">
-                            Профессионализм, отзывчивость и настоящее понимание бизнеса. Наш новый сайт на WordPress загружается меньше чем за 2 секунды и конвертирует посетителей в клиентов. Лучшая инвестиция в этом году.
-                        </p>
-                        <div class="testimonial-author">
-                            <div class="testimonial-avatar">ДС</div>
-                            <div class="testimonial-info">
-                                <h4>Дмитрий С.</h4>
-                                <p>Основатель, Digital Craft Agency</p>
-                            </div>
-                        </div>
+        <span class="section-label">Отзывы</span>
+        <h2 class="section-title">Что говорят клиенты</h2>
+        <p class="section-description">Не верьте просто на слово. Вот что говорят владельцы бизнеса о работе со мной.</p>
+        
+        <div class="testimonials-slider">
+            <div class="testimonial-card">
+                <p class="testimonial-quote">«Константин превратил наш устаревший сайт в современную, быстро загружающуюся платформу. Органический трафик вырос на 340% за 6 месяцев.»</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">АК</div>
+                    <div class="author-info">
+                        <h4>Александр К.</h4>
+                        <p>CEO, TechStart Solutions</p>
                     </div>
                 </div>
-                <div class="testimonials-nav">
-                    <button class="testimonial-btn prev" aria-label="Предыдущий отзыв">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <polyline points="15 18 9 12 15 6"/>
-                        </svg>
-                    </button>
-                    <div class="testimonial-dots">
-                        <span class="testimonial-dot active" data-index="0" aria-label="Перейти к отзыву 1"></span>
-                        <span class="testimonial-dot" data-index="1" aria-label="Перейти к отзыву 2"></span>
-                        <span class="testimonial-dot" data-index="2" aria-label="Перейти к отзыву 3"></span>
+            </div>
+            
+            <div class="testimonial-card">
+                <p class="testimonial-quote">«Рекламная кампания в Google Ads, которую настроил Константин, превзошла все ожидания. Мы получили на 200% больше квалифицированных заявок.»</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">МВ</div>
+                    <div class="author-info">
+                        <h4>Мария В.</h4>
+                        <p>Маркетинг-директор, GreenLeaf Co.</p>
                     </div>
-                    <button class="testimonial-btn next" aria-label="Следующий отзыв">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <polyline points="9 18 15 12 9 6"/>
-                        </svg>
-                    </button>
+                </div>
+            </div>
+            
+            <div class="testimonial-card">
+                <p class="testimonial-quote">«Профессионализм, отзывчивость и настоящее понимание бизнеса. Наш новый сайт на WordPress загружается меньше чем за 2 секунды.»</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">ДС</div>
+                    <div class="author-info">
+                        <h4>Дмитрий С.</h4>
+                        <p>Основатель, Digital Craft Agency</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1765,241 +1052,32 @@
 
     <!-- Final CTA Section -->
     <section class="final-cta" id="contact">
-        <div class="section-container">
-            <span class="section-label">Готовы начать?</span>
-            <h2 class="section-title">Создадим что-то великое вместе</h2>
-            <p class="section-description">
-                Есть идея проекта? Я готов обсудить ваши задумки и помочь достичь бизнес-целей. Давайте поговорим.
-            </p>
-            <a href="https://t.me/konstcreative" class="btn btn-primary btn-large" target="_blank" rel="noopener noreferrer">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24">
-                    <path d="M21.198 2.433a2.242 2.242 0 0 0-1.022.215l-16.5 6.875a2.25 2.25 0 0 0 .087 4.257l3.45 1.143 1.143 3.45a2.25 2.25 0 0 0 4.257.087l6.875-16.5a2.242 2.242 0 0 0-.215-1.022z"/>
-                </svg>
-                Обсудить проект в Telegram
-            </a>
-        </div>
+        <span class="section-label">Готовы начать?</span>
+        <h2 class="section-title">Создадим что-то великое вместе</h2>
+        <p class="section-description">Есть идея проекта? Я готов обсудить ваши задумки и помочь достичь бизнес-целей. Давайте поговорим.</p>
+        <a href="https://t.me/konstcreative" class="btn btn-primary btn-large">
+            <span>📩</span> Обсудить проект в Telegram
+        </a>
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer>
         <div class="footer-content">
-            <p>2025 Konst Creative. Все права защищены.</p>
+            <div class="footer-brand">
+                <p>© 2025 Konst Creative. Все права защищены.</p>
+            </div>
             <div class="footer-links">
-                <a href="https://t.me/konstcreative" target="_blank" rel="noopener noreferrer">Telegram</a>
+                <a href="https://t.me/konstcreative">Telegram</a>
                 <a href="mailto:contact@konstcreative.com">Email</a>
             </div>
         </div>
     </footer>
 
     <script>
-        // Initialize variables first
-        const canvas = document.getElementById('particle-canvas');
-        const ctx = canvas.getContext('2d');
-        let particles = [];
-        let animationId = null;
-        let currentTestimonial = 0;
-        const totalTestimonials = 3;
-
-        // Particle System
-        function initParticles() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-            
-            particles = [];
-            const particleCount = Math.min(80, Math.floor(window.innerWidth / 20));
-            
-            for (let i = 0; i < particleCount; i++) {
-                particles.push({
-                    x: Math.random() * canvas.width,
-                    y: Math.random() * canvas.height,
-                    vx: (Math.random() - 0.5) * 0.3,
-                    vy: (Math.random() - 0.5) * 0.3,
-                    radius: Math.max(1, Math.random() * 2),
-                    opacity: Math.random() * 0.5 + 0.1
-                });
-            }
+        function toggleMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('active');
         }
-
-        function drawParticles() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            
-            particles.forEach((p, i) => {
-                // Update position
-                p.x += p.vx;
-                p.y += p.vy;
-                
-                // Wrap around edges
-                if (p.x < 0) p.x = canvas.width;
-                if (p.x > canvas.width) p.x = 0;
-                if (p.y < 0) p.y = canvas.height;
-                if (p.y > canvas.height) p.y = 0;
-                
-                // Draw particle
-                ctx.beginPath();
-                ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-                ctx.fillStyle = `rgba(0, 229, 204, ${p.opacity})`;
-                ctx.fill();
-                
-                // Draw connections
-                particles.slice(i + 1).forEach(p2 => {
-                    const dx = p.x - p2.x;
-                    const dy = p.y - p2.y;
-                    const dist = Math.sqrt(dx * dx + dy * dy);
-                    
-                    if (dist < 150) {
-                        ctx.beginPath();
-                        ctx.moveTo(p.x, p.y);
-                        ctx.lineTo(p2.x, p2.y);
-                        const opacity = Math.max(0.01, (1 - dist / 150) * 0.15);
-                        ctx.strokeStyle = `rgba(0, 229, 204, ${opacity})`;
-                        ctx.stroke();
-                    }
-                });
-            });
-            
-            animationId = requestAnimationFrame(drawParticles);
-        }
-
-        // Check for reduced motion preference
-        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-        if (!prefersReducedMotion) {
-            initParticles();
-            drawParticles();
-            
-            window.addEventListener('resize', () => {
-                initParticles();
-            });
-        }
-
-        // Intersection Observer for animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate-in');
-                }
-            });
-        }, observerOptions);
-
-        // Observe elements
-        document.querySelectorAll('.section-label, .section-title, .section-description, .hero-badge, .hero-title, .hero-subtitle, .hero-buttons, .hero-stats, .service-card, .benefit-card, .portfolio-card, .process-step, .pricing-card').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Testimonial Slider
-        const track = document.querySelector('.testimonial-track');
-        const dots = document.querySelectorAll('.testimonial-dot');
-        const prevBtn = document.querySelector('.testimonial-btn.prev');
-        const nextBtn = document.querySelector('.testimonial-btn.next');
-
-        function updateSlider() {
-            if (track) {
-                track.style.transform = `translateX(-${currentTestimonial * 100}%)`;
-            }
-            dots.forEach((dot, i) => {
-                dot.classList.toggle('active', i === currentTestimonial);
-            });
-        }
-
-        function nextTestimonial() {
-            currentTestimonial = (currentTestimonial + 1) % totalTestimonials;
-            updateSlider();
-        }
-
-        function prevTestimonial() {
-            currentTestimonial = (currentTestimonial - 1 + totalTestimonials) % totalTestimonials;
-            updateSlider();
-        }
-
-        if (prevBtn && nextBtn) {
-            prevBtn.addEventListener('click', prevTestimonial);
-            nextBtn.addEventListener('click', nextTestimonial);
-        }
-
-        dots.forEach(dot => {
-            dot.addEventListener('click', () => {
-                currentTestimonial = parseInt(dot.dataset.index);
-                updateSlider();
-            });
-        });
-
-        // Auto-advance testimonials
-        if (!prefersReducedMotion) {
-            setInterval(nextTestimonial, 6000);
-        }
-
-        // Mobile Menu
-        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-        const mobileMenu = document.querySelector('.mobile-menu');
-        const mobileMenuLinks = mobileMenu ? mobileMenu.querySelectorAll('a') : [];
-
-        if (mobileMenuBtn && mobileMenu) {
-            mobileMenuBtn.addEventListener('click', () => {
-                mobileMenu.classList.toggle('active');
-                mobileMenuBtn.setAttribute('aria-expanded', mobileMenu.classList.contains('active'));
-            });
-
-            mobileMenuLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    mobileMenu.classList.remove('active');
-                    mobileMenuBtn.setAttribute('aria-expanded', 'false');
-                });
-            });
-        }
-
-        // Smooth scroll for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                const href = this.getAttribute('href');
-                if (href !== '#') {
-                    e.preventDefault();
-                    const target = document.querySelector(href);
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: prefersReducedMotion ? 'auto' : 'smooth'
-                        });
-                    }
-                }
-            });
-        });
-
-        // Add staggered delays to service cards
-        document.querySelectorAll('.service-card').forEach((card, i) => {
-            card.style.transitionDelay = `${i * 0.1}s`;
-        });
-
-        // Add staggered delays to benefit cards
-        document.querySelectorAll('.benefit-card').forEach((card, i) => {
-            card.style.transitionDelay = `${i * 0.08}s`;
-        });
-
-        // Add staggered delays to pricing cards
-        document.querySelectorAll('.pricing-card').forEach((card, i) => {
-            card.style.transitionDelay = `${i * 0.1}s`;
-        });
-
-        // Add staggered delays to process steps
-        document.querySelectorAll('.process-step').forEach((step, i) => {
-            step.style.transitionDelay = `${i * 0.1}s`;
-        });
-
-        // Keyboard navigation for dots
-        dots.forEach((dot, index) => {
-            dot.setAttribute('tabindex', '0');
-            dot.setAttribute('role', 'button');
-            dot.addEventListener('keydown', (e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    currentTestimonial = index;
-                    updateSlider();
-                }
-            });
-        });
     </script>
 </body>
 </html>
