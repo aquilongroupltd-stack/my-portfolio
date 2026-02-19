@@ -473,13 +473,15 @@ margin-bottom: 0.5rem;
 .service-feature svg { width: 16px; height: 16px; stroke: var(--accent-cyan); }
 
 /* Why Choose Me */
-.why-me { position: relative; }
+.why-me {
+    position: relative;
+}
 
 .benefits-grid {
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-gap: 1.5rem;
-margin-top: 3rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Фиксируем 3 колонки для десктопа */
+    gap: 1.5rem;
+    margin-top: 3rem;
 }
 
 .benefit-card {
@@ -973,7 +975,7 @@ pointer-events: none;
 }
 
 .marquee-track-left {
-    animation: scrollLeft 40s linear infinite;
+    animation: scrollLeft 80s linear infinite;
 }
 
 .marquee-track-right {
@@ -981,9 +983,9 @@ pointer-events: none;
 }
 
 /* Пауза при наведении на область слайдера */
-.marquee-wrapper:hover .marquee-track {
+/*.marquee-wrapper:hover .marquee-track {
     animation-play-state: paused;
-}
+}*/
 
 /* Карточка проекта */
 .marquee-item {
@@ -1404,35 +1406,35 @@ A/B тестирование объявлений
         <div class="marquee-track marquee-track-left">
             <!-- Повторяемый блок карточки -->
             <div class="marquee-item h-300">
-                <img src="https://picsum.photos/200/300" alt="Проект 1">
+                <img src="https://love-is-flowers.ru/img/volos1.webp" alt="Проект 1">
                 <div class="marquee-overlay">
                     <h3>Интернет-магазин электроники</h3>
                     <p>WordPress / WooCommerce</p>
                 </div>
             </div>
             <div class="marquee-item h-400">
-                <img src="https://picsum.photos/600/500?random=2" alt="Проект 2">
+                <img src="https://love-is-flowers.ru/img/volos2.webp" alt="Проект 2">
                 <div class="marquee-overlay">
                     <h3>Корпоративный портал</h3>
                     <p>Разработка / SEO</p>
                 </div>
             </div>
-            <div class="marquee-item h-350">
-                <img src="https://picsum.photos/600/450?random=3" alt="Проект 3">
+            <div class="marquee-item h-300">
+                <img src="https://love-is-flowers.ru/img/volos3.webp" alt="Проект 3">
                 <div class="marquee-overlay">
                     <h3>Лендинг строительной компании</h3>
                     <p>Дизайн / Разработка</p>
                 </div>
             </div>
-            <div class="marquee-item h-300">
-                <img src="https://picsum.photos/600/400?random=4" alt="Проект 4">
+            <div class="marquee-item h-350">
+                <img src="https://love-is-flowers.ru/img/pr4.webp" alt="Проект 4">
                 <div class="marquee-overlay">
                     <h3>Сайт клиники</h3>
                     <p>WordPress / Интеграции</p>
                 </div>
             </div>
             <div class="marquee-item h-450">
-                <img src="https://picsum.photos/600/550?random=5" alt="Проект 5">
+                <img src="https://love-is-flowers.ru/img/pr5.webp" alt="Проект 5">
                 <div class="marquee-overlay">
                     <h3>Агрегатор курсов</h3>
                     <p>Сложная логика / Фильтры</p>
@@ -1745,7 +1747,7 @@ A/B тестирование объявлений
 <div class="testimonial-track">
 <div class="testimonial-card">
 <p class="testimonial-quote">
-Константин полностью модернизировал наш устаревший сайт. Теперь это быстрая и современная платформа. Органический трафик вырос на 340% за полгода. Его внимание к деталям и стратегический подход превзошли ожидания.
+Константин полностью модернизировал наш устаревший сайт. Теперь это быстрая и современная платформа. Органический трафик вырос на 240% за полгода. Его внимание к деталям и стратегический подход превзошли ожидания.
 </p>
 <div class="testimonial-author">
 <div class="testimonial-avatar">АК</div>
@@ -1776,6 +1778,42 @@ A/B тестирование объявлений
 <div class="testimonial-info">
 <h4>Дмитрий С.</h4>
 <p>Основатель, Start Craft Agency</p>
+</div>
+</div>
+</div>
+<div class="testimonial-card">
+<p class="testimonial-quote">
+Наш сайт грузился по 7-8 секунд, и мы теряли 70% посетителей еще до загрузки главной. Он провел колоссальную работу по оптимизации кода и серверной части. Сейчас сайт вылетает за 1.5 секунды, а показатель отказов снизился втрое. Спасибо за спасенный проект!
+</p>
+<div class="testimonial-author">
+<div class="testimonial-avatar">ЕД</div>
+<div class="testimonial-info">
+<h4>Екатерина Д.</h4>
+<p>Маркетинг-директор, EcoTravel</p>
+</div>
+</div>
+</div>
+<div class="testimonial-card">
+<p class="testimonial-quote">
+Мы работаем с Константином уже больше полугода, и он стал нашим «семейным» айти-специалистом. Он не просто выполняет задачи, а предлагает решения, которые экономят бюджет. Мы переехали на новую CMS, настроили аналитику и автоматизировали сбор заявок. Обязательно продолжим сотрудничество.
+</p>
+<div class="testimonial-author">
+<div class="testimonial-avatar">ГВ</div>
+<div class="testimonial-info">
+<h4>Глеб Викторович</h4>
+<p>Учредитель, Стоматология "Доктор Лин"</p>
+</div>
+</div>
+</div>
+<div class="testimonial-card">
+<p class="testimonial-quote">
+Konstantin redesigned our outdated website from scratch. The new platform is blazing fast and SEO-optimized. We've seen a 210% increase in organic traffic within the first 4 months. His attention to detail and strategic mindset made all the difference.
+</p>
+<div class="testimonial-author">
+<div class="testimonial-avatar">SJ</div>
+<div class="testimonial-info">
+<h4>Sarah J.</h4>
+<p>CMO, InnovateTech</p>
 </div>
 </div>
 </div>
@@ -1837,142 +1875,156 @@ const canvas = document.getElementById('particle-canvas');
 const ctx = canvas.getContext('2d');
 let particles = [];
 let animationId = null;
-let currentTestimonial = 0;
-const totalTestimonials = 3;
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 // === PARTICLE SYSTEM ===
 function initParticles() {
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-particles = [];
-const particleCount = Math.min(80, Math.floor(window.innerWidth / 20));
-for (let i = 0; i < particleCount; i++) {
-particles.push({
-x: Math.random() * canvas.width,
-y: Math.random() * canvas.height,
-vx: (Math.random() - 0.5) * 0.3,
-vy: (Math.random() - 0.5) * 0.3,
-radius: Math.max(1, Math.random() * 2),
-opacity: Math.random() * 0.5 + 0.1
-});
-}
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    particles = [];
+    const particleCount = Math.min(80, Math.floor(window.innerWidth / 20));
+    for (let i = 0; i < particleCount; i++) {
+        particles.push({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            vx: (Math.random() - 0.5) * 0.3,
+            vy: (Math.random() - 0.5) * 0.3,
+            radius: Math.max(1, Math.random() * 2),
+            opacity: Math.random() * 0.5 + 0.1
+        });
+    }
 }
 
 function drawParticles() {
-ctx.clearRect(0, 0, canvas.width, canvas.height);
-particles.forEach((p, i) => {
-p.x += p.vx;
-p.y += p.vy;
-if (p.x < 0) p.x = canvas.width;
-if (p.x > canvas.width) p.x = 0;
-if (p.y < 0) p.y = canvas.height;
-if (p.y > canvas.height) p.y = 0;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    particles.forEach((p, i) => {
+        p.x += p.vx;
+        p.y += p.vy;
+        if (p.x < 0) p.x = canvas.width;
+        if (p.x > canvas.width) p.x = 0;
+        if (p.y < 0) p.y = canvas.height;
+        if (p.y > canvas.height) p.y = 0;
 
-ctx.beginPath();
-ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-ctx.fillStyle = `rgba(0, 229, 204, ${p.opacity})`;
-ctx.fill();
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(0, 229, 204, ${p.opacity})`;
+        ctx.fill();
 
-particles.slice(i + 1).forEach(p2 => {
-const dx = p.x - p2.x;
-const dy = p.y - p2.y;
-const dist = Math.sqrt(dx * dx + dy * dy);
-if (dist < 150) {
-ctx.beginPath();
-ctx.moveTo(p.x, p.y);
-ctx.lineTo(p2.x, p2.y);
-const opacity = Math.max(0.01, (1 - dist / 150) * 0.15);
-ctx.strokeStyle = `rgba(0, 229, 204, ${opacity})`;
-ctx.stroke();
-}
-});
-});
-animationId = requestAnimationFrame(drawParticles);
+        particles.slice(i + 1).forEach(p2 => {
+            const dx = p.x - p2.x;
+            const dy = p.y - p2.y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < 150) {
+                ctx.beginPath();
+                ctx.moveTo(p.x, p.y);
+                ctx.lineTo(p2.x, p2.y);
+                const opacity = Math.max(0.01, (1 - dist / 150) * 0.15);
+                ctx.strokeStyle = `rgba(0, 229, 204, ${opacity})`;
+                ctx.stroke();
+            }
+        });
+    });
+    animationId = requestAnimationFrame(drawParticles);
 }
 
 if (!prefersReducedMotion) {
-initParticles();
-drawParticles();
-window.addEventListener('resize', initParticles);
+    initParticles();
+    drawParticles();
+    window.addEventListener('resize', initParticles);
 }
 
 // === INTERSECTION OBSERVER ===
 const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
 const observer = new IntersectionObserver((entries) => {
-entries.forEach(entry => {
-if (entry.isIntersecting) {
-entry.target.classList.add('animate-in');
-}
-});
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('animate-in');
+        }
+    });
 }, observerOptions);
 
-// Наблюдаемые элементы
 document.querySelectorAll('.section-label, .section-title, .section-description, .hero-badge, .hero-title, .hero-subtitle, .hero-buttons, .hero-stats, .service-card, .benefit-card, .portfolio-card, .process-step, .pricing-card, .accordion-item').forEach(el => {
-observer.observe(el);
+    observer.observe(el);
 });
 
-// === TESTIMONIAL SLIDER ===
+// === TESTIMONIAL SLIDER (ИСПРАВЛЕНО) ===
 const track = document.querySelector('.testimonial-track');
 const dots = document.querySelectorAll('.testimonial-dot');
 const prevBtn = document.querySelector('.testimonial-btn.prev');
 const nextBtn = document.querySelector('.testimonial-btn.next');
 
+// Автоматический подсчет количества отзывов
+const testimonialCards = document.querySelectorAll('.testimonial-card');
+const totalTestimonials = testimonialCards.length;
+let currentTestimonial = 0;
+
 function updateSlider() {
-if (track) track.style.transform = `translateX(-${currentTestimonial * 100}%)`;
-dots.forEach((dot, i) => dot.classList.toggle('active', i === currentTestimonial));
+    if (track) {
+        track.style.transform = `translateX(-${currentTestimonial * 100}%)`;
+    }
+    dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === currentTestimonial);
+    });
 }
 
 function nextTestimonial() {
-currentTestimonial = (currentTestimonial + 1) % totalTestimonials;
-updateSlider();
+    currentTestimonial = (currentTestimonial + 1) % totalTestimonials;
+    updateSlider();
 }
 
 function prevTestimonial() {
-currentTestimonial = (currentTestimonial - 1 + totalTestimonials) % totalTestimonials;
-updateSlider();
+    currentTestimonial = (currentTestimonial - 1 + totalTestimonials) % totalTestimonials;
+    updateSlider();
 }
 
 if (prevBtn && nextBtn) {
-prevBtn.addEventListener('click', prevTestimonial);
-nextBtn.addEventListener('click', nextTestimonial);
+    prevBtn.addEventListener('click', prevTestimonial);
+    nextBtn.addEventListener('click', nextTestimonial);
 }
 
 dots.forEach(dot => {
-dot.addEventListener('click', () => {
-currentTestimonial = parseInt(dot.dataset.index);
-updateSlider();
-});
+    dot.addEventListener('click', () => {
+        currentTestimonial = parseInt(dot.dataset.index);
+        updateSlider();
+    });
 });
 
 if (!prefersReducedMotion) {
-setInterval(nextTestimonial, 6000);
+    setInterval(nextTestimonial, 6000);
 }
 
 // === ACCORDION FAQ ===
 const accordionItems = document.querySelectorAll('.accordion-item');
 
 accordionItems.forEach(item => {
-const header = item.querySelector('.accordion-header');
+    const header = item.querySelector('.accordion-header');
 
-header.addEventListener('click', () => {
-const isActive = item.classList.contains('active');
-accordionItems.forEach(otherItem => {
-if (otherItem !== item) {
-otherItem.classList.remove('active');
-otherItem.querySelector('.accordion-header').setAttribute('aria-expanded', 'false');
-}
-});
-item.classList.toggle('active', !isActive);
-header.setAttribute('aria-expanded', !isActive);
+    header.addEventListener('click', () => {
+        const isActive = item.classList.contains('active');
+        accordionItems.forEach(otherItem => {
+            if (otherItem !== item) {
+                otherItem.classList.remove('active');
+                otherItem.querySelector('.accordion-header').setAttribute('aria-expanded', 'false');
+            }
+        });
+        item.classList.toggle('active', !isActive);
+        header.setAttribute('aria-expanded', !isActive);
+    });
+
+    header.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            header.click();
+        }
+    });
 });
 
-header.addEventListener('keydown', (e) => {
-if (e.key === 'Enter' || e.key === ' ') {
-e.preventDefault();
-header.click();
-}
-});
+// === MARQUEE SLIDER CLONE ===
+const marqueeTracks = document.querySelectorAll('.marquee-track');
+
+marqueeTracks.forEach(marqueeTrack => {
+    const clone = marqueeTrack.innerHTML;
+    marqueeTrack.innerHTML = clone + clone;
 });
 
 // === MOBILE MENU ===
@@ -1981,31 +2033,31 @@ const mobileMenu = document.querySelector('.mobile-menu');
 const mobileMenuLinks = mobileMenu ? mobileMenu.querySelectorAll('a') : [];
 
 if (mobileMenuBtn && mobileMenu) {
-mobileMenuBtn.addEventListener('click', () => {
-mobileMenu.classList.toggle('active');
-mobileMenuBtn.setAttribute('aria-expanded', mobileMenu.classList.contains('active'));
-});
+    mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('active');
+        mobileMenuBtn.setAttribute('aria-expanded', mobileMenu.classList.contains('active'));
+    });
 
-mobileMenuLinks.forEach(link => {
-link.addEventListener('click', () => {
-mobileMenu.classList.remove('active');
-mobileMenuBtn.setAttribute('aria-expanded', 'false');
-});
-});
+    mobileMenuLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+            mobileMenuBtn.setAttribute('aria-expanded', 'false');
+        });
+    });
 }
 
 // === SMOOTH SCROLL ===
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-anchor.addEventListener('click', function(e) {
-const href = this.getAttribute('href');
-if (href !== '#') {
-e.preventDefault();
-const target = document.querySelector(href);
-if (target) {
-target.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth' });
-}
-}
-});
+    anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href !== '#') {
+            e.preventDefault();
+            const target = document.querySelector(href);
+            if (target) {
+                target.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth' });
+            }
+        }
+    });
 });
 
 // === STAGGERED DELAYS ===
@@ -2017,15 +2069,15 @@ document.querySelectorAll('.accordion-item').forEach((item, i) => item.style.tra
 
 // === KEYBOARD NAV FOR DOTS ===
 dots.forEach((dot, index) => {
-dot.setAttribute('tabindex', '0');
-dot.setAttribute('role', 'button');
-dot.addEventListener('keydown', (e) => {
-if (e.key === 'Enter' || e.key === ' ') {
-e.preventDefault();
-currentTestimonial = index;
-updateSlider();
-}
-});
+    dot.setAttribute('tabindex', '0');
+    dot.setAttribute('role', 'button');
+    dot.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            currentTestimonial = index;
+            updateSlider();
+        }
+    });
 });
 </script>
 
