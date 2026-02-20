@@ -14,6 +14,36 @@
 <script src="https://cdn.tailwindcss.com"></script>
 
 <style>
+
+    /* Глобальный сброс и защита от горизонтального скролла */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    width: 100%;
+    overflow-x: hidden; /* Блокируем горизонтальную прокрутку */
+    position: relative;
+}
+
+/* Все изображения и медиа — адаптивные */
+img, video, canvas, iframe {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Контейнеры не шире экрана */
+.container, .wrapper, .nav-inner {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+
 :root {
 --bg-primary: #0d0d0f;
 --bg-secondary: #131316;
@@ -360,16 +390,20 @@ box-shadow: 0 8px 30px var(--accent-cyan-glow);
 }
 
 .btn-secondary {
-background: var(--glass-bg);
-color: var(--fg-primary);
-border: 1px solid var(--glass-border);
-backdrop-filter: blur(10px);
+    background: var(--glass-bg);
+    color: var(--fg-primary);
+    border: 1px solid rgba(0, 229, 204, 0.4); /* Светящаяся граница (циан) */
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 12px rgba(0, 229, 204, 0.15); /* Легкое свечение вокруг */
+    position: relative;
 }
 
+/* Эффект при наведении (усиливаем свечение) */
 .btn-secondary:hover {
-background: rgba(255, 255, 255, 0.08);
-border-color: rgba(255, 255, 255, 0.2);
-transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(0, 229, 204, 0.6);
+    box-shadow: 0 0 20px rgba(0, 229, 204, 0.3);
+    transform: translateY(-2px);
 }
 
 .btn svg { width: 20px; height: 20px; }
@@ -406,6 +440,37 @@ display: grid;
 grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 gap: 1.5rem;
 margin-top: 3rem;
+}
+
+/* === СВЕТИТСЯ ГРАНИЦА ДЛЯ 1 И 3 ТАРИФА === */
+
+/* Выбираем 1-ю и 3-ю карточку в сетке */
+.pricing-card:nth-child(1),
+.pricing-card:nth-child(3) {
+    border: 1px solid rgba(0, 229, 204, 0.3); /* Цветная граница */
+    box-shadow: 0 0 20px rgba(0, 229, 204, 0.15); /* Свечение */
+    position: relative;
+}
+
+/* Добавляем верхнюю градиентную линию (как у service-card) */
+.pricing-card:nth-child(1)::before,
+.pricing-card:nth-child(3)::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent-cyan), transparent);
+    opacity: 0.8; /* Видна постоянно */
+    z-index: 1;
+}
+
+/* Убираем конфликт с hover эффектом (чтобы не мигало) */
+.pricing-card:nth-child(1):hover,
+.pricing-card:nth-child(3):hover {
+    border-color: rgba(0, 229, 204, 0.5);
+    box-shadow: 0 0 30px rgba(0, 229, 204, 0.25);
 }
 
 .service-card {
@@ -1068,7 +1133,6 @@ pointer-events: none;
     .marquee-track-left { animation-duration: 30s; }
     .marquee-track-right { animation-duration: 35s; }
 }
-
 /* Footer */
 .footer {
 padding: 3rem 1.5rem;
@@ -1089,12 +1153,12 @@ gap: 1rem;
 .footer p { color: var(--fg-muted); font-size: 0.875rem; }
 .footer-links { display: flex; gap: 1.5rem; }
 .footer-links a {
-color: var(--fg-muted);
+color: var(--accent-cyan);
 text-decoration: none;
 font-size: 0.875rem;
 transition: color 0.3s ease;
 }
-.footer-links a:hover { color: var(--accent-cyan); }
+.footer-links a:hover { color: var(--fg-muted); }
 
 /* Mobile Menu */
 .mobile-menu {
@@ -1127,6 +1191,13 @@ transition: color 0.3s ease;
 .nav-links { display: none; }
 .mobile-menu-btn { display: flex; }
 
+/* === BENEFITS === */
+.benefits-grid {
+        grid-template-columns: 1fr; /* На мобильном - 1 колонка */
+        justify-items: center;
+        gap: 1rem;
+    }
+
 .hero-stats { flex-direction: column; gap: 1.5rem; }
 .stat-item { display: flex; align-items: baseline; gap: 0.75rem; }
 .stat-number { font-size: 2rem; }
@@ -1154,6 +1225,36 @@ section { padding: 4rem 1rem; }
 .accordion-header { padding: 0.875rem 1rem; font-size: 0.9rem; }
 .accordion-body { padding: 0 1rem 1rem; }
 }
+/* === АНИМАЦИЯ СВЕЧЕНИЯ ПУНКТА МЕНЮ === */
+.nav-pulse {
+    animation: navGlow 2.5s ease-in-out infinite;
+    text-shadow: none; /* Сбрасываем тень для старта */
+}
+
+/* Сама анимация */
+@keyframes navGlow {
+    0%, 100% {
+        color: var(--fg-secondary); /* Обычный цвет текста */
+        text-shadow: 0 0 0 transparent; /* Без свечения */
+    }
+    50% {
+        color: var(--accent-cyan); /* Цвет при пике свечения */
+        text-shadow: 0 0 8px var(--accent-cyan), 0 0 20px var(--accent-cyan-glow); /* Свечение */
+    }
+}
+
+/* При наведении мышки - останавливаем анимацию и оставляем ярким */
+.nav-pulse:hover {
+    animation: none;
+    color: var(--accent-cyan);
+    text-shadow: 0 0 8px var(--accent-cyan);
+}
+
+/* Подчеркивание (если оно есть) тоже можно анимировать */
+.nav-pulse::before {
+    background: var(--accent-cyan);
+    box-shadow: 0 0 10px var(--accent-cyan-glow);
+}
 </style>
 </head>
 <body>
@@ -1170,9 +1271,10 @@ section { padding: 4rem 1rem; }
 <div class="nav-inner">
 <a href="#" class="logo">Konst Creative</a>
 <ul class="nav-links">
+<li><a href="#portfolio" class="nav-pulse">Демо-сайт</a></li>
 <li><a href="#services">Услуги</a></li>
 <li><a href="#why-me">Преимущества</a></li>
-<li><a href="#portfolio">Кейсы</a></li>
+<li><a href="#showcase">Кейсы</a></li>
 <li><a href="#pricing">Стоимость</a></li>
 <li><a href="#faq">FAQ</a></li>
 </ul>
@@ -1186,9 +1288,10 @@ section { padding: 4rem 1rem; }
 
 <!-- Mobile Menu -->
 <div class="mobile-menu" role="dialog" aria-modal="true" aria-label="Мобильная навигация">
+<a href="#portfolio" class="nav-pulse">Демо-сайт</a>
 <a href="#services">Услуги</a>
 <a href="#why-me">Преимущества</a>
-<a href="#portfolio">Портфолио</a>
+<a href="#showcase">Кейсы</a>
 <a href="#process">Процесс работы</a>
 <a href="#pricing">Стоимость</a>
 <a href="#faq">FAQ</a>
@@ -1212,8 +1315,8 @@ section { padding: 4rem 1rem; }
 </p>
 <div class="hero-buttons">
 <a href="https://t.me/konstcreative" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-<path d="M21.198 2.433a2.242 2.242 0 0 0-1.022.215l-16.5 6.875a2.25 2.25 0 0 0 .087 4.257l3.45 1.143 1.143 3.45a2.25 2.25 0 0 0 4.257.087l6.875-16.5a2.242 2.242 0 0 0-.215-1.022z"/>
+<svg width="48px" height="48px" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M41.4193 7.30899C41.4193 7.30899 45.3046 5.79399 44.9808 9.47328C44.8729 10.9883 43.9016 16.2908 43.1461 22.0262L40.5559 39.0159C40.5559 39.0159 40.3401 41.5048 38.3974 41.9377C36.4547 42.3705 33.5408 40.4227 33.0011 39.9898C32.5694 39.6652 24.9068 34.7955 22.2086 32.4148C21.4531 31.7655 20.5897 30.4669 22.3165 28.9519L33.6487 18.1305C34.9438 16.8319 36.2389 13.8019 30.8426 17.4812L15.7331 27.7616C15.7331 27.7616 14.0063 28.8437 10.7686 27.8698L3.75342 25.7055C3.75342 25.7055 1.16321 24.0823 5.58815 22.459C16.3807 17.3729 29.6555 12.1786 41.4193 7.30899Z" fill="black"/>
 </svg>
 Обсудить задачу в Telegram
 </a>
@@ -1222,7 +1325,7 @@ section { padding: 4rem 1rem; }
 <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
 <circle cx="12" cy="12" r="3"/>
 </svg>
-Смотреть кейсы
+Тестировать демо-сайт
 </a>
 </div>
 <div class="hero-stats">
@@ -1406,7 +1509,7 @@ A/B тестирование объявлений
         <div class="marquee-track marquee-track-left">
             <!-- Повторяемый блок карточки -->
             <div class="marquee-item h-300">
-                <img src="https://github.com/aquilongroupltd-stack/img/konscr1.webp" alt="Проект 1">
+                <img src="https://love-is-flowers.ru/img/volos1.webp" alt="Проект 1">
                 <div class="marquee-overlay">
                     <h3>Интернет-магазин электроники</h3>
                     <p>WordPress / WooCommerce</p>
@@ -1452,7 +1555,7 @@ A/B тестирование объявлений
 <span class="section-label">На практике</span>
 <h2 class="section-title"><span class="highlight">Демо</span> сайт</h2>
 <p class="section-description">
-Один из моих недавних проектов. По вашему запросу предоставлю доступ к демо-сайту, где можно посмотреть проект "изнутри" и оценить удобство админ-панели.
+Один из моих недавних проектов. По вашему запросу предоставлю доступ к демо-сайту, где можно посмотреть проект "изнутри" и оценить удобство админ-панели
 </p>
 <div class="portfolio-showcase">
 <div class="portfolio-card">
@@ -1667,7 +1770,7 @@ A/B тестирование объявлений
 </button>
 <div class="accordion-content">
 <div class="accordion-body">
-<p>Лендинг — 2–7 рабочих дней. Корпоративный сайт (до 15 страниц) — от 2 недель. Интернет-магазин или сложный проект — от 4 недель. Перед стартом я составляю детальный план с этапами и дедлайнами, чтобы вы всегда понимали, на каком мы этапе.</p>
+<p>Лендинг — 3–7 рабочих дней. Корпоративный сайт (до 15 страниц) — от 2 недель. Интернет-магазин или сложный проект — от 4 недель. Перед стартом я составляю детальный план с этапами и дедлайнами, чтобы вы всегда понимали, на каком мы этапе.</p>
 </div>
 </div>
 </div>
@@ -1848,8 +1951,8 @@ Konstantin redesigned our outdated website from scratch. The new platform is bla
 Есть идея или задача? Я готов обсудить детали и предложить оптимальное решение для достижения ваших бизнес-целей.
 </p>
 <a href="https://t.me/konstcreative" class="btn btn-primary btn-large" target="_blank" rel="noopener noreferrer">
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24">
-<path d="M21.198 2.433a2.242 2.242 0 0 0-1.022.215l-16.5 6.875a2.25 2.25 0 0 0 .087 4.257l3.45 1.143 1.143 3.45a2.25 2.25 0 0 0 4.257.087l6.875-16.5a2.242 2.242 0 0 0-.215-1.022z"/>
+<svg width="48px" height="48px" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M41.4193 7.30899C41.4193 7.30899 45.3046 5.79399 44.9808 9.47328C44.8729 10.9883 43.9016 16.2908 43.1461 22.0262L40.5559 39.0159C40.5559 39.0159 40.3401 41.5048 38.3974 41.9377C36.4547 42.3705 33.5408 40.4227 33.0011 39.9898C32.5694 39.6652 24.9068 34.7955 22.2086 32.4148C21.4531 31.7655 20.5897 30.4669 22.3165 28.9519L33.6487 18.1305C34.9438 16.8319 36.2389 13.8019 30.8426 17.4812L15.7331 27.7616C15.7331 27.7616 14.0063 28.8437 10.7686 27.8698L3.75342 25.7055C3.75342 25.7055 1.16321 24.0823 5.58815 22.459C16.3807 17.3729 29.6555 12.1786 41.4193 7.30899Z" fill="black"/>
 </svg>
 Написать в Telegram
 </a>
