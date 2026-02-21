@@ -1116,6 +1116,76 @@ pointer-events: none;
     opacity: 1;
 }
 
+/* === PARTNERS LOGOS SECTION === */
+.partners-section {
+    background: transparent; /* Прозрачный фон */
+    padding: 1rem 0;
+    position: relative;
+    z-index: 1;
+}
+
+.partners-label {
+    text-align: center;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--fg-muted);
+    margin-bottom: 1rem;
+}
+
+/* Специфичные стили для логотипов внутри этой секции */
+.partners-section .marquee-item {
+    /* Сбрасываем стили карточек проектов */
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    
+    /* Стили для логотипов */
+    height: 60px !important;
+    width: 150px !important;
+    padding: 0 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    opacity: 0,7; /* Приглушенные*/
+    filter: brightness(0) invert(1); 
+    transition: all 0.3s ease;
+}
+
+.partners-section .marquee-item img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+}
+
+/* Эффект при наведении */
+.partners-section .marquee-item:hover {
+    opacity: 1;
+    filter: grayscale(0%) brightness(1); /* Цветные и яркие */
+    transform: scale(1.1);
+}
+
+/* Скрываем затемнение и текст, так как это просто логотипы */
+.partners-section .marquee-item .marquee-overlay {
+    display: none;
+}
+
+/* Адаптация */
+@media (max-width: 768px) {
+    .partners-section {
+        padding: 2rem 0;
+    }
+    
+    .partners-section .marquee-item {
+        height: 40px !important;
+        width: 100px !important;
+    }
+}
+
 /* Мобильная адаптация */
 @media (max-width: 768px) {
     .showcase { padding: 3rem 0 4rem; }
@@ -1190,6 +1260,38 @@ transition: color 0.3s ease;
 @media (max-width: 768px) {
 .nav-links { display: none; }
 .mobile-menu-btn { display: flex; }
+
+/* === TESTIMONIALS FIX === */
+    .testimonials-slider {
+        max-width: 100%; /* Контейнер на всю ширину */
+        padding: 0; /* Убираем лишние отступы */
+    }
+
+    .testimonial-track {
+        gap: 1rem; /* Уменьшаем расстояние между слайдами */
+    }
+
+    .testimonial-card {
+        min-width: 100%; /* Карточка строго на всю ширину экрана */
+        width: 100%;
+        padding: 1.5rem; /* Уменьшаем внутренние отступы, чтобы тексту было просторнее */
+        margin: 0; /* Убираем центрирование, которое создавало пустоту */
+        box-sizing: border-box; /* Гарантируем, что padding не увеличивает ширину */
+    }
+
+    .testimonial-quote {
+        font-size: 1rem; /* Уменьшаем шрифт для мобильных */
+        line-height: 1.6; /* Межстрочный интервал */
+        padding-left: 10px; /* Небольшой отступ слева */
+    }
+
+    /* Исправляем гигантскую кавычку */
+    .testimonial-quote::before {
+        font-size: 3rem; /* Делаем кавычку меньше */
+        top: -5px; /* Корректируем позицию */
+        left: -5px;
+        opacity: 0.15; /* Делаем чуть прозрачнее, чтобы не перегружать */
+    }
 
 /* === BENEFITS === */
 .benefits-grid {
@@ -1349,7 +1451,45 @@ section { padding: 4rem 1rem; }
 </div>
 </div>
 </section>
-
+<!-- Partners Logos Section -->
+<section class="partners-section" id="partners">    
+    <div class="marquee-wrapper">
+        <div class="marquee-track marquee-track-left">
+            <!-- Логотип 1 -->
+            <div class="marquee-item logo-item">
+                <img src="https://love-is-flowers.ru/img/wordpress-logo.webp" alt="Partner 1">
+            </div>
+            <!-- Логотип 2 -->
+            <div class="marquee-item logo-item">
+                <img src="https://love-is-flowers.ru/img/woo-logo.webp" alt="Partner 2">
+            </div>
+            <!-- Логотип 3 -->
+            <div class="marquee-item logo-item">
+                <img src="https://love-is-flowers.ru/img/figma-logo.webp" alt="Partner 3">
+            </div>
+            <!-- Логотип 4 -->
+            <div class="marquee-item logo-item">
+                <img src="https://love-is-flowers.ru/img/elementor.webp" alt="Partner 4">
+            </div>
+            <!-- Логотип 5 -->
+            <div class="marquee-item logo-item">
+                <img src="https://love-is-flowers.ru/img/gads.webp" alt="Partner 5">
+            </div>
+            <!-- Логотип 6 -->
+            <div class="marquee-item logo-item">
+                <img src="https://love-is-flowers.ru/img/seo.webp" alt="Partner 6">
+            </div>
+            <!-- Логотип 7 -->
+            <div class="marquee-item logo-item">
+                <img src="https://love-is-flowers.ru/img/java.webp" alt="Partner 6">
+            </div>
+            <!-- Логотип 8 -->
+            <div class="marquee-item logo-item">
+                <img src="https://love-is-flowers.ru/img/html.webp" alt="Partner 6">
+            </div>
+        </div>
+    </div>
+</section>
 <!-- Services Section -->
 <section class="services" id="services">
 <div class="section-container">
@@ -1509,7 +1649,7 @@ A/B тестирование объявлений
         <div class="marquee-track marquee-track-left">
             <!-- Повторяемый блок карточки -->
             <div class="marquee-item h-300">
-                <img src="https://github.com/aquilongroupltd-stack/my-portfolio/img/konscr1.webp" alt="Проект 1">
+                <img src="https://love-is-flowers.ru/img/volos1.webp" alt="Проект 1">
                 <div class="marquee-overlay">
                     <h3>Интернет-магазин электроники</h3>
                     <p>WordPress / WooCommerce</p>
