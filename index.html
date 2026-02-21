@@ -1374,44 +1374,55 @@ section { padding: 4rem 1rem; }
 }
     /* === ANIMATED LOGO === */
 .logo-text {
+    /* 
+       Создаем очень широкую "ленту" (300% ширины).
+       1. 0-33%: Белый цвет (начало)
+       2. 33-66%: Градиент Cyan-Gold (середина)
+       3. 66-100%: Белый цвет (конец)
+    */
     background: linear-gradient(
         to right, 
-        #fff 0%, 
-        #fff 35%, 
-        var(--accent-cyan) 50%, 
-        var(--accent-gold) 65%, 
-        #fff 80%, 
-        #fff 100%
+        #fff 0%, #fff 33%, 
+        var(--accent-cyan) 40%, 
+        var(--accent-gold) 60%, 
+        #fff 66%, #fff 100%
     );
-    background-size: 300% 100%; /* Делаем фон шире текста в 3 раза */
+    
+    background-size: 300% 100%; /* Лента в 3 раза шире текста */
+    background-position: 0% 50%; /* Начинаем с левой белой части */
+    
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    color: var(--fg-primary); /* Фолбэк */
+    color: var(--fg-primary);
     
-    /* Настройки анимации: 8 секунд, задержка 2 сек перед стартом */
     animation: logoShine 8s ease-in-out infinite;
     animation-delay: 2s;
 }
 
 @keyframes logoShine {
     0% {
-        background-position: 0% 50%; /* Начало: видна левая часть (белая) */
+        background-position: 0% 50%; /* Видим левую часть ленты (Белый текст) */
     }
     40% {
         background-position: 0% 50%; /* Держим белый цвет */
     }
     60% {
-        background-position: 60% 60%; /* Быстрое перемещение блика (градиент проходит) */
+        background-position: 60% 60%; /* Сдвигаем ленту влево, показываем середину (Градиент) */
     }
     80% {
         background-position: 60% 60%; /* Держим градиент */
     }
     100% {
-        background-position: 0% 50%; /* Возврат в исходное состояние (белый) */
+        background-position: 0% 50%; /* Сдвигаем к правому краю (Возвращаем белый) */
     }
 }
-
+/* Если вы хотите, чтобы при наведении на логотип анимация сбрасывалась быстрее, раскомментируйте: */
+/*
+.logo:hover .logo-text {
+    animation-duration: 4s;
+}
+*/
 /* Если вы хотите, чтобы при наведении на логотип анимация сбрасывалась быстрее, раскомментируйте: */
 /*
 .logo:hover .logo-text {
