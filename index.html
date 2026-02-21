@@ -1300,9 +1300,24 @@ transition: color 0.3s ease;
         gap: 1rem;
     }
 
-.hero-stats { flex-direction: column; gap: 1.5rem; }
-.stat-item { display: flex; align-items: baseline; gap: 0.75rem; }
-.stat-number { font-size: 2rem; }
+/* === HERO STATS FIX === */
+    .hero-stats {
+        flex-direction: column; /* Блоки статистики друг под другом */
+        gap: 1.5rem;
+        align-items: center; /* Центрируем блоки по горизонтали */
+        text-align: center;
+    }
+
+    .stat-item {
+        display: flex;
+        flex-direction: column; /* Выстраиваем цифру и текст в колонку (цифра сверху, текст снизу) */
+        align-items: center; /* Центрируем содержимое внутри блока */
+        gap: 0.25rem; /* Небольшой отступ между цифрой и текстом */
+    }
+
+    .stat-number {
+        font-size: 2rem;
+    }
 
 .process-line { left: 20px; }
 .process-marker { width: 40px; height: 40px; font-size: 1rem; }
@@ -1357,6 +1372,52 @@ section { padding: 4rem 1rem; }
     background: var(--accent-cyan);
     box-shadow: 0 0 10px var(--accent-cyan-glow);
 }
+    /* === ANIMATED LOGO === */
+.logo-text {
+    background: linear-gradient(
+        to right, 
+        #fff 0%, 
+        #fff 35%, 
+        var(--accent-cyan) 50%, 
+        var(--accent-gold) 65%, 
+        #fff 80%, 
+        #fff 100%
+    );
+    background-size: 300% 100%; /* Делаем фон шире текста в 3 раза */
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: var(--fg-primary); /* Фолбэк */
+    
+    /* Настройки анимации: 8 секунд, задержка 2 сек перед стартом */
+    animation: logoShine 8s ease-in-out infinite;
+    animation-delay: 2s;
+}
+
+@keyframes logoShine {
+    0% {
+        background-position: 0% 50%; /* Начало: видна левая часть (белая) */
+    }
+    40% {
+        background-position: 0% 50%; /* Держим белый цвет */
+    }
+    60% {
+        background-position: 100% 50%; /* Быстрое перемещение блика (градиент проходит) */
+    }
+    80% {
+        background-position: 100% 50%; /* Держим градиент */
+    }
+    100% {
+        background-position: 0% 50%; /* Возврат в исходное состояние (белый) */
+    }
+}
+
+/* Если вы хотите, чтобы при наведении на логотип анимация сбрасывалась быстрее, раскомментируйте: */
+/*
+.logo:hover .logo-text {
+    animation-duration: 4s;
+}
+*/
 </style>
 </head>
 <body>
@@ -1371,7 +1432,9 @@ section { padding: 4rem 1rem; }
 <!-- Navigation -->
 <nav class="nav" role="navigation" aria-label="Главная навигация">
 <div class="nav-inner">
-<a href="#" class="logo">Konst Creative</a>
+<a href="#" class="logo">
+    <span class="logo-text">Konst Creative</span>
+</a>
 <ul class="nav-links">
 <li><a href="#portfolio" class="nav-pulse">Демо-сайт</a></li>
 <li><a href="#services">Услуги</a></li>
